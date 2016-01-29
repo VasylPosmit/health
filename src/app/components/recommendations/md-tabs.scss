@@ -1,0 +1,20 @@
+md-content {
+  background-color: transparent !important;
+
+  md-tabs {
+    background: accent;
+    border: 1px solid #ddd;
+    md-tabs-wrapper {
+      background: #eee;
+      color: black;
+      md-tabs-canvas md-pagination-wrapper md-tab-item span {
+        color: black;
+      }
+    }
+  }
+  h1:first-child {
+    margin-top: 0;
+  }
+}
+
+// colors: primary, accent, warn, background

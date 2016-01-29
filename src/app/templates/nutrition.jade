@@ -1,0 +1,20 @@
+div(layout='row', ng-strict-di='')
+  kil-sidenav
+  .md-whiteframe-z2(flex='', layout='column', tabindex='-1', role='main')
+    kil-toolbar
+    md-content#content(flex='')
+      kil-section
+      // Input block
+      div(layout-gt-sm='row')
+        md-input-container.md-block(flex-gt-sm='')
+          label Name
+          input(ng-model='layout.user.name')
+      h3 Weight
+      div(layout='')
+        div(flex='10', layout='', layout-align='center center')
+          span.md-body-1 kg
+        md-slider(flex='', min='40', max='150', ng-model='color.red', aria-label='red')
+        div(flex='20', layout='', layout-align='center center')
+          input(flex='', type='number', ng-model='color.red', aria-label='red', aria-controls='red-slider')
+      // Input block end
+      kil-recommendations

@@ -1,0 +1,11 @@
+
+h3(hide-gt-md='') Health guide > {{layout.selected.name}}
+div(layout='row')
+  md-icon.avatar(md-svg-icon='{{layout.selected.icon}}')
+  h1(flex-offset='5') {{layout.selected.name}}
+h4 {{layout.selected.firstRec}}
+md-divider
+h2 {{layout.selected.name}} Input Block
+md-button.contact(md-no-ink='', ng-click='showContactOptions($event)', aria-label='Contact User')
+  md-tooltip Contact {{ selected.name }}
+  md-icon(md-svg-icon='share')
