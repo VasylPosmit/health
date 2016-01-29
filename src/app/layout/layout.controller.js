@@ -5,19 +5,10 @@
     .module('app.layout')
     .controller('LayoutController', LayoutController);
 
-  LayoutController.$inject = [
-                            'sectionsService',
-                            'sidenavService',
-                            '$timeout',
-                            'webDevTec',
-                            'toastr'];
-  /** @ngInject */
   function LayoutController(
                             sectionsService,
                             sidenavService,
-                            $timeout,
-                            webDevTec,
-                            toastr) {
+                            $timeout) {
     /*jshint validthis: true*/
     var vm = this;
     vm.awesomeThings = [];
@@ -42,7 +33,6 @@
     function activate() {
       console.log('LayoutController connected');
 
-      getWebDevTec();
       $timeout(function() {
         vm.classAnimation = 'rubberBand';
       }, 4000);
@@ -50,12 +40,6 @@
       // vm.selected = sectionsService.content[0];
     }
 
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
 
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
-    }
   }
 })();
