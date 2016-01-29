@@ -1,5 +1,5 @@
 # HealthGuide
-Web-app is contained fundamentals about health. Each user is provided with customized recommendations.
+Web-app provides  customized health recommendations for each user.
 
 Описание MVP от 26.01.2016
 
