@@ -12,7 +12,7 @@
     //DRY
       .state('home', {
         url: '/',
-        templateUrl: 'app/app.html',
+        templateUrl: 'app/templates/default.html',
         controller: 'LayoutController',
         controllerAs: 'layout'
       })

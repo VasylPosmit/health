@@ -6,15 +6,8 @@
     .config(config)
     .run(runBlock)
 // constants used by entire app
-    .constant('malarkey', malarkey)
     .constant('moment', moment)
 
-// constants used by specific module
-  angular
-    .module('app.layout')
-    .constant('malarkey', malarkey);
-
-  /** @ngInject */
   function config($logProvider,
                   toastrConfig,
                   $mdIconProvider,

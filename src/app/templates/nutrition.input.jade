@@ -1,0 +1,12 @@
+- var input = "Name"
+div(layout-gt-sm='row')
+  md-input-container.md-block(flex-gt-sm)
+    label= input
+    input(ng-model='layout.user.name')
+h3 Weight
+div(layout)
+  div(flex='10', layout, layout-align='center center')
+    span.md-body-1 kg
+  md-slider(flex, min='40', max='150', ng-model='user.weight', aria-label='weight')
+  div(flex='20', layout, layout-align='center center')
+    input(flex, min='40', max='150', type='number', ng-model='user.weight', aria-label='weight', aria-controls='weight-slider')
