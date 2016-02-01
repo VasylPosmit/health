@@ -29,5 +29,5 @@ for parameter in [jWeight, jHeight]
       md-option= parameter.unit2
     md-slider.md-accent(flex='50', min= parameter.min, max= parameter.max, ng-model='layout.user.'+parameter.name, aria-label= parameter.name, hide-gt-md)
 
-
+p Your Body mass index is {{layout.user.BMI}}
 md-divider

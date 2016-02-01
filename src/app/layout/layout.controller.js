@@ -28,6 +28,7 @@
     vm.user.asleep;
     vm.user.wake;
 
+    vm.user.BMI = vm.user.weight;
     vm.selected = sectionsService.selected;
     vm.select = select;
 

@@ -1,9 +1,3 @@
-//- input
-  when do you go to sleep .slider
-//- //when wake up .slider
-//- //do you wake up at the same time? .dropdown
-//- //light during sleep .dropdown
-//- Recomendations
 
 md-divider
 h2 {{layout.selected.name}} Input Block
@@ -13,17 +7,23 @@ div(layout-gt-sm="row",  layout-xs="column", layout-align='space-between center'
     label name
     input(ng-model='layout.user.name')
 
--var jWeight = {name : 'asleep', min: '20',  max: '24'}
--var jHeight = {name : 'wake',   min: '5', max: '12'}
-
-for parameter in [jWeight, jHeight]
+for parameter in ['asleep', 'wake']
   div(layout='row', layout-align='space-between center', flex-gt-md="30")
     md-input-container.md-block.md-accent(flex= '20', flex-gt-md='70')
-      label= parameter.name
-      input(min= parameter.min, max= parameter.max, type='time', ng-model='layout.user.'+parameter.name, aria-label= parameter.name, aria-controls=parameter.name+'-slider')
+      label= parameter
+      input(type='time', ng-model='layout.user.'+ parameter, aria-label= parameter)
+
+md-input-container.md-block()
+  label Wake up habit
+  md-select.md-accent(flex="50", flex-gt-md='30', ng-model='layout.user.sleepHabit', aria-label= 'layout.user.sleepHabit')
+    md-option I wake up at the same time each day
+    md-option I wake up at the same time at working days
+    md-option I am not bothered by time I wake up
+
+
 h3 Sleep checklist
 md-checkbox(ng-model='layout.user.habbit') I wake up at the same time each day
 md-checkbox(ng-model='layout.user.sleepLight') I sleep at the totally dark room
-md-checkbox(ng-model='layout.user.sleepLight') I sleep in well-conditioned room
+md-checkbox(ng-model='layout.user.freshAir') I sleep in well-conditioned room
 
 md-divider
