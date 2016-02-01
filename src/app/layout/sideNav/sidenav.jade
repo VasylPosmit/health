@@ -5,6 +5,7 @@ md-sidenav.site-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id='left',
     md-item(ng-repeat='section in sideNav.content')
       a.md-button(ui-sref='{{section.state}}', ng-click='layout.select(section)', ng-class="{'selected': section === layout.selected}")
         md-icon.avatar(md-svg-icon='{{section.icon}}')
+        i.material-icons.md-display-3 {{section.mdIcon}}
         |             {{section.name}}
     md-divider(flex-offset='35')
     md-item

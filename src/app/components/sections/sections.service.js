@@ -17,7 +17,7 @@
       vm.data.nutrition = {name: 'Nutrition', icon: 'twitter'
           , firstRec: 'You know what is healthy food and what is crap.'
           , state: 'Nutrition'
-          , template: ''
+          , mdIcon: 'local_dining'
           , recomendations: [
              {label: 'Time', header: 'When to eat', text: 'Eat whenever you want ^_^'}
             ,
@@ -29,19 +29,19 @@
       vm.data.sleep = {name: 'Sleep'    , icon: 'phone'
           , firstRec: 'Receipt is simple: sleep 8 hours per day in dark room with fresh air.'
           , state:'Sleep'
-          , template: ''
+          , mdIcon: 'local_hotel'
           , recomendations: [
-             {label: 'Time', header: 'When to eat', text: 'Eat whenever you want ^_^'}
+             {label: 'Mode', header: 'When to eat', text: 'Plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^'}
             ,
-             {label: 'Conditions', header: 'What to eat', text: 'Eat whatever you want ^_^'}
+             {label: 'Conditions', header: 'What to eat', text: 'Room must be dark. Fresh air. Eat whatever you want ^_^'}
             ,
-             {label: 'Best habits', header: 'Best sleep habits', text: 'Do not eat 3h before sleep'}
+             {label: 'Body state', header: 'Best sleep habits', text: 'Do not eat 3h before sleep'}
              ]};
 
       vm.data.activity = {name: 'Activity' , icon: 'google_plus'
           , firstRec: 'Walk everyday at least 3 km (outside the house!) and do any sport 3 times per week. Yes, it does matter'
           , state:'Activity'
-          , template: ''
+          , mdIcon: 'directions_run'
           , recomendations: [
              {label: 'Lifestyle', header: 'When to eat', text: 'Eat whenever you want ^_^'}
             ,
@@ -52,7 +52,7 @@
       vm.data.you = {name: 'Your health', icon: 'hangouts'
           , firstRec: 'You know what is healthy food and what is crap.'
           , state:'Your health'
-          , template: ''
+          , mdIcon: 'account_circle'
           , recomendations: [
              {label: 'Nutrition', header: 'Best habits', text: 'Eat whenever you want ^_^'}
             ,

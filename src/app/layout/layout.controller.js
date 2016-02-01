@@ -17,6 +17,16 @@
     vm.openLeftMenu = sidenavService.openLeftMenu;
 
     vm.user = {};
+    vm.user.name;
+    vm.user.gender;
+    vm.user.age;
+    vm.user.weight;
+    vm.user.height;
+    vm.user.weightUnits = 'kg';
+    vm.user.heightUnits = 'cm';
+
+    vm.user.asleep;
+    vm.user.wake;
 
     vm.selected = sectionsService.selected;
     vm.select = select;

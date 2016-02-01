@@ -30,13 +30,13 @@
       })
       .state('Activity', {
         url: '/activity',
-        templateUrl: 'app/app.html',
+        templateUrl: 'app/templates/activity.html',
         controller: 'LayoutController',
         controllerAs: 'layout'
       })
       .state('Your health', {
         url: '/way_to_healthy_life',
-        templateUrl: 'app/app.html',
+        templateUrl: 'app/templates/you.html',
         controller: 'LayoutController',
         controllerAs: 'layout'
       });
