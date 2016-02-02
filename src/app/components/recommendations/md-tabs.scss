@@ -1,6 +1,5 @@
 md-content {
   background-color: transparent !important;
-
   md-tabs {
     background: accent;
     border: 1px solid #ddd;
@@ -12,9 +11,11 @@ md-content {
       }
     }
   }
+  md-option {
+    background-color: white;
+  }
   h1:first-child {
     margin-top: 0;
   }
 }
-
 // colors: primary, accent, warn, background

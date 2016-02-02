@@ -1,6 +1,7 @@
 # HealthGuide
 Web-app provides  customized health recommendations for each user.
-healthguide.herokuapp.com/#/
+
+    healthguide.herokuapp.com/#/
 
 Описание MVP от 26.01.2016
 

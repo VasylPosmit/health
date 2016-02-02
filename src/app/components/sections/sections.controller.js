@@ -4,11 +4,9 @@
     .module('app.sections')
     .controller('SectionsController', SectionsController);
 
-  SectionsController.$inject = ['sectionsService'];
-
   function SectionsController(sectionsService){
     /*jshint validthis: true */
-    var vm = this;
+    var self = this;
 
     activate();
 

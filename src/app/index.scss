@@ -59,10 +59,6 @@ html {
   padding: 0.2em 0;
 }
 
-md-toolbar.md-default-theme {
-  background-color: black;
-}
-
 section.jumbotron {
   margin-bottom: 30px;
   padding: 1px 30px;
@@ -99,6 +95,7 @@ section.jumbotron {
 // endinjector
 
 
+
 //FROM EXAMPLE SIDENAV APP
 //
 //
@@ -132,7 +129,9 @@ md-toolbar {
     font-size: 1.150em;
     font-weight: 400;
   }
-
+  .md-default-theme {
+    background-color: black;
+  }
 }
 
 /* Sidenav area */
@@ -154,55 +153,54 @@ md-list .md-button {
 
 /* Primary content area */
 
-#content {
+.content {
   overflow: hidden;
-}
-
-#content  {
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 5px;
+  .md-button.contact {
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    margin: 8px auto 16px 0;
+    position: absolute;
+    top: 10px;
+    right: 40px;
+  }
+  md-icon.avatar {
+    margin-top: 10px;
+  }
+  .md-button.contact {
+    & > md-icon {
+      fill: #000;
+      width:36px;
+      height:36px;
+    }
+    &:active > md-icon {
+      background-color: #dadada;
+      border-radius: 75%;
+      padding:4px;
+      transition: all 100ms ease-out 30ms;
+    }
+  }
+  md-button.menuBtn > md-icon {
+    fill:white;
+    width:24px;
+    height:24px;
+  }
+  img {
+    display: block;
+    height: auto;
+    max-width: 500px;
+  }
 }
 
-#content .md-button.contact {
-  background-color: transparent;
-  border: none;
-  width: 48px;
-  height: 48px;
-  margin: 8px auto 16px 0;
-  position: absolute;
-  top: 10px;
-  right: 40px;
-}
 
-#content md-icon.avatar {
-  margin-top: 10px;
-}
 
-#content .md-button.contact > md-icon {
-  fill:black;
-  width:36px;
-  height:36px;
-}
 
-md-button.menuBtn > md-icon {
-  fill:white;
-  width:24px;
-  height:24px;
-}
 
-#content .md-button.contact:active > md-icon {
-  background-color: #dadada;
-  border-radius: 75%;
-  padding:4px;
-  transition: all 100ms ease-out 30ms;
-}
 
-#content img {
-  display: block;
-  height: auto;
-  max-width: 500px;
-}
 
 /* Utils */
 

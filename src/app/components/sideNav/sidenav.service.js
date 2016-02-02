@@ -11,11 +11,10 @@
                       $mdBottomSheet,
                       $mdSidenav){
     /*jshint validthis: true*/
-    var vm = this;
-    vm.check = console.log('sidenavService connected');
-
-    vm.toggleList   = toggleSidenav;
-    vm.openLeftMenu = openLeftMenu;
+    var self = this;
+    self.check = console.log('sidenavService connected');
+    self.toggleList   = toggleSidenav;
+    self.openLeftMenu = openLeftMenu;
 
     function toggleSidenav() {
       var pending = $mdBottomSheet.hide() || $q.when(true);
@@ -24,7 +23,6 @@
         $mdSidenav('left').toggle();
       });
     }
-
     function openLeftMenu() {
       console.log('openLeftMenu()');
       $mdSidenav('left').toggle();

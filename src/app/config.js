@@ -1,21 +1,24 @@
 (function() {
   'use strict';
-
   angular
-    .module('healthGuide')
+    .module('healthGuide', [
+            /*Shared modules*/
+            'app.core',
+            /*Feature (components) modules*/
+            'app.layout',
+            'app.sections'
+            ])
     .config(config)
-    .run(runBlock)
-// constants used by entire app
-    .constant('moment', moment)
+    .run(runBlock);
 
-  function config($logProvider,
+  function config(
+                  $logProvider,
                   toastrConfig,
                   $mdIconProvider,
                   $mdThemingProvider
                   ) {
     // Enable log
     $logProvider.debugEnabled(true);
-
     // Set options third-party lib
     toastrConfig.allowHtml = true;
     toastrConfig.timeOut = 3000;
@@ -34,16 +37,13 @@
       .icon("angular"    , "../assets/images/angular.png"  , 512);
 
     $mdThemingProvider.theme('default')
-        .primaryPalette('blue-grey')
-        .accentPalette('blue', {
-            default: '400'
-        });
+      .primaryPalette('blue-grey')
+      .accentPalette('blue', {
+                              default: '400'
+      });
   }
 
-
-  /** @ngInject */
   function runBlock($log) {
-
     $log.debug('runBlock end');
   }
 })();

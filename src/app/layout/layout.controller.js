@@ -8,49 +8,32 @@
   function LayoutController(
                             sectionsService,
                             sidenavService,
+                            userService,
                             $timeout) {
     /*jshint validthis: true*/
-    var vm = this;
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.toggleSideNav   = sidenavService.toggleList;
-    vm.openLeftMenu = sidenavService.openLeftMenu;
+    var self = this;
+    self.awesomeThings = [];
+    self.classAnimation = '';
+    self.toggleSideNav   = sidenavService.toggleList;
+    self.openLeftMenu = sidenavService.openLeftMenu;
 
-    vm.user = {};
-    vm.user.name;
-    vm.user.gender;
-    vm.user.age;
-    vm.user.weight;
-    vm.user.height;
-    vm.user.weightUnits = 'kg';
-    vm.user.heightUnits = 'cm';
+    self.user = userService.user;
 
-    vm.user.asleep;
-    vm.user.wake;
-
-    vm.user.BMI = vm.user.weight;
-    vm.selected = sectionsService.selected;
-    vm.select = select;
+    self.selected = sectionsService.selected;
+    self.select = select;
 
     activate();
 
     function select (section) {
-                    sectionsService.selectSection(section);
-      vm.selected = sectionsService.selected;
-
-      vm.toggleSideNav();
+      sectionsService.selectSection(section);
+      self.toggleSideNav();
     }
 
     function activate() {
       console.log('LayoutController connected');
-
       $timeout(function() {
-        vm.classAnimation = 'rubberBand';
+        self.classAnimation = 'rubberBand';
       }, 4000);
-
-      // vm.selected = sectionsService.content[0];
     }
-
-
   }
 })();
