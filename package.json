@@ -51,7 +51,7 @@
     "wrench": "~1.5.8"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
     "postinstall": "bower install && gulp build"
   },
   "devDependencies": {
