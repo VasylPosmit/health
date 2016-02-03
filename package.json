@@ -6,6 +6,8 @@
     "gzippo": "^0.2.0",
     "morgan": "^1.6.1",
 
+    "bower": "1.7.2"
+
     "browser-sync": "~2.9.11",
     "browser-sync-spa": "~1.0.3",
     "chalk": "~1.1.1",
@@ -54,7 +56,7 @@
   },
   "scripts": {
     "test": "gulp test",
-    "postinstall": "gulp build"
+    "postinstall": "bower install && gulp build"
   },
   "devDependencies": {
     "browser-sync": "~2.9.11",
