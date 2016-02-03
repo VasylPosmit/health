@@ -1,6 +1,7 @@
-node_modules/
+.idea/
+.sass-cache/
+.tmp/
 bower_components/
 coverage/
-.sass-cache/
-.idea/
-.tmp/
+dist/
+node_modules/
