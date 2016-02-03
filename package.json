@@ -6,6 +6,8 @@
     "gzippo": "^0.2.0",
     "morgan": "^1.6.1",
 
+    "browser-sync": "~2.9.11",
+    "browser-sync-spa": "~1.0.3",
     "chalk": "~1.1.1",
     "del": "~2.0.2",
     "eslint-plugin-angular": "~0.12.0",
