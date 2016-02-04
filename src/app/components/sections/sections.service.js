@@ -130,13 +130,5 @@
         self.selected = angular.isNumber(section) ? self.content[section] : section;
         console.log(self.selected);
       }
-
-    // Promise-based API
-        // Simulate async nature of real remote calls
-    // return {
-    //   loadContent : function() {
-    //     return $q.when(self.content);
-    //   }
-    // };
   }
 })();
