@@ -96,12 +96,31 @@
           text: 'Do not eat 3h before sleep'}
         ]
       };
+    self.data.default = {
+      firstRec: 'You know what is healthy food and what is crap.',
+      state:'nutrition',
+      recomendations: [
+        {
+          label: 'Nutrition',
+          header: 'Best habits',
+          text: 'Eat whenever you want ^_^'},
+        {
+          label: 'Sleep',
+          header: 'Best sleep habits',
+          text: 'Eat whatever you want ^_^'},
+        {
+          label: 'Activity',
+          header: 'Best activity habits',
+          text: 'Do not eat 3h before sleep'}
+        ]
+      };
 
     self.content = [
       self.data.nutrition,
       self.data.sleep,
       self.data.activity,
-      self.data.you
+      self.data.you,
+      self.data.default
     ];
     self.selected = self.data.nutrition;
 

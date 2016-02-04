@@ -8,8 +8,8 @@
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/toolbar/toolbar.html',
-      controller: 'LayoutController',
-      controllerAs: 'layout',
+      // controller: 'LayoutController',
+      // controllerAs: 'layout',
       bindToController: true
     };
     return directive;

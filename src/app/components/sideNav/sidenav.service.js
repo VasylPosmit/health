@@ -15,6 +15,7 @@
     self.check = console.log('sidenavService connected');
     self.toggleList   = toggleSidenav;
     self.openLeftMenu = openLeftMenu;
+    self.closeSidenav = closeSidenav;
 
     function toggleSidenav() {
       var pending = $mdBottomSheet.hide() || $q.when(true);
@@ -23,7 +24,10 @@
       });
     }
     function openLeftMenu() {
-      $mdSidenav('left').toggle();
+      $mdSidenav('left').open();
+    }
+    function closeSidenav() {
+      $mdSidenav('left').close();
     }
   }
 })();

@@ -1,39 +1,38 @@
-(function() {
-  'use strict';
 
-  angular
-    .module('app.layout')
-    .controller('LayoutController', LayoutController);
+// (function() {
+//   'use strict';
 
-  function LayoutController(
-                            sectionsService,
-                            sidenavService,
-                            userService,
-                            $timeout) {
-    /*jshint validthis: true*/
-    var self = this;
-    self.awesomeThings = [];
-    self.classAnimation = '';
-    self.toggleSideNav   = sidenavService.toggleList;
-    self.openLeftMenu = sidenavService.openLeftMenu;
+//   angular
+//     .module('app.layout')
+//     .controller('LayoutController', LayoutController);
 
-    self.user = userService.user;
+//   function LayoutController(
+//                             sectionsService,
+//                             sidenavService,
+//                             userService,
+//                             $timeout) {
+//     /*jshint validthis: true*/
+//     var self = this;
+//     self.toggleSideNav   = sidenavService.toggleList;
+//     self.openLeftMenu = sidenavService.openLeftMenu;
 
-    self.selected = sectionsService.selected;
-    self.select = select;
+//     self.user = userService.user;
 
-    activate();
+//     self.selected = sectionsService.selected;
+//     self.select = select;
 
-    function select (section) {
-      sectionsService.selectSection(section);
-      self.toggleSideNav();
-    }
+//     activate();
 
-    function activate() {
-      console.log('LayoutController connected');
-      $timeout(function() {
-        self.classAnimation = 'rubberBand';
-      }, 4000);
-    }
-  }
-})();
+//     function select (section) {
+//       sectionsService.selectSection(section);
+//       self.toggleSideNav();
+//     }
+
+//     function activate() {
+//       console.log('LayoutController connected');
+//       $timeout(function() {
+//         self.classAnimation = 'rubberBand';
+//       }, 4000);
+//     }
+//   }
+// })();
