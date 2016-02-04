@@ -97,6 +97,8 @@
         ]
       };
     self.data.default = {
+      name: 'Your health',
+      icon: 'hangouts',
       firstRec: 'You know what is healthy food and what is crap.',
       state:'nutrition',
       recomendations: [
@@ -120,7 +122,6 @@
       self.data.sleep,
       self.data.activity,
       self.data.you,
-      self.data.default
     ];
     self.selected = self.data.nutrition;
 
