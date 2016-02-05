@@ -8,9 +8,12 @@
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/sections/sections.html',
-      controller: 'SectionsController',
-      controllerAs: 'sections',
-      bindToController: true
+      //controller: 'SectionsController',
+      //controllerAs: 'sections',
+      // bindToController: true,
+      scope: {
+        state: '='
+      }
     };
     return directive;
   }

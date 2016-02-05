@@ -33,7 +33,7 @@
         controller: getDefaultController('activity'),
         controllerAs: 'layout'
       })
-      .state('Your health', {
+      .state('You', {
         url: '/way_to_healthy_life',
         templateUrl: 'app/states/you.html',
         controller: getDefaultController('you'),
@@ -43,6 +43,7 @@
 
   function getDefaultController(dataKey) {
     return function (
+                      $scope,
                       sectionsService,
                       sidenavService,
                       userService,
@@ -53,11 +54,16 @@
       self.toggleSideNav = sidenavService.toggleList;
       self.openLeftMenu = sidenavService.openLeftMenu;
       self.closeSidenav = sidenavService.closeSidenav;
+      self.select = select;
 
       self.user = userService.user;
 
-      self.selected = sectionsService.data[dataKey];
-      self.select = select;
+      self.data = sectionsService.data;
+      self.selected = self.data[dataKey];
+      $scope.Nutrition  = self.data['nutrition'];
+      $scope.Sleep      = self.data['sleep'];
+      $scope.Activity   = self.data['activity'];
+      $scope.You        = self.data['you'];
 
       activate();
 
@@ -67,10 +73,7 @@
       }
 
       function activate() {
-        console.log('LayoutController connected');
-        $timeout(function() {
-          self.classAnimation = 'rubberBand';
-        }, 4000);
+        console.log('router Controller connected');
         self.closeSidenav();
       }
     };
