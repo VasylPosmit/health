@@ -21,7 +21,7 @@
         controller: getDefaultController('nutrition'),
         controllerAs: 'layout'
       })
-      .state('Sleep', {
+      .state('sleep', {
         url: '/sleep',
         templateUrl: 'app/states/sleep.html',
         controller: getDefaultController('sleep'),
@@ -33,7 +33,7 @@
         controller: getDefaultController('activity'),
         controllerAs: 'layout'
       })
-      .state('Your health', {
+      .state('You', {
         url: '/way_to_healthy_life',
         templateUrl: 'app/states/you.html',
         controller: getDefaultController('you'),
@@ -45,8 +45,8 @@
     return function (
                       sectionsService,
                       sidenavService,
-                      userService,
-                      $timeout) {
+                      userService
+                      ) {
       "ngInject";
       /*jshint validthis: true*/
       var self = this;
@@ -57,20 +57,11 @@
       self.user = userService.user;
 
       self.selected = sectionsService.data[dataKey];
-      self.select = select;
 
       activate();
 
-      function select (section) {
-        sectionsService.selectSection(section);
-        self.toggleSideNav();
-      }
-
       function activate() {
-        console.log('LayoutController connected');
-        $timeout(function() {
-          self.classAnimation = 'rubberBand';
-        }, 4000);
+        console.log('router Controller connected');
         self.closeSidenav();
       }
     };

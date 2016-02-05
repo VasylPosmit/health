@@ -9,8 +9,11 @@
       restrict: 'E',
       templateUrl: 'app/components/sections/sections.html',
       controller: 'SectionsController',
-      controllerAs: 'sections',
-      bindToController: true
+      //controllerAs: 'sections',
+      bindToController: false,
+      scope: {
+        statedata: '='
+      }
     };
     return directive;
   }

@@ -4,19 +4,17 @@
   .module('app.sections')
     .service('sectionsService', sectionsService);
 
-  function sectionsService($q){
+  function sectionsService(){
     /*jshint validthis: true*/
     var self = this;
     self.checkConnection = console.log('1. sectionsService connected');
 
-    self.selectSection = selectSection;
-
     self.data = {};
     self.data.nutrition = {
       name: 'Nutrition',
+      state: 'Nutrition',
       icon: 'twitter',
       firstRec: 'You know what is healthy food and what is crap.',
-      state: 'Nutrition',
       mdIcon: 'local_dining',
       recomendations: [
         {
@@ -35,9 +33,9 @@
     };
     self.data.sleep = {
       name: 'Sleep',
+      state:'sleep',
       icon: 'phone',
       firstRec: 'Receipt is simple: sleep 8 hours per day in dark room with fresh air.',
-      state:'Sleep',
       mdIcon: 'local_hotel',
       recomendations: [
         {
@@ -49,16 +47,16 @@
           header: 'What to eat',
           text: 'Room must be dark. Fresh air. Eat whatever you want ^_^'},
         {
-          label: 'Body state',
+          label: 'Habits',
           header: 'Best sleep habits',
           text: 'Do not eat 3h before sleep'}
       ]
     };
     self.data.activity = {
       name: 'Activity',
+      state:'Activity',
       icon: 'google_plus',
       firstRec: 'Walk everyday at least 3 km (outside the house!) and do any sport 3 times per week. Yes, it does matter',
-      state:'Activity',
       mdIcon: 'directions_run',
       recomendations: [
         {
@@ -77,9 +75,9 @@
       };
     self.data.you = {
       name: 'Your health',
+      state:'You',
       icon: 'hangouts',
       firstRec: 'You know what is healthy food and what is crap.',
-      state:'Your health',
       mdIcon: 'account_circle',
       recomendations: [
         {
@@ -98,9 +96,9 @@
       };
     self.data.default = {
       name: 'Your health',
+      state:'nutrition',
       icon: 'hangouts',
       firstRec: 'You know what is healthy food and what is crap.',
-      state:'nutrition',
       recomendations: [
         {
           label: 'Nutrition',
@@ -123,12 +121,6 @@
       self.data.activity,
       self.data.you,
     ];
-    self.selected = self.data.nutrition;
 
-    function selectSection(section) {
-        console.log('sectionsService.select()');
-        self.selected = angular.isNumber(section) ? self.content[section] : section;
-        console.log(self.selected);
-      }
   }
 })();
