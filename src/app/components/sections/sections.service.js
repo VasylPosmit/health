@@ -33,7 +33,7 @@
     };
     self.data.sleep = {
       name: 'Sleep',
-      state:'Sleep',
+      state:'sleep',
       icon: 'phone',
       firstRec: 'Receipt is simple: sleep 8 hours per day in dark room with fresh air.',
       mdIcon: 'local_hotel',

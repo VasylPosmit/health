@@ -11,7 +11,7 @@
     var self = this;
     self.data = sectionsService.data;
     $scope.Nutrition  = self.data['nutrition'];
-    $scope.Sleep      = self.data['sleep'];
+    $scope.sleep      = self.data['sleep'];
     $scope.Activity   = self.data['activity'];
     $scope.You        = self.data['you'];
 

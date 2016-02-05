@@ -21,7 +21,7 @@
         controller: getDefaultController('nutrition'),
         controllerAs: 'layout'
       })
-      .state('Sleep', {
+      .state('sleep', {
         url: '/sleep',
         templateUrl: 'app/states/sleep.html',
         controller: getDefaultController('sleep'),
@@ -56,8 +56,7 @@
 
       self.user = userService.user;
 
-      self.data = sectionsService.data;
-      self.selected = self.data[dataKey];
+      self.selected = sectionsService.data[dataKey];
 
       activate();
 

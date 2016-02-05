@@ -10,7 +10,6 @@
     self.toggleSidenav = sidenavService.toggleList;
 
     self.content = sectionsService.content;
-    self.select = select;
 
     activate();
 
@@ -18,9 +17,5 @@
       console.log('sidenavController connected');
     }
 
-    function select (section) {
-      sectionsService.selectSection(section);
-      self.toggleSidenav();
-    }
   }
 })();

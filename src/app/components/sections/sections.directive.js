@@ -12,7 +12,7 @@
       //controllerAs: 'sections',
       bindToController: false,
       scope: {
-        state: '='
+        statedata: '='
       }
     };
     return directive;
