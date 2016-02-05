@@ -11,15 +11,27 @@
       name : null,
       gender: null,
       age: null,
-      weight: null,
-      height: null,
-      weightUnits : 'kg',
-      heightUnits : 'cm',
+      nutrition: {
+        weight: null,
+        weightUnits : 'kg',
+        height: null,
+        heightUnits : 'cm',
+      },
+      sleep: {
+        start: null,
+        end: null,
+        regim: null,
+        habbit: null,
+        light: null,
+        air: null
+      },
+      activity: {
 
-      asleep: null,
-      wake: null,
-
+      },
       BMI: null
     };
+    self.user.isMale = self.user.gender === 'male';
+
+    self.user.BMI = self.user.weight/self.user.height;
   }
 })();
