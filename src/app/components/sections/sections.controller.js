@@ -4,9 +4,16 @@
     .module('app.sections')
     .controller('SectionsController', SectionsController);
 
-  function SectionsController(sectionsService){
+  function SectionsController($scope, sectionsService){
     /*jshint validthis: true */
+    "ngInject";
+
     var self = this;
+    self.data = sectionsService.data;
+    $scope.Nutrition  = self.data['nutrition'];
+    $scope.Sleep      = self.data['sleep'];
+    $scope.Activity   = self.data['activity'];
+    $scope.You        = self.data['you'];
 
     activate();
 

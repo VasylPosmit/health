@@ -4,12 +4,10 @@
   .module('app.sections')
     .service('sectionsService', sectionsService);
 
-  function sectionsService($q){
+  function sectionsService(){
     /*jshint validthis: true*/
     var self = this;
     self.checkConnection = console.log('1. sectionsService connected');
-
-    self.selectSection = selectSection;
 
     self.data = {};
     self.data.nutrition = {
@@ -123,10 +121,6 @@
       self.data.activity,
       self.data.you,
     ];
-    function selectSection(section) {
-      console.log('sectionsService.select()');
-      self.selected = angular.isNumber(section) ? self.content[section] : section;
-      console.log(self.selected);
-    }
+
   }
 })();

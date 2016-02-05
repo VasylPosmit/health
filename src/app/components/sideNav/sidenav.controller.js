@@ -16,7 +16,6 @@
 
     function activate() {
       console.log('sidenavController connected');
-      // body...
     }
 
     function select (section) {

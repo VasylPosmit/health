@@ -43,34 +43,23 @@
 
   function getDefaultController(dataKey) {
     return function (
-                      $scope,
                       sectionsService,
                       sidenavService,
-                      userService,
-                      $timeout) {
+                      userService
+                      ) {
       "ngInject";
       /*jshint validthis: true*/
       var self = this;
       self.toggleSideNav = sidenavService.toggleList;
       self.openLeftMenu = sidenavService.openLeftMenu;
       self.closeSidenav = sidenavService.closeSidenav;
-      self.select = select;
 
       self.user = userService.user;
 
       self.data = sectionsService.data;
       self.selected = self.data[dataKey];
-      $scope.Nutrition  = self.data['nutrition'];
-      $scope.Sleep      = self.data['sleep'];
-      $scope.Activity   = self.data['activity'];
-      $scope.You        = self.data['you'];
 
       activate();
-
-      function select (section) {
-        sectionsService.selectSection(section);
-        self.toggleSideNav();
-      }
 
       function activate() {
         console.log('router Controller connected');
