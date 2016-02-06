@@ -12,11 +12,10 @@ block input
   div(layout='column', layout-gt-sm='row', layout-align='space-between', flex-gt-sm='45')
     md-input-container.md-block.md-accent(flex= '20', flex-gt-sm='45')
       label Go to sleep at
-      input(type='time', ng-model='layout.user.sleep.'+ parameter, aria-label= parameter)
-
+      input(type='time', ng-model='layout.user.sleep.start', aria-label= 'go to bed time')
     md-input-container.md-block.md-accent(flex= '20', flex-gt-sm='45')
       label Wake up at
-      input(type='time', ng-model='layout.user.sleep.'+ parameter, aria-label= parameter)
+      input(type='time', ng-model='layout.user.sleep.end', aria-label= 'wake up time')
 
 
   md-input-container.md-block()
