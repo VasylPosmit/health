@@ -26,7 +26,8 @@
         air: null
       },
       activity: {
-
+        workposition: null,
+        training: 'Yep',
       },
       BMI: null
     };
