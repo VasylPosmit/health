@@ -9,7 +9,7 @@
     var self = this;
     self.user = {
       name : null,
-      gender: null,
+      isMale: null,
       age: null,
       nutrition: {
         weight: null,
@@ -28,11 +28,15 @@
       activity: {
         workposition: null,
         training: 'Yep',
+        trainTimes: null,
+        walk: null,
+        contraindications: 'Fortunately, I have not',
+
       },
       BMI: null
     };
-    self.user.isMale = self.user.gender === 'male';
 
     self.user.BMI = self.user.weight/self.user.height;
   }
+
 })();

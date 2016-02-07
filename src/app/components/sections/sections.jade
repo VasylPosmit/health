@@ -1,9 +1,7 @@
 
 h3(hide-gt-md='') Health guide > {{statedata.name}}
-div(layout='row')
+div(layout)
   md-icon.avatar(md-svg-icon='{{statedata.icon}}')
   h1(flex-offset='5') {{statedata.name}}
 h4 {{statedata.firstRec}}
-md-button.contact(md-no-ink='', ng-click='showContactOptions($event)', aria-label='Contact User')
-  md-tooltip Contact {{ statedata.name }}
-  md-icon(md-svg-icon='share')
+

@@ -4,42 +4,44 @@ extends default.jade
 block input
   kil-section(statedata='Activity')
   md-divider
-  h2 {{layout.selected.name}} Input Block
-    md-tooltip(md-direction="right") Please, answer few questions to get recommendations right for you
-  div(layout)
-    md-input-container.md-block.md-accent(flex, flex-gt-sm='45')
-      label Name
-      input(ng-model='layout.user.name')
+  div.input.md-whiteframe-z1
+    div.space
+      h2 {{layout.selected.name}} Input Block
+        md-tooltip(md-direction="right") Please, answer few questions to get recommendations right for you
+      div(layout)
+        md-input-container.md-block.md-accent(flex, flex-gt-sm='45')
+          label Name
+          input(ng-model='layout.user.name')
 
 
-  md-input-container.md-block()
-    label What is your movement during workday?
-    md-select.md-accent(flex, flex-gt-sm='45', ng-model='layout.user.activity.workposition', aria-label= 'layout.user.activity.workposition')
-      md-option Sitting position mostly (working with computer)
-      md-option Static ()
-      md-option Dynamic (studying at the campus)
-      md-option Moving on your feet (manual work, officiant)
+      md-input-container.md-block()
+        label What is your movement during workday?
+        md-select.md-accent(flex, flex-gt-sm='45', ng-model='layout.user.activity.workposition', aria-label= 'layout.user.activity.workposition')
+          md-option Sitting position mostly (working with computer)
+          md-option Static ()
+          md-option Dynamic (studying at the campus)
+          md-option Moving on your feet (manual work, officiant)
 
-  div(layout-sm="column", layout="row")
-    div
-      label Do you training?
-      md-switch(ng-model="layout.user.activity.training", ng-true-value="'Yep'", ng-false-value= "'Nope'")
-        | {{layout.user.activity.training}}
-
-    md-radio-group.ng-hide(flex-offset-gt-sm= "5", layout="column", ng-model="layout.user.activity.trainTimes", ng-hide="layout.user.activity.training === 'Nope'", ng-disabled= )
-      label How many time per week?
       div(layout-sm="column", layout="row")
-        for i in [1, 2, 3, ">4"]
-          md-radio-button(value= i)= i
+        div
+          label Do you training?
+          md-switch(ng-model="layout.user.activity.training", ng-true-value="'Yep'", ng-false-value= "'Nope'")
+            | {{layout.user.activity.training}}
 
-  md-radio-group(layout="column", ng-model="layout.user.activity.walk")
-      label How much do you walk everyday?
-      div(layout-sm="column", layout="row")
-        for i in ['<2 km', '2-5 km', ">6 km"]
-          md-radio-button(value= i)= i
+        md-radio-group.ng-hide(flex-offset-gt-sm= "5", layout="column", ng-model="layout.user.activity.trainTimes", ng-hide="layout.user.activity.training === 'Nope'", ng-disabled= )
+          label How many time per week?
+          div(layout-sm="column", layout="row")
+            for i in [1, 2, 3, ">4"]
+              md-radio-button(value= i)= i
 
-  label() Medical contraindications to sport
-  md-switch(ng-model="layout.user.activity.contraindications", ng-true-value="'Unfortunately, I have'", ng-false-value= "'Fortunately, I have not'")
-      | {{layout.user.activity.contraindications}}
+      md-radio-group(layout="column", ng-model="layout.user.activity.walk")
+          label How much do you walk everyday?
+          div(layout-sm="column", layout="row")
+            for i in ['<2 km', '2-5 km', ">6 km"]
+              md-radio-button(value= i)= i
+
+      label() Medical contraindications to sport
+      md-switch(ng-model="layout.user.activity.contraindications", ng-true-value="'Unfortunately, I have'", ng-false-value= "'Fortunately, I have not'")
+          | {{layout.user.activity.contraindications}}
 
 
