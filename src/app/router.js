@@ -12,7 +12,7 @@
       .state('home', {
         url: '/',
         templateUrl: 'app/states/default.html',
-        controller: getDefaultController('nutrition'), // 'default'
+        controller: getDefaultController('default'), // 'default'
         controllerAs: 'layout'
       })
       .state('Nutrition', {
