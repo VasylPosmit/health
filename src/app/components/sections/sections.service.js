@@ -234,17 +234,32 @@
         {
           label: 'Nutrition',
           header: 'Best eating habits',
-          list: ['self.data.nutrition.firstRec']
+          list: [
+            {
+              text: self.data.nutrition.firstRec,
+              isShownCondition: true
+            }
+          ]
         },
         {
           label: 'Sleep',
           header: 'Best sleep habits',
-          list: [self.data.sleep.firstRec]
+          list: [
+            {
+              text: self.data.sleep.firstRec,
+              isShownCondition: true
+            }
+          ]
         },
         {
           label: 'Activity',
           header: 'Best activity habits',
-          list: [self.data.activity.firstRec]
+          list: [
+            {
+              text: self.data.nutrition.firstRec,
+              isShownCondition: true
+            }
+          ]
         }
       ]
     };
@@ -254,7 +269,6 @@
       self.data.sleep,
       self.data.activity,
       self.data.you,
-      self.data.default
     ];
 
 
