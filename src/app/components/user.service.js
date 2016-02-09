@@ -33,10 +33,9 @@
         contraindications: 'Fortunately, I have not',
 
       },
-      BMI: null
     };
+      self.user.BMI = self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2);
 
-    self.user.BMI = self.user.weight/self.user.height;
   }
 
 })();

@@ -4,14 +4,17 @@
   .module('app.sections')
     .service('sectionsService', sectionsService);
 
-  function sectionsService(){
+  function sectionsService(userService){
     /*jshint validthis: true*/
     var self = this;
     self.checkConnection = console.log('1. sectionsService connected');
-
     self.concat = concat;
 
+
+    self.user = userService.user;
     self.data = {};
+    self.data.user = userService.user;
+
     self.data.nutrition = {
       name: 'Nutrition',
       state: 'Nutrition',
@@ -24,16 +27,19 @@
           header: 'When to eat',
           list: [
             {
-              text: '1.Eat whenever you want ^_^',
-              isShownCondition: true
+              text: '1. You are lighter than 60 kg. Eat whenever you want ^_^',
+              isShownCondition: userService.user.nutrition.weight < 60
             },
             {
-              text: '2.Eat whenever you want ^_^',
-              isShownCondition: false
+              text: '2.Weight between 60 and 80? Try not to eat 3 h before sleep',
+              isShownCondition:
+                userService.user.nutrition.weight >= 60 &&
+                userService.user.nutrition.weight < 80
             },
             {
-              text: '3.Eat whenever you want ^_^',
-              isShownCondition: true
+              text: '3. You heavier than 80 kg? Try to skip dinner. Ha-ha-ha!',
+              isShownCondition:
+                userService.user.nutrition.weight > 80
             }
           ]
         },
@@ -271,7 +277,6 @@
       self.data.you,
     ];
 
-
     function concat(dataKey){
       var fullList = [];
       var recs = self.data[dataKey].recomendations;
@@ -282,6 +287,5 @@
       }
       return fullList;
     }
-
   }
 })();
