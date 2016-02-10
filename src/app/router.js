@@ -68,7 +68,7 @@
       }
 
       function calculate(){
-        // Это будет очень длинная функция. Пожалуйста, придумай что нибудь другое!
+
         $scope.$watch('layout.user', function(newVal, oldVal){
 
           self.user.BMI = newVal.nutrition.weight/Math.pow(newVal.nutrition.height/100, 2);
