@@ -57,9 +57,8 @@
 
       self.user = userService.user;
       $scope.user = userService.user;
-      self.data = sectionsService.data;
 
-      self.selected = sectionsService.data[dataKey];
+      self.data = sectionsService.data[dataKey];
 
       activate();
 
@@ -74,10 +73,10 @@
 
           self.user.BMI = newVal.nutrition.weight/Math.pow(newVal.nutrition.height/100, 2);
 
-          self.selected.recomendations[0].list[0].isShownCondition = newVal.nutrition.weight <= 60;
-          self.selected.recomendations[0].list[1].isShownCondition = newVal.nutrition.weight > 60 &&
+          self.data.recommendations[0].list[0].isShownCondition = newVal.nutrition.weight <= 60;
+          self.data.recommendations[0].list[1].isShownCondition = newVal.nutrition.weight > 60 &&
                                                                      newVal.nutrition.weight <= 80;
-          self.selected.recomendations[0].list[2].isShownCondition = newVal.nutrition.weight > 80;
+          self.data.recommendations[0].list[2].isShownCondition = newVal.nutrition.weight > 80;
         });
       }
     };

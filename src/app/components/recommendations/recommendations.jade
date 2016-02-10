@@ -2,9 +2,9 @@ md-divider
 div(ng-cloak)
   md-content(layout='column', flex)
     md-button(ng-click="layout.calculate()") Calculate
-    h2 {{layout.selected.name}} recommendations for you {{layout.user.name}}
+    h2 {{layout.data.name}} recommendations for you {{layout.user.name}}
     md-tabs(md-dynamic-height, md-border-bottom)
-      md-tab(ng-repeat='recomendations in layout.selected.recomendations', label='{{recomendations.label}}')
+      md-tab(ng-repeat='recommendations in layout.data.recommendations', label='{{recommendations.label}}')
         md-content.md-padding
-          h2.md-headline {{recomendations.header}}
-          p(ng-repeat= "item in recomendations.list", ng-show="item.isShownCondition") {{item.text}}
+          h2.md-headline {{recommendations.header}}
+          p(ng-repeat= "item in recommendations.list", ng-show="item.isShownCondition") {{item.text}}
