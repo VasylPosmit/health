@@ -18,10 +18,7 @@
     self.closeSidenav = closeSidenav;
 
     function toggleSidenav() {
-      var pending = $mdBottomSheet.hide() || $q.when(true);
-      pending.then(function() {
-        $mdSidenav('left').toggle();
-      });
+      $mdSidenav('left').toggle();
     }
     function openLeftMenu() {
       $mdSidenav('left').open();
