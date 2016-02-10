@@ -6,5 +6,5 @@ div(ng-cloak)
     md-tabs(md-dynamic-height, md-border-bottom)
       md-tab(ng-repeat='recommendations in layout.data.recommendations', label='{{recommendations.label}}')
         md-content.md-padding
-          h2.md-headline {{recommendations.header}}
-          p(ng-repeat= "item in recommendations.list", ng-show="item.isShownCondition") {{item.text}}
+          h2.md-headline(ng-bind="recommendations.header")
+          p(ng-repeat= "item in recommendations.list", ng-show="item.isShownCondition" ng-bind="item.text")
