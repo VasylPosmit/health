@@ -4,12 +4,17 @@
   .module('app.sections')
     .service('sectionsService', sectionsService);
 
-  function sectionsService(){
+  function sectionsService(userService){
     /*jshint validthis: true*/
     var self = this;
     self.checkConnection = console.log('1. sectionsService connected');
+    self.concat = concat;
 
+
+    self.user = userService.user;
     self.data = {};
+    self.data.user = userService.user;
+
     self.data.nutrition = {
       name: 'Nutrition',
       state: 'Nutrition',
@@ -20,15 +25,60 @@
         {
           label: 'Time',
           header: 'When to eat',
-          text: 'Eat whenever you want ^_^'},
+          list: [
+            {
+              text: '1. You are lighter than 60 kg. Eat whenever you want ^_^',
+              isShownCondition: userService.user.nutrition.weight < 60
+            },
+            {
+              text: '2.Weight between 60 and 80? Try not to eat 3 h before sleep',
+              isShownCondition:
+                userService.user.nutrition.weight >= 60 &&
+                userService.user.nutrition.weight < 80
+            },
+            {
+              text: '3. You heavier than 80 kg? Try to skip dinner. Ha-ha-ha!',
+              isShownCondition:
+                userService.user.nutrition.weight > 80
+            }
+          ]
+        },
         {
           label: 'Quality',
           header: 'What to eat',
-          text: 'Eat whatever you want ^_^'},
+          list: [
+            {
+              text: '1.Eat whatever you want ^_^',
+              isShownCondition: true
+            },
+            {
+              text: '2.Eat whatever you want ^_^',
+              isShownCondition: false
+            },
+            {
+              text: '3.Eat whatever you want ^_^',
+              isShownCondition: true
+            }
+          ]
+        },
         {
           label: 'Amount',
           header: 'How much to eat',
-          text: 'Eat as much as you want ^_^'}
+          list: [
+            {
+              text: '1.Eat as much as you want ^_^',
+              isShownCondition: true
+            },
+            {
+              text: '2.Eat as much as you want ^_^',
+              isShownCondition: false
+            },
+            {
+              text: '3.Eat as much as you want ^_^',
+              isShownCondition: true
+            }
+          ]
+        }
       ]
     };
     self.data.sleep = {
@@ -41,15 +91,57 @@
         {
           label: 'Mode',
           header: 'When to eat',
-          text: 'Plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^'},
+          list: [
+            {
+              text: '1.Plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^',
+              isShownCondition: true
+            },
+            {
+              text: '2.Plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^',
+              isShownCondition: false
+            },
+            {
+              text: '3.Plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^',
+              isShownCondition: true
+            }
+          ]
+        },
         {
           label: 'Conditions',
           header: 'What to eat',
-          text: 'Room must be dark. Fresh air. Eat whatever you want ^_^'},
+          list: [
+            {
+              text: '1.Room must be dark. Fresh air. Eat whatever you want ^_^',
+              isShownCondition: true
+            },
+            {
+              text: '2.Room must be dark. Fresh air. Eat whatever you want ^_^',
+              isShownCondition: false
+            },
+            {
+              text: '3.Room must be dark. Fresh air. Eat whatever you want ^_^',
+              isShownCondition: true
+            }
+          ]
+        },
         {
           label: 'Habits',
           header: 'Best sleep habits',
-          text: 'Do not eat 3h before sleep'}
+          list: [
+            {
+              text: '1.Do not eat 3h before sleep',
+              isShownCondition: true
+            },
+            {
+              text: '2.Do not eat 3h before sleep',
+              isShownCondition: false
+            },
+            {
+              text: '3.Do not eat 3h before sleep',
+              isShownCondition: true
+            }
+          ]
+        }
       ]
     };
     self.data.activity = {
@@ -62,17 +154,59 @@
         {
           label: 'Lifestyle',
           header: 'When to eat',
-          text: 'Eat whenever you want ^_^'},
+          list: [
+            {
+              text: '1.Lifestyle.Do not eat 3h before sleep',
+              isShownCondition: true
+            },
+            {
+              text: '2.Lifestyle.Do not eat 3h before sleep',
+              isShownCondition: false
+            },
+            {
+              text: '3.Lifestyle.Do not eat 3h before sleep',
+              isShownCondition: true
+            }
+          ]
+        },
         {
           label: 'Sport',
           header: 'What to eat',
-          text: 'Eat whatever you want ^_^'},
+          list: [
+            {
+              text: '1.Sport.Do not eat 3h before sleep',
+              isShownCondition: true
+            },
+            {
+              text: '2.Sport.Do not eat 3h before sleep',
+              isShownCondition: false
+            },
+            {
+              text: '3.Sport.Do not eat 3h before sleep',
+              isShownCondition: true
+            }
+          ]
+        },
         {
           label: 'Best habits',
           header: 'Best sleep habits',
-          text: 'Do not eat 3h before sleep'}
-        ]
-      };
+          list: [
+            {
+              text: '1.Best habits.Do not eat 3h before sleep',
+              isShownCondition: true
+            },
+            {
+              text: '2.Best habits.Do not eat 3h before sleep',
+              isShownCondition: false
+            },
+            {
+              text: '3.Best habits.Do not eat 3h before sleep',
+              isShownCondition: true
+            }
+          ]
+        }
+      ]
+    };
     self.data.you = {
       name: 'Your health',
       state:'You',
@@ -83,37 +217,58 @@
         {
           label: 'Nutrition',
           header: 'Best habits',
-          text: 'Eat whenever you want ^_^'},
+          list: self.concat('nutrition')
+        },
         {
           label: 'Sleep',
           header: 'Best sleep habits',
-          text: 'Eat whatever you want ^_^'},
+          list: self.concat('sleep')
+        },
         {
           label: 'Activity',
           header: 'Best activity habits',
-          text: 'Do not eat 3h before sleep'}
+          list: self.concat('activity')
+        }
         ]
       };
     self.data.default = {
-      name: 'Your health',
+      name: 'Health guide (default state)',
       state:'nutrition',
       icon: 'hangouts',
       firstRec: 'You know what is healthy food and what is crap.',
       recomendations: [
         {
           label: 'Nutrition',
-          header: 'Best habits',
-          text: 'Eat whenever you want ^_^'},
+          header: 'Best eating habits',
+          list: [
+            {
+              text: self.data.nutrition.firstRec,
+              isShownCondition: true
+            }
+          ]
+        },
         {
           label: 'Sleep',
           header: 'Best sleep habits',
-          text: 'Eat whatever you want ^_^'},
+          list: [
+            {
+              text: self.data.sleep.firstRec,
+              isShownCondition: true
+            }
+          ]
+        },
         {
           label: 'Activity',
           header: 'Best activity habits',
-          text: 'Do not eat 3h before sleep'}
-        ]
-      };
+          list: [
+            {
+              text: self.data.nutrition.firstRec,
+              isShownCondition: true
+            }
+          ]
+        }
+      ]
+    };
 
     self.content = [
       self.data.nutrition,
@@ -122,5 +277,15 @@
       self.data.you,
     ];
 
+    function concat(dataKey){
+      var fullList = [];
+      var recs = self.data[dataKey].recomendations;
+      for (var no in recs) {
+        if ( recs[no].hasOwnProperty( 'list' ) ) {
+          fullList = fullList.concat(recs[no].list);
+        }
+      }
+      return fullList;
+    }
   }
 })();

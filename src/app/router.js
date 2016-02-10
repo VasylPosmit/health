@@ -12,7 +12,7 @@
       .state('home', {
         url: '/',
         templateUrl: 'app/states/default.html',
-        controller: getDefaultController('nutrition'), // 'default'
+        controller: getDefaultController('default'), // 'default'
         controllerAs: 'layout'
       })
       .state('Nutrition', {
@@ -42,7 +42,7 @@
   }
 
   function getDefaultController(dataKey) {
-    return function (
+    return function ( $scope,
                       sectionsService,
                       sidenavService,
                       userService
@@ -53,8 +53,11 @@
       self.toggleSideNav = sidenavService.toggleList;
       self.openLeftMenu = sidenavService.openLeftMenu;
       self.closeSidenav = sidenavService.closeSidenav;
+      self.calculate = calculate;
 
       self.user = userService.user;
+      $scope.user = userService.user;
+      self.data = sectionsService.data;
 
       self.selected = sectionsService.data[dataKey];
 
@@ -63,6 +66,19 @@
       function activate() {
         console.log('router Controller connected');
         self.closeSidenav();
+      }
+
+      function calculate(){
+        // Это будет очень длинная функция. Пожалуйста, придумай что нибудь другое!
+        $scope.$watch('layout.user', function(newVal, oldVal){
+
+          self.user.BMI = newVal.nutrition.weight/Math.pow(newVal.nutrition.height/100, 2);
+
+          self.selected.recomendations[0].list[0].isShownCondition = newVal.nutrition.weight <= 60;
+          self.selected.recomendations[0].list[1].isShownCondition = newVal.nutrition.weight > 60 &&
+                                                                     newVal.nutrition.weight <= 80;
+          self.selected.recomendations[0].list[2].isShownCondition = newVal.nutrition.weight > 80;
+        });
       }
     };
   }
