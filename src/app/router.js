@@ -51,7 +51,6 @@
       "ngInject";
       /*jshint validthis: true*/
       var self = this;
-      var scope = $scope;
 
       self.toggleSideNav = sidenavService.toggleList;
       self.openLeftMenu = sidenavService.openLeftMenu;
@@ -73,8 +72,7 @@
           self.user.BMI = newVal.nutrition.weight/Math.pow(newVal.nutrition.height/100, 2);
 
           self.data.recommendations[0].list[0].isShownCondition = newVal.nutrition.weight <= 60;
-          self.data.recommendations[0].list[1].isShownCondition = newVal.nutrition.weight > 60 &&
-                                                                  newVal.nutrition.weight <= 80;
+          self.data.recommendations[0].list[1].isShownCondition = newVal.nutrition.weight > 60 && newVal.nutrition.weight <= 80;
           self.data.recommendations[0].list[2].isShownCondition = newVal.nutrition.weight > 80;
         });
       }

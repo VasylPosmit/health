@@ -280,11 +280,9 @@
     function concat(dataKey){
       var fullList = [];
       var recs = self.data[dataKey].recommendations;
-      for (var no in recs) {
-        if ( recs[no].hasOwnProperty( 'list' ) ) {
-          fullList = fullList.concat(recs[no].list);
-        }
-      }
+
+      fullList = _.flatten(_.map(recs, 'list'));
+
       return fullList;
     }
   }
