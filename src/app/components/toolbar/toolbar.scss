@@ -1,0 +1,25 @@
+/* Toolbar area */
+.menu {
+  background-color: transparent;
+  border: none;
+  height: 38px;
+  margin: 16px;
+  width: 36px;
+}
+
+md-toolbar {
+  h1, h2, h3, h4 {
+    margin: auto;
+  }
+  h1 {
+    font-size: 1.250em;
+    font-weight: 400;
+  }
+  h3 {
+    font-size: 1.150em;
+    font-weight: 400;
+  }
+  // .md-default-theme {
+  //   background-color: black;
+  // }
+}

@@ -8,9 +8,6 @@
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/sections/sections.html',
-      //controller: 'SectionsController',
-      //controllerAs: 'sections',
-      bindToController: false,
       scope: {
         statedata: '='
       }

@@ -1,9 +1,23 @@
+//color : background; works
+//color : accent;     doesn't
+//why?
 
 md-sidenav {
   background: #eee;
   md-list {
+    padding: 0px 0px 8px 0px;
     .material-icons {
-      font-size: 72px;
+      font-size: 5em;
+    }
+    .md-button {
+      color: grey;
+      font-weight: 500;
+      text-align: left;
+      width: 100%;
+      &.selected {
+        color: black;
+        background: warn;
+      }
     }
   }
 }

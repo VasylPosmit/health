@@ -1,7 +1,7 @@
 
-h3(hide-gt-md='') Health guide > {{statedata.name}}
+h3(hide-gt-md) Health guide > {{statedata.name}}
 div(layout)
   md-icon.avatar(md-svg-icon='{{statedata.icon}}')
-  h1(flex-offset='5') {{statedata.name}}
-h4 {{statedata.firstRec}}
+  h1(flex-offset='5', ng-bind="statedata.name")
+h4(ng-bind="statedata.firstRec")
 

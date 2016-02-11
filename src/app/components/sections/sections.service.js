@@ -21,7 +21,7 @@
       icon: 'twitter',
       firstRec: 'You know what is healthy food and what is crap.',
       mdIcon: 'local_dining',
-      recomendations: [
+      recommendations: [
         {
           label: 'Time',
           header: 'When to eat',
@@ -87,7 +87,7 @@
       icon: 'phone',
       firstRec: 'Receipt is simple: sleep 8 hours per day in dark room with fresh air.',
       mdIcon: 'local_hotel',
-      recomendations: [
+      recommendations: [
         {
           label: 'Mode',
           header: 'When to eat',
@@ -150,7 +150,7 @@
       icon: 'google_plus',
       firstRec: 'Walk everyday at least 3 km (outside the house!) and do any sport 3 times per week. Yes, it does matter',
       mdIcon: 'directions_run',
-      recomendations: [
+      recommendations: [
         {
           label: 'Lifestyle',
           header: 'When to eat',
@@ -213,7 +213,7 @@
       icon: 'hangouts',
       firstRec: 'You know what is healthy food and what is crap.',
       mdIcon: 'account_circle',
-      recomendations: [
+      recommendations: [
         {
           label: 'Nutrition',
           header: 'Best habits',
@@ -236,7 +236,7 @@
       state:'nutrition',
       icon: 'hangouts',
       firstRec: 'You know what is healthy food and what is crap.',
-      recomendations: [
+      recommendations: [
         {
           label: 'Nutrition',
           header: 'Best eating habits',
@@ -279,12 +279,10 @@
 
     function concat(dataKey){
       var fullList = [];
-      var recs = self.data[dataKey].recomendations;
-      for (var no in recs) {
-        if ( recs[no].hasOwnProperty( 'list' ) ) {
-          fullList = fullList.concat(recs[no].list);
-        }
-      }
+      var recs = self.data[dataKey].recommendations;
+
+      fullList = _.flatten(_.map(recs, 'list'));
+
       return fullList;
     }
   }

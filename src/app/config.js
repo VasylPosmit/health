@@ -31,10 +31,10 @@
       .icon("angular"    , "../assets/images/angular.png"  , 512);
 
     $mdThemingProvider.theme('default')
-      .primaryPalette('blue-grey')
-      .accentPalette('blue', {
-                              default: '400'
-      });
+      .primaryPalette('teal')
+      .accentPalette('amber', {default: '400'})
+      .warnPalette('red')
+      .backgroundPalette('grey');
   }
 
   function runBlock($log) {

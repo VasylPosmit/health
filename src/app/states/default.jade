@@ -1,6 +1,9 @@
 kil-toolbar
 md-content.content(flex)
-  kil-section(statedata='layout.selected')
+  kil-section(statedata='layout.data')
+  md-divider
+  h2 {{layout.data.name}} Input Block
+    md-tooltip(md-direction="top") Please, answer few questions to get recommendations right for you
   block input
     h3 Hello from default state
     h3 Health Guide is a tool where you can...
