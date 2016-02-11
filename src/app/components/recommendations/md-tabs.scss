@@ -1,15 +1,8 @@
 md-content {
   background-color: transparent !important;
   md-tabs {
-    background: accent;
+    background: #eee;
     border: 1px solid #ddd;
-    md-tabs-wrapper {
-      background: #eee;
-      color: black;
-      md-tabs-canvas md-pagination-wrapper md-tab-item span {
-        color: black;
-      }
-    }
   }
   md-option {
     background-color: white;
