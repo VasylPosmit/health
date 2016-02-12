@@ -51,13 +51,14 @@
       "ngInject";
       /*jshint validthis: true*/
       var self = this;
+      self.state = dataKey;
 
       self.toggleSideNav = sidenavService.toggleList;
       self.openLeftMenu = sidenavService.openLeftMenu;
       self.closeSidenav = sidenavService.closeSidenav;
 
       self.user = userService.user;
-      self.data = sectionsService.data[dataKey];
+      self.data = sectionsService.data[self.state];
       self.calculate = calculate;
 
       activate();
@@ -69,11 +70,8 @@
 
       function calculate(){
         $scope.$watch('layout.user', function(newVal, oldVal){
-          self.user.BMI = newVal.nutrition.weight/Math.pow(newVal.nutrition.height/100, 2);
-
-          self.data.recommendations[0].list[0].isShownCondition = newVal.nutrition.weight <= 60;
-          self.data.recommendations[0].list[1].isShownCondition = newVal.nutrition.weight > 60 && newVal.nutrition.weight <= 80;
-          self.data.recommendations[0].list[2].isShownCondition = newVal.nutrition.weight > 80;
+          self.user = userService.getUser();
+          self.data = sectionsService.getData(self.user)[self.state];
         });
       }
     };

@@ -7,15 +7,18 @@
   function userService(){
     /*jshint validthis: true*/
     var self = this;
+    self.getUser = getUser;
     self.user = {
       name : null,
       isMale: null,
       age: null,
       nutrition: {
         weight: null,
-        weightUnits : 'kg',
+        weightIskg : true,
         height: null,
-        heightUnits : 'cm',
+        heightIscm : true,
+        isVegaterian: false,
+        isControl: false
       },
       sleep: {
         start: null,
@@ -30,11 +33,17 @@
         training: 'Yep',
         trainTimes: null,
         walk: null,
-        contraindications: 'Fortunately, I have not',
-
+        contraindications: 'Fortunately, I have not'
       },
+      BMI: null
     };
-      self.user.BMI = self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2);
+
+      function getUser(){
+        //all formulas fall here
+        self.user.BMI = Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
+
+        return self.user;
+      }
 
   }
 
