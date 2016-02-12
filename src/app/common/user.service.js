@@ -17,7 +17,7 @@
         weightIskg : true,
         height: null,
         heightIscm : true,
-        isVegaterian: false,
+        isVegan: false,
         isControl: false
       },
       sleep: {
@@ -41,7 +41,7 @@
       function getUser(){
         //all formulas fall here
         self.user.BMI = Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
-
+        console.log(self.user);
         return self.user;
       }
 

@@ -69,12 +69,11 @@
       }
 
       function calculate(){
-        $scope.$watch('layout.user', function(newVal, oldVal){
           self.user = userService.getUser();
           self.data = sectionsService.getData(self.user)[self.state];
+        $scope.$watch('layout.user', function(newVal, oldVal){
         });
       }
     };
   }
-
 })();

@@ -27,6 +27,6 @@ block input
     md-slider.md-primary(flex, min= parameter.min, max= parameter.max, ng-model='layout.user.nutrition.'+parameter.name, aria-label= parameter.name, hide-gt-md)
   p Your Body mass index is {{layout.user.BMI}}. You are slim (<19), fit (19-25) or overweight (>25)
   h3 Nutrition checklist
-  md-checkbox.md-primary(ng-model='layout.user.nutrition.isVegetarian') I'm vegetarian
+  md-checkbox.md-primary(ng-model='layout.user.nutrition.isVegan') I'm vegetarian
   md-checkbox.md-primary(ng-model='layout.user.nutrition.isControl') I can control when and how much I eat
   md-divider
