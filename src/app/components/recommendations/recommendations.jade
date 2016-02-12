@@ -2,9 +2,12 @@ md-divider
 div(ng-cloak)
   md-content(layout='column')
     md-button.md-raised.md-accent(ng-click="layout.calculate()") Calculate recommendations
+    p Your Body mass index is {{layout.user.BMI}}. You are slim (<19), fit (19-25) or overweight (>25)
+    p Your Basal metabolic rate is {{layout.user.BMR}}. You need {{layout.user.BMR}} calories per day just to maintain body functions.
     h2 {{layout.data.name}} recommendations for you {{layout.user.name}}
     md-tabs.md-primary(md-dynamic-height, md-border-bottom)
       md-tab(ng-repeat='recommendations in layout.data.recommendations', label='{{recommendations.label}}')
         md-content.md-padding
           h2.md-headline(ng-bind="recommendations.header")
-          p(ng-repeat= "item in recommendations.list", ng-show="item.isShownCondition" ng-bind="item.text")
+          ul
+            li(ng-repeat= "item in recommendations.list", ng-show="item.isShown" ng-bind="item.text")

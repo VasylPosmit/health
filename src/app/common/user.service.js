@@ -7,7 +7,10 @@
   function userService(){
     /*jshint validthis: true*/
     var self = this;
+
     self.getUser = getUser;
+    self.calculateBMR = calculateBMR;
+
     self.user = {
       name : null,
       isMale: null,
@@ -35,16 +38,29 @@
         walk: null,
         contraindications: 'Fortunately, I have not'
       },
-      BMI: null
+      //to calculate
+      BMI: null,
+      BMR: null,
+      dailyCalories: null
     };
 
-      function getUser(){
-        //all formulas fall here
-        self.user.BMI = Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
-        console.log(self.user);
-        return self.user;
-      }
+    function getUser(){
+      //all formulas fall here
+      self.user.BMI = Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
 
+      self.user.BMR = self.calculateBMR();
+      console.log(self.user);
+      return self.user;
+    }
+    function calculateBMR(){
+      if (self.user.isMale !== null && self.user.age) {
+        if (self.user.isMale) {
+          return self.user.nutrition.weight*13.75 + self.user.nutrition.height*5 - self.user.age*6.75 +66.5;
+        } else {
+          return self.user.nutrition.weight*9.56 + self.user.nutrition.height*1.85 - self.user.age*4.68 +665.1;
+        }
+      }
+    }
   }
 
 })();

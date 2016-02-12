@@ -6,8 +6,8 @@ block input
       input(ng-model='layout.user.name')
     md-radio-group( flex, flex-gt-sm="35", layout, ng-model="layout.user.isMale")
       //- label Gender
-      md-radio-button.md-primary(value= 'true') Man
-      md-radio-button.md-primary(flex-offset= '15', value= 'false') Woman
+      md-radio-button.md-primary(ng-value= "true") Man
+      md-radio-button.md-primary(flex-offset= '15', ng-value= "false") Woman
 
   md-input-container.md-block(flex-sm= '50', flex-gt-sm='20')
       label age
@@ -22,10 +22,9 @@ block input
         label= parameter.name
         input(min= parameter.min, max= parameter.max, type='number', ng-model='layout.user.nutrition.'+parameter.name, ng-change = "layout.calculate()", aria-label= parameter.name, aria-controls=parameter.name+'-slider')
       md-select(flex-sm="20", flex-gt-sm='20', ng-model='layout.user.nutrition.'+parameter.name +'Is'+parameter.unit1, aria-label= parameter.name+' units')
-        md-option(value="true")= parameter.unit1
-        md-option(value="false")= parameter.unit2
+        md-option(ng-value="true")= parameter.unit1
+        md-option(ng-value="false")= parameter.unit2
     md-slider.md-primary(flex, min= parameter.min, max= parameter.max, ng-model='layout.user.nutrition.'+parameter.name, aria-label= parameter.name, hide-gt-md)
-  p Your Body mass index is {{layout.user.BMI}}. You are slim (<19), fit (19-25) or overweight (>25)
   h3 Nutrition checklist
   md-checkbox.md-primary(ng-model='layout.user.nutrition.isVegan') I'm vegetarian
   md-checkbox.md-primary(ng-model='layout.user.nutrition.isControl') I can control when and how much I eat

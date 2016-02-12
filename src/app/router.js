@@ -43,7 +43,6 @@
 
   function getDefaultController(dataKey) {
     return function (
-                      $scope,
                       sectionsService,
                       sidenavService,
                       userService
@@ -69,10 +68,8 @@
       }
 
       function calculate(){
-          self.user = userService.getUser();
-          self.data = sectionsService.getData(self.user)[self.state];
-        $scope.$watch('layout.user', function(newVal, oldVal){
-        });
+        self.user = userService.getUser();
+        self.data = sectionsService.getData(self.user)[self.state];
       }
     };
   }

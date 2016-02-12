@@ -28,23 +28,23 @@
           list: [
             {
               text: 'BMI < 19. You areYou are lighter than 60 kg. Eat whenever you want ^_^',
-              isShownCondition: userService.user.BMI < 19
+              isShown: userService.user.BMI < 19
             },
             {
               text: 'BMI > 25. Overweight. Try not to eat 3 h before sleep',
-              isShownCondition: userService.user.BMI > 25
+              isShown: userService.user.BMI > 25
             },
             {
               text: 'TEST. weight > 80',
-              isShownCondition: userService.user.nutrition.weight > 80
+              isShown: userService.user.nutrition.weight > 80
             },
             {
               text: 'You can’t outrun your fork.  When trying to lose weight, feel healthy, and get in shape, 80% (not an exaggeration) of your success or failure will come from how well you eat',
-              isShownCondition: userService.user.BMI > 25
+              isShown: userService.user.BMI > 25
             },
             {
               text: 'You are in perfect shape. Eat whenever you want ^_^',
-              isShownCondition: false
+              isShown: false
             }
           ]
         },
@@ -54,31 +54,31 @@
           list: [
             {
               text: 'You have to know today what you will eat tomorrow.',
-              isShownCondition: userService.user.nutrition.isControl
+              isShown: userService.user.nutrition.isControl
             },
             {
               text: 'You are in good shape! Eat what makes you happy occasionally and then go right back to healthy eating',
-              isShownCondition: false //BMI 19-25
+              isShown: false //BMI 19-25
             },
             {
               text: 'Eat more real food, you must.  Eat less junk food, you will. Yes, you can live without certain foods',
-              isShownCondition: userService.user.nutrition.isControl
+              isShown: userService.user.nutrition.isControl
             },
             {
               text: 'You are not a slave to your taste buds. As we’ve learned from the Matrix, you do have a choice – stop letting the food companies, who have all designed these crappy foods for maximum addictiveness, hold you hostage',
-              isShownCondition: userService.user.nutrition.isControl
+              isShown: userService.user.nutrition.isControl
             },
             {
               text: 'Start by swapping out processed refined carbohydrates for more natural foods.',
-              isShownCondition: userService.user.nutrition.isControl
+              isShown: userService.user.nutrition.isControl
             },
             {
               text: 'If you cannot control when and how much you eat, try Paleo Diet. Eat as if you were Fred Flinstone, consuming only foods that existed way back in the day. Eat this: meat, fowl, fish, eggs, vegetables, fruits, nuts, seeds, healthy oils.Don’t eat: anything else.Boom.  No calorie counting.  No perfectly timed meals. Only eat the stuff above, and eat as much of it as you want whenever you’re hungry',
-              isShownCondition: !userService.user.nutrition.isControl
+              isShown: !userService.user.nutrition.isControl
             },
             {
               text: 'If you’re a vegetarian or vegan, then this is the path that I’d recommend for you – cut back on grains and crappy carbs, load up on vegetables, nuts, beans, fruits, and some low-glycemic grains if you’re running low on calories, and make sure you’re getting enough protein!',
-              isShownCondition: userService.user.nutrition.isVegan
+              isShown: userService.user.nutrition.isVegan
             }
           ]
         },
@@ -88,19 +88,19 @@
           list: [
             {
               text: 'We do not know how much do you need to eat until we know your weight and height',
-              isShownCondition: true
+              isShown: true
             },
             {
               text: 'Eat as much as you want ^_^',
-              isShownCondition: false
+              isShown: false
             },
             {
               text: 'Now you know how much you should be eating to maintain current weight. One pound of fat = 3500 calories. To lose a pound a week, knock 500 calories out of that diet per day. It might mean one less snack, ordering a smaller lunch.',
-              isShownCondition: false
+              isShown: false
             },
             {
               text: 'You can’t outrun your fork.  When trying to lose weight, feel healthy, and get in shape, 80% (not an exaggeration) of your success or failure will come from how well you eat ',
-              isShownCondition:
+              isShown:
                 userService.user.BMI > 25
             }
           ]
@@ -120,15 +120,15 @@
           list: [
             {
               text: '1.Plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^',
-              isShownCondition: true
+              isShown: true
             },
             {
               text: '2.Plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^',
-              isShownCondition: false
+              isShown: false
             },
             {
               text: '3.Plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^',
-              isShownCondition: true
+              isShown: true
             }
           ]
         },
@@ -138,15 +138,15 @@
           list: [
             {
               text: '1.Room must be dark. Fresh air. Eat whatever you want ^_^',
-              isShownCondition: true
+              isShown: true
             },
             {
               text: '2.Room must be dark. Fresh air. Eat whatever you want ^_^',
-              isShownCondition: false
+              isShown: false
             },
             {
               text: '3.Room must be dark. Fresh air. Eat whatever you want ^_^',
-              isShownCondition: true
+              isShown: true
             }
           ]
         },
@@ -156,15 +156,15 @@
           list: [
             {
               text: '1.Do not eat 3h before sleep',
-              isShownCondition: true
+              isShown: true
             },
             {
               text: '2.Do not eat 3h before sleep',
-              isShownCondition: false
+              isShown: false
             },
             {
               text: '3.Do not eat 3h before sleep',
-              isShownCondition: true
+              isShown: true
             }
           ]
         }
@@ -183,15 +183,15 @@
           list: [
             {
               text: '1.Lifestyle.Do not eat 3h before sleep',
-              isShownCondition: true
+              isShown: true
             },
             {
               text: '2.Lifestyle.Do not eat 3h before sleep',
-              isShownCondition: false
+              isShown: false
             },
             {
               text: '3.Lifestyle.Do not eat 3h before sleep',
-              isShownCondition: true
+              isShown: true
             }
           ]
         },
@@ -201,15 +201,15 @@
           list: [
             {
               text: '“What’s the best workout plan?”  The one that you’ll actually stick with!',
-              isShownCondition: true
+              isShown: true
             },
             {
               text: '2.Sport.Do not eat 3h before sleep',
-              isShownCondition: false
+              isShown: false
             },
             {
               text: '3.Sport.Do not eat 3h before sleep',
-              isShownCondition: true
+              isShown: true
             }
           ]
         },
@@ -219,15 +219,15 @@
           list: [
             {
               text: '1.Best habits.Do not eat 3h before sleep',
-              isShownCondition: true
+              isShown: true
             },
             {
               text: '2.Best habits.Do not eat 3h before sleep',
-              isShownCondition: false
+              isShown: false
             },
             {
               text: '3.Best habits.Do not eat 3h before sleep',
-              isShownCondition: true
+              isShown: true
             }
           ]
         }
@@ -269,7 +269,7 @@
           list: [
             {
               text: self.data.nutrition.firstRec,
-              isShownCondition: true
+              isShown: true
             }
           ]
         },
@@ -279,7 +279,7 @@
           list: [
             {
               text: self.data.sleep.firstRec,
-              isShownCondition: true
+              isShown: true
             }
           ]
         },
@@ -289,7 +289,7 @@
           list: [
             {
               text: self.data.nutrition.firstRec,
-              isShownCondition: true
+              isShown: true
             }
           ]
         }
@@ -317,26 +317,26 @@
                                       //Time
       var time = self.data.nutrition.recommendations[0];
 
-        time.list[0].isShownCondition = updatedUser.BMI < 19;
-        time.list[1].isShownCondition = updatedUser.BMI > 25;
-        time.list[2].isShownCondition = updatedUser.nutrition.weight > 80;
-        time.list[3].isShownCondition = updatedUser.BMI > 25;
-        time.list[4].isShownCondition = updatedUser.BMI > 19 && updatedUser.BMI < 25;
+        time.list[0].isShown = updatedUser.BMI < 19;
+        time.list[1].isShown = updatedUser.BMI > 25;
+        time.list[2].isShown = updatedUser.nutrition.weight > 80;
+        time.list[3].isShown = updatedUser.BMI > 25;
+        time.list[4].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
 
       var quality = self.data.nutrition.recommendations[1];
-        quality.list[0].isShownCondition = updatedUser.nutrition.isControl;
-        quality.list[1].isShownCondition = updatedUser.BMI > 19 && updatedUser.BMI < 25;
-        quality.list[2].isShownCondition = updatedUser.nutrition.isControl;
-        quality.list[3].isShownCondition = updatedUser.nutrition.isControl;
-        quality.list[4].isShownCondition = updatedUser.nutrition.isControl;
-        quality.list[5].isShownCondition = !updatedUser.nutrition.isControl;
-        quality.list[6].isShownCondition = updatedUser.nutrition.isVegan;
+        quality.list[0].isShown = updatedUser.nutrition.isControl;
+        quality.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
+        quality.list[2].isShown = updatedUser.nutrition.isControl;
+        quality.list[3].isShown = updatedUser.nutrition.isControl;
+        quality.list[4].isShown = updatedUser.nutrition.isControl;
+        quality.list[5].isShown = !updatedUser.nutrition.isControl;
+        quality.list[6].isShown = updatedUser.nutrition.isVegan;
 
       var amount = self.data.nutrition.recommendations[2];
-        amount.list[0].isShownCondition = isNaN(updatedUser.BMI) || updatedUser.BMI === 0;
-        amount.list[1].isShownCondition = updatedUser.BMI > 19 && updatedUser.BMI < 25;
-        amount.list[2].isShownCondition = updatedUser.BMI > 25;
-        amount.list[3].isShownCondition = updatedUser.BMI > 25;
+        amount.list[0].isShown = isNaN(updatedUser.BMI) || updatedUser.BMI === 0;
+        amount.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
+        amount.list[2].isShown = updatedUser.BMI > 25;
+        amount.list[3].isShown = updatedUser.BMI > 25;
 
     return self.data;
     }
