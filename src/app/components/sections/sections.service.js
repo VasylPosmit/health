@@ -115,38 +115,54 @@
       mdIcon: 'local_hotel',
       recommendations: [
         {
-          label: 'Mode',
+          label: 'Schedules',
           header: 'When to eat',
           list: [
             {
-              text: '1.Plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^',
+              text: 'Please, provide some information about your sleep to get more precise recommendation. In general: plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^',
               isShown: true
             },
             {
-              text: '2.Plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^',
+              text: 'Go to sleep and get up at the same time every day. Sticking to a consistent sleep-wake schedule helps set your body’s internal clock and optimize the quality of your sleep. Start by setting a realistic bedtime that will work with your lifestyle.',
               isShown: false
             },
             {
-              text: '3.Plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^',
-              isShown: true
+              text: 'Avoid sleeping in — even on weekends or nights you’ve stayed up late. It can be tempting to sleep in on weekends, but even a couple hour difference in wake time disrupts your internal clock. The more your weekend/weekday sleep schedules differ, the worse the jetlag-like symptoms you’ll experience. If you need to make up for a late night, opt for a daytime nap rather than sleeping in.',
+              isShown: false
+            },
+            {
+              text: 'Well done! We should rather learn from you.',
+              isShown: false
             }
           ]
         },
         {
-          label: 'Conditions',
-          header: 'What to eat',
+          label: 'Environment',
+          header: 'Environment for sleep',
           list: [
             {
-              text: '1.Room must be dark. Fresh air. Eat whatever you want ^_^',
+              text: 'Avoid bright screens within 2 hours of your bedtime. All nighttime light can interfere with sleep and your body’s rhythms, but the blue light emitted by electronics is especially disruptive. This includes the screen on your phone, tablet, computer, or TV. You can minimize the impact by using devices with smaller screens, turning the brightness down, or using light-altering software such as f.lux that adjusts the color of your display.',
               isShown: true
             },
             {
-              text: '2.Room must be dark. Fresh air. Eat whatever you want ^_^',
+              text: 'When it’s time to sleep, make sure the room is dark. The darker it is, the better you’ll sleep. Use heavy curtains or shades to block light from windows, or try a sleep mask to cover your eyes. Also consider covering up or moving any electronics that emit light. Even the red numbers on a digital clock can disrupt sleep.',
               isShown: false
             },
             {
-              text: '3.Room must be dark. Fresh air. Eat whatever you want ^_^',
+              text: 'Expose yourself to bright sunlight in the morning. The closer to the time you get up, the better. Have your coffee outside, for example, or eat breakfast by a sunny window. Skip the sunglasses! The light on your face will help you wake up and feel more alert.',
               isShown: true
+            },
+            {
+              text: 'Keep noise down. If you can’t avoid or eliminate noise from barking dogs, loud neighbors, city traffic, or other people in your household, try masking it with a fan, recordings of soothing sounds, or white noise. You can buy a special sound machine or generate your own white noise by setting your radio between stations. Earplugs may also help.',
+              isShown: false
+            },
+            {
+              text: 'Keep your room cool. The temperature of your bedroom also affects sleep. Most people sleep best in a slightly cool room (around 65° F or 18° C) with adequate ventilation. A bedroom that is too hot or too cold can interfere with quality sleep.',
+              isShown: false
+            },
+            {
+              text: 'Make sure your bed is comfortable. Your bed covers should leave you enough room to stretch and turn comfortably without becoming tangled. If you often wake up with a sore back or an aching neck, you may need to invest in a new mattress or a try a different pillow. Experiment with different levels of mattress firmness, foam or egg crate toppers, and pillows that provide more or less support.',
+              isShown: false
             }
           ]
         },
@@ -155,15 +171,23 @@
           header: 'Best sleep habits',
           list: [
             {
-              text: '1.Do not eat 3h before sleep',
+              text: 'Reserve your bed for sleeping and sex',
               isShown: true
             },
             {
-              text: '2.Do not eat 3h before sleep',
-              isShown: false
+              text: 'Cut down on caffeine. You might be surprised to know that caffeine can cause sleep problems up to ten to twelve hours after drinking it! Consider eliminating caffeine after lunch or cutting back your overall intake.',
+              isShown: true
             },
             {
-              text: '3.Do not eat 3h before sleep',
+              text: 'Stay away from big meals at night. Try to make dinnertime earlier in the evening, and avoid heavy, rich foods within two hours of bed. Fatty foods take a lot of work for your stomach to digest and may keep you up. Also be cautious when it comes to spicy or acidic foods in the evening, as they can cause stomach trouble and heartburn.',
+              isShown: true
+            },
+                        {
+              text: 'Avoid alcohol before bed. While a nightcap may help you relax and fall asleep faster, it interferes with your sleep cycle once you’re out. To optimize the quality of your sleep, stay away from alcohol in the hours leading up to your bedtime.',
+              isShown: true
+            },
+            {
+              text: 'Avoid drinking too many liquids in the evening. Drinking lots of water, juice, tea, or other fluids may result in frequent bathroom trips throughout the night. Caffeinated drinks, which act as diuretics, only make things worse.',
               isShown: true
             }
           ]
@@ -255,8 +279,8 @@
           header: 'Best activity habits',
           list: self.concat('activity')
         }
-        ]
-      };
+      ]
+    };
     self.data.default = {
       name: 'Health guide (default state)',
       state:'nutrition',
@@ -300,7 +324,7 @@
       self.data.nutrition,
       self.data.sleep,
       self.data.activity,
-      self.data.you,
+      self.data.you
     ];
 
     function concat(dataKey){
@@ -314,8 +338,10 @@
 
     function getData(updatedUser){
       //not DRY
-                                      //Time
-      var time = self.data.nutrition.recommendations[0];
+      //Nutrition
+      var time    = self.data.nutrition.recommendations[0];
+      var quality = self.data.nutrition.recommendations[1];
+      var amount  = self.data.nutrition.recommendations[2];
 
         time.list[0].isShown = updatedUser.BMI < 19;
         time.list[1].isShown = updatedUser.BMI > 25;
@@ -323,7 +349,6 @@
         time.list[3].isShown = updatedUser.BMI > 25;
         time.list[4].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
 
-      var quality = self.data.nutrition.recommendations[1];
         quality.list[0].isShown = updatedUser.nutrition.isControl;
         quality.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
         quality.list[2].isShown = updatedUser.nutrition.isControl;
@@ -332,12 +357,56 @@
         quality.list[5].isShown = !updatedUser.nutrition.isControl;
         quality.list[6].isShown = updatedUser.nutrition.isVegan;
 
-      var amount = self.data.nutrition.recommendations[2];
         amount.list[0].isShown = isNaN(updatedUser.BMI) || updatedUser.BMI === 0;
         amount.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
         amount.list[2].isShown = updatedUser.BMI > 25;
         amount.list[3].isShown = updatedUser.BMI > 25;
+    //Sleep
+      var schedules   = self.data.sleep.recommendations[0];
+      var environment = self.data.sleep.recommendations[1];
+      var habit       = self.data.sleep.recommendations[2];
 
+        schedules.list[0].isShown = false;
+        schedules.list[1].isShown = updatedUser.sleep.hasRegim === false;
+        schedules.list[2].isShown = updatedUser.sleep.hasHabit === false;
+        schedules.list[3].isShown = updatedUser.sleep.hasRegim &&
+                                    updatedUser.sleep.hasHabit &&
+                                    updatedUser.user.sleepDuration > 6 &&
+                                    updatedUser.user.sleepDuration < 8.5;
+
+        environment.list[0].isShown = updatedUser.sleep.lightOff;
+        environment.list[1].isShown = updatedUser.sleep.lightOff;
+        environment.list[2].isShown = true;
+        environment.list[3].isShown = !updatedUser.sleep.hasNoNoise;
+        environment.list[4].isShown = !updatedUser.sleep.isFreshAir;
+        environment.list[5].isShown = !updatedUser.sleep.bedIsComfortable;
+
+        habit.list[0].isShown = true;
+        habit.list[1].isShown = true;
+        habit.list[2].isShown = true;
+        habit.list[3].isShown = true;
+        habit.list[4].isShown = true;
+
+    //ACTIVITY
+      // var lifestyle = self.data.activity.recommendations[0];
+      // var sport     = self.data.activity.recommendations[1];
+
+      //   lifestyle.list[0].isShown = updatedUser.nutrition.isControl;
+      //   lifestyle.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
+      //   lifestyle.list[2].isShown = updatedUser.nutrition.isControl;
+      //   lifestyle.list[3].isShown = updatedUser.nutrition.isControl;
+      //   lifestyle.list[4].isShown = updatedUser.nutrition.isControl;
+      //   lifestyle.list[5].isShown = !updatedUser.nutrition.isControl;
+      //   lifestyle.list[6].isShown = updatedUser.nutrition.isVegan;
+
+      //   sport.list[0].isShown = updatedUser.nutrition.isControl;
+      //   sport.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
+      //   sport.list[2].isShown = updatedUser.nutrition.isControl;
+      //   sport.list[3].isShown = updatedUser.nutrition.isControl;
+      //   sport.list[4].isShown = updatedUser.nutrition.isControl;
+      //   sport.list[5].isShown = !updatedUser.nutrition.isControl;
+      //   sport.list[6].isShown = updatedUser.nutrition.isVegan;
+      console.log(self.data);
     return self.data;
     }
   }

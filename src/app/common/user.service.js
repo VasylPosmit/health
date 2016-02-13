@@ -26,10 +26,12 @@
       sleep: {
         start: null,
         end: null,
-        regim: null,
-        habbit: null,
-        light: null,
-        air: null
+        hasRegim: null,
+        hasHabit: null,
+        lightOff: null,
+        isFreshAir: null,
+        hasNoNoise: null,
+        bedIsComfortable: null
       },
       activity: {
         workposition: null,
@@ -41,14 +43,16 @@
       //to calculate
       BMI: null,
       BMR: null,
-      dailyCalories: null
+      dailyCalories: null,
+      sleepDuration: null
     };
 
     function getUser(){
       //all formulas fall here
       self.user.BMI = Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
-
       self.user.BMR = self.calculateBMR();
+      self.user.sleepDuration = (self.user.sleep.end - self.user.sleep.start)/3600000 + 24;
+
       console.log(self.user);
       return self.user;
     }
@@ -62,5 +66,4 @@
       }
     }
   }
-
 })();
