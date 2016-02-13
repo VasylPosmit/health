@@ -167,7 +167,7 @@
           ]
         },
         {
-          label: 'Habits',
+          label: 'best habits',
           header: 'Best sleep habits',
           list: [
             {
@@ -175,19 +175,19 @@
               isShown: true
             },
             {
-              text: 'Cut down on caffeine. You might be surprised to know that caffeine can cause sleep problems up to ten to twelve hours after drinking it! Consider eliminating caffeine after lunch or cutting back your overall intake.',
+              text: 'Cut down on caffeine. You might be surprised to know that caffeine can cause sleep problems up to ten to twelve hours after drinking it! Consider eliminating caffeine after lunch or cutting back your overall intake',
               isShown: true
             },
             {
-              text: 'Stay away from big meals at night. Try to make dinnertime earlier in the evening, and avoid heavy, rich foods within two hours of bed. Fatty foods take a lot of work for your stomach to digest and may keep you up. Also be cautious when it comes to spicy or acidic foods in the evening, as they can cause stomach trouble and heartburn.',
-              isShown: true
-            },
-                        {
-              text: 'Avoid alcohol before bed. While a nightcap may help you relax and fall asleep faster, it interferes with your sleep cycle once you’re out. To optimize the quality of your sleep, stay away from alcohol in the hours leading up to your bedtime.',
+              text: 'Stay away from big meals at night. Try to make dinnertime earlier in the evening, and avoid heavy, rich foods within two hours of bed. Fatty foods take a lot of work for your stomach to digest and may keep you up. Also be cautious when it comes to spicy or acidic foods in the evening, as they can cause stomach trouble and heartburn',
               isShown: true
             },
             {
-              text: 'Avoid drinking too many liquids in the evening. Drinking lots of water, juice, tea, or other fluids may result in frequent bathroom trips throughout the night. Caffeinated drinks, which act as diuretics, only make things worse.',
+              text: 'Avoid alcohol before bed. While a nightcap may help you relax and fall asleep faster, it interferes with your sleep cycle once you’re out. To optimize the quality of your sleep, stay away from alcohol in the hours leading up to your bedtime',
+              isShown: true
+            },
+            {
+              text: 'Avoid drinking too many liquids in the evening. Drinking lots of water, juice, tea, or other fluids may result in frequent bathroom trips throughout the night. Caffeinated drinks, which act as diuretics, only make things worse',
               isShown: true
             }
           ]
