@@ -10,7 +10,7 @@
 
     self.getUser = getUser;
     self.calculateBMR = calculateBMR;
-
+    self.calculateBMI = calculateBMI;
     self.user = {
       name : null,
       isMale: null,
@@ -53,14 +53,19 @@
 
     function getUser(){
       //all formulas fall here
-      self.user.BMI = Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
+      self.user.BMI = self.calculateBMI();
       self.user.BMR = self.calculateBMR();
       self.user.sleepDuration = (self.user.sleep.end - self.user.sleep.start)/3600000 + 24;
 
       console.log(self.user);
       return self.user;
     }
-    function calculateBMR(){
+
+    function calculateBMI() {
+      return Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
+    }
+
+    function calculateBMR() {
       if (self.user.isMale !== null && self.user.age) {
         if (self.user.isMale) {
           return self.user.nutrition.weight*13.75 + self.user.nutrition.height*5 - self.user.age*6.75 +66.5;
@@ -68,6 +73,7 @@
           return self.user.nutrition.weight*9.56 + self.user.nutrition.height*1.85 - self.user.age*4.68 +665.1;
         }
       }
+
     }
   }
 })();

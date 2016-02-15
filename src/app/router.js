@@ -69,7 +69,7 @@
 
       function calculate(){
         self.user = userService.getUser();
-        self.data = sectionsService.getData(self.user)[self.state];
+        self.data = sectionsService.getData()[self.state];
       }
     };
   }

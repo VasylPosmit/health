@@ -11,7 +11,7 @@
     self.concat = concat;
 
     self.getData = getData;
-    self.user = userService.user;
+
     self.data = {};
     self.data.user = userService.user;
 
@@ -347,52 +347,52 @@
       return fullList;
     }
 
-    function getData(updatedUser){
+    function getData(){
       //not DRY
       //Nutrition
       var time    = self.data.nutrition.recommendations[0];
       var quality = self.data.nutrition.recommendations[1];
       var amount  = self.data.nutrition.recommendations[2];
 
-        time.list[0].isShown = updatedUser.BMI < 19;
-        time.list[1].isShown = updatedUser.BMI > 25;
-        time.list[2].isShown = updatedUser.nutrition.weight > 80;
-        time.list[3].isShown = updatedUser.BMI > 25;
-        time.list[4].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
+        time.list[0].isShown = userService.user.BMI < 19;
+        time.list[1].isShown = userService.user.BMI > 25;
+        time.list[2].isShown = userService.user.nutrition.weight > 80;
+        time.list[3].isShown = userService.user.BMI > 25;
+        time.list[4].isShown = userService.user.BMI > 19 && userService.user.BMI < 25;
 
-        quality.list[0].isShown = updatedUser.nutrition.isControl;
-        quality.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
-        quality.list[2].isShown = updatedUser.nutrition.isControl;
-        quality.list[3].isShown = updatedUser.nutrition.isControl;
-        quality.list[4].isShown = updatedUser.nutrition.isControl;
-        quality.list[5].isShown = !updatedUser.nutrition.isControl;
-        quality.list[6].isShown = updatedUser.nutrition.isVegan;
+        quality.list[0].isShown = userService.user.nutrition.isControl;
+        quality.list[1].isShown = userService.user.BMI > 19 && userService.user.BMI < 25;
+        quality.list[2].isShown = userService.user.nutrition.isControl;
+        quality.list[3].isShown = userService.user.nutrition.isControl;
+        quality.list[4].isShown = userService.user.nutrition.isControl;
+        quality.list[5].isShown = !userService.user.nutrition.isControl;
+        quality.list[6].isShown = userService.user.nutrition.isVegan;
 
-        amount.list[0].isShown = isNaN(updatedUser.BMI) || updatedUser.BMI === 0;
-        amount.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
-        amount.list[2].isShown = updatedUser.BMI > 25;
-        amount.list[3].isShown = updatedUser.BMI > 25;
+        amount.list[0].isShown = isNaN(userService.user.BMI) || userService.user.BMI === 0;
+        amount.list[1].isShown = userService.user.BMI > 19 && userService.user.BMI < 25;
+        amount.list[2].isShown = userService.user.BMI > 25;
+        amount.list[3].isShown = userService.user.BMI > 25;
     //Sleep
       var schedules   = self.data.sleep.recommendations[0];
       var environment = self.data.sleep.recommendations[1];
       var habit       = self.data.sleep.recommendations[2];
 
         schedules.list[0].isShown = false;
-        schedules.list[1].isShown = updatedUser.sleep.hasRegim === false;
-        schedules.list[2].isShown = updatedUser.sleep.hasHabit === false;
-        schedules.list[3].isShown = updatedUser.sleep.hasRegim &&
-                                    updatedUser.sleep.hasHabit &&
-                                    updatedUser.user.sleepDuration > 6 &&
-                                    updatedUser.user.sleepDuration < 8.5;
+        schedules.list[1].isShown = userService.user.sleep.hasRegim === false;
+        schedules.list[2].isShown = userService.user.sleep.hasHabit === false;
+        schedules.list[3].isShown = userService.user.sleep.hasRegim &&
+                                    userService.user.sleep.hasHabit &&
+                                    userService.user.user.sleepDuration > 6 &&
+                                    userService.user.user.sleepDuration < 8.5;
 
-        environment.list[0].isShown = updatedUser.sleep.lightOff;
-        environment.list[1].isShown = updatedUser.sleep.lightOff;
+        environment.list[0].isShown = userService.user.sleep.lightOff;
+        environment.list[1].isShown = userService.user.sleep.lightOff;
         environment.list[2].isShown = true;
-        environment.list[3].isShown = !updatedUser.sleep.hasNoNoise;
-        environment.list[4].isShown = !updatedUser.sleep.isFreshAir;
-        environment.list[5].isShown = !updatedUser.sleep.bedIsComfortable;
+        environment.list[3].isShown = !userService.user.sleep.hasNoNoise;
+        environment.list[4].isShown = !userService.user.sleep.isFreshAir;
+        environment.list[5].isShown = !userService.user.sleep.bedIsComfortable;
 
-        habit.list[0].isShown = updatedUser.age > 17;
+        habit.list[0].isShown = userService.user.age > 17;
         habit.list[1].isShown = true;
         habit.list[2].isShown = true;
         habit.list[3].isShown = true;
@@ -402,23 +402,24 @@
       var lifestyle = self.data.activity.recommendations[0];
       var sport     = self.data.activity.recommendations[1];
 
-        lifestyle.list[0].isShown = !(updatedUser.BMI > 19 && updatedUser.BMI < 25 && updatedUser.activity.trainTimes > 2);
-        lifestyle.list[1].isShown = updatedUser.activity.walk < 5;
-        lifestyle.list[2].isShown = !updatedUser.activity.isWarmUp;
-        lifestyle.list[3].isShown = updatedUser.activity.walk < 3;
-        lifestyle.list[4].isShown = !updatedUser.activity.isDynamicWork;
+        lifestyle.list[0].isShown = !(userService.user.BMI > 19 && userService.user.BMI < 25 && userService.user.activity.trainTimes > 2);
+        lifestyle.list[1].isShown = userService.user.activity.walk < 5;
+        lifestyle.list[2].isShown = !userService.user.activity.isWarmUp;
+        lifestyle.list[3].isShown = userService.user.activity.walk < 3;
+        lifestyle.list[4].isShown = !userService.user.activity.isDynamicWork;
 
-        sport.list[0].isShown = !updatedUser.activity.isTrain;
-        sport.list[1].isShown = !updatedUser.activity.hasTrainWarmUp;
-        sport.list[2].isShown = updatedUser.activity.trainTimes < 2;
-        sport.list[3].isShown = updatedUser.activity.trainTimes > 3;
-        sport.list[4].isShown = updatedUser.activity.hasContraindications;
-        sport.list[5].isShown = updatedUser.age >60;
-        sport.list[6].isShown = updatedUser.age > 40 || updateUser.BMI > 25 || updatedUser.activity.hasContraindications;
-        sport.list[7].isShown = updatedUser.age >60 || updatedUser.activity.hasContraindications;
+        sport.list[0].isShown = !userService.user.activity.isTrain;
+        sport.list[1].isShown = !userService.user.activity.hasTrainWarmUp;
+        sport.list[2].isShown = userService.user.activity.trainTimes < 2;
+        sport.list[3].isShown = userService.user.activity.trainTimes > 3;
+        sport.list[4].isShown = userService.user.activity.hasContraindications;
+        sport.list[5].isShown = userService.user.age >60;
+        sport.list[6].isShown = userService.user.age > 40 || userService.user.BMI > 25 || userService.user.activity.hasContraindications;
+        sport.list[7].isShown = userService.user.age >60 || userService.user.activity.hasContraindications;
 
       console.log(self.data);
     return self.data;
     }
   }
 })();
+
