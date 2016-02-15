@@ -167,7 +167,7 @@
           ]
         },
         {
-          label: 'best habits',
+          label: 'Best Habits',
           header: 'Best sleep habits',
           list: [
             {
@@ -206,15 +206,19 @@
           header: 'When to eat',
           list: [
             {
-              text: '1.Lifestyle.Do not eat 3h before sleep',
+              text: 'Deciding your health goals will steer you towards the right type of physical activity and lifestyle for you.',
               isShown: true
             },
             {
-              text: '2.Lifestyle.Do not eat 3h before sleep',
+              text: 'Find the way to walk 6 km everyday. You may cycling to work instead of taking a bus or find more convenient parking place 1 km from your job place',
+              isShown: true
+            },
+            {
+              text: 'Do warm up at the morning is mush more effective than cup of coffee',
               isShown: false
             },
             {
-              text: '3.Lifestyle.Do not eat 3h before sleep',
+              text: 'Skip using elevator unless you need go up more than 10 floors. Going down is not count :-)',
               isShown: true
             }
           ]
@@ -224,39 +228,42 @@
           header: 'What to eat',
           list: [
             {
-              text: '“What’s the best workout plan?”  The one that you’ll actually stick with!',
+              text: '“What’s the best workout plan?”  The one that you’ll actually stick with! Enjoyment is the key to maintaining an exercise program',
               isShown: true
             },
             {
-              text: '2.Sport.Do not eat 3h before sleep',
+              text: 'Never ever ever ever forget to warm up.  Make sure to get your heart rate pumping and get your muscles warm or you’re just asking for injury.  If you’re strapped for time, cut short your workout, not your warm up.',
               isShown: false
             },
             {
-              text: '3.Sport.Do not eat 3h before sleep',
-              isShown: true
-            }
-          ]
-        },
-        {
-          label: 'Best habits',
-          header: 'Best sleep habits',
-          list: [
-            {
-              text: '1.Best habits.Do not eat 3h before sleep',
+              text: 'Adults need at least 150 minutes of moderate-intensity aerobic activity (i.e., brisk walking) every week and muscle-strengthening activities on 2 or more days a week that work all major muscle group (chest, legs, back, ABS, arms)',
               isShown: true
             },
             {
-              text: '2.Best habits.Do not eat 3h before sleep',
+              text: 'Have a FUN! ^_^',
+              isShown: true
+            },
+            {//hasContraindications
+              text: 'If you are an adult with a disability, regular physical activity can provide you with important health benefits, like a stronger heart, lungs, and muscles, improved mental health, and a better ability to do everyday tasks',
+              isShown: true
+            },
+            {//user.age > 65
+              text: 'As an older adult, regular physical activity is one of the most important things you can do for your health. It can prevent many of the health problems that seem to come with age. It also helps your muscles grow stronger so you can keep doing your day-to-day activities without becoming dependent on others. If you are generally fit, and have no limiting health conditions you should follow the same activity guidelines as young adults even you are 65 years or older',
               isShown: false
             },
-            {
-              text: '3.Best habits.Do not eat 3h before sleep',
-              isShown: true
+            {//user.age > 40 + BMI > 25 or hasContraindications
+              text: 'See your doctor for advice, support and a medical check-up before you start any new physical activity program. This is particularly important if you are over 40 years, overweight, haven’t exercised in a long time or suffer from a chronic medical condition.',
+              isShown: false
+            },
+            {//user.age > 65 or hasContraindications
+              text: 'Walking is an excellent form of exercise for people of all ages and abilities. Build activity slowly – start with a 20 minute walk then increase gradually. Try to walk at least three times per week',
+              isShown: false
             }
           ]
         }
       ]
     };
+
     self.data.you = {
       name: 'Your health',
       state:'You',
@@ -381,31 +388,32 @@
         environment.list[4].isShown = !updatedUser.sleep.isFreshAir;
         environment.list[5].isShown = !updatedUser.sleep.bedIsComfortable;
 
-        habit.list[0].isShown = true;
+        habit.list[0].isShown = updatedUser.age > 17;
         habit.list[1].isShown = true;
         habit.list[2].isShown = true;
         habit.list[3].isShown = true;
         habit.list[4].isShown = true;
 
-    //ACTIVITY
-      // var lifestyle = self.data.activity.recommendations[0];
-      // var sport     = self.data.activity.recommendations[1];
+    ACTIVITY
+      var lifestyle = self.data.activity.recommendations[0];
+      var sport     = self.data.activity.recommendations[1];
 
-      //   lifestyle.list[0].isShown = updatedUser.nutrition.isControl;
-      //   lifestyle.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
-      //   lifestyle.list[2].isShown = updatedUser.nutrition.isControl;
-      //   lifestyle.list[3].isShown = updatedUser.nutrition.isControl;
-      //   lifestyle.list[4].isShown = updatedUser.nutrition.isControl;
-      //   lifestyle.list[5].isShown = !updatedUser.nutrition.isControl;
-      //   lifestyle.list[6].isShown = updatedUser.nutrition.isVegan;
+        lifestyle.list[0].isShown = updatedUser.nutrition.isControl;
+        lifestyle.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
+        lifestyle.list[2].isShown = updatedUser.nutrition.isControl;
+        lifestyle.list[3].isShown = updatedUser.nutrition.isControl;
+        lifestyle.list[4].isShown = updatedUser.nutrition.isControl;
+        lifestyle.list[5].isShown = !updatedUser.nutrition.isControl;
+        lifestyle.list[6].isShown = updatedUser.nutrition.isVegan;
 
-      //   sport.list[0].isShown = updatedUser.nutrition.isControl;
-      //   sport.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
-      //   sport.list[2].isShown = updatedUser.nutrition.isControl;
-      //   sport.list[3].isShown = updatedUser.nutrition.isControl;
-      //   sport.list[4].isShown = updatedUser.nutrition.isControl;
-      //   sport.list[5].isShown = !updatedUser.nutrition.isControl;
-      //   sport.list[6].isShown = updatedUser.nutrition.isVegan;
+        sport.list[0].isShown = updatedUser.activity.isControl;
+        sport.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
+        sport.list[2].isShown = updatedUser.nutrition.isControl;
+        sport.list[3].isShown = updatedUser.nutrition.isControl;
+        sport.list[4].isShown = updatedUser.nutrition.isControl;
+        sport.list[5].isShown = !updatedUser.nutrition.isControl;
+        sport.list[6].isShown = updatedUser.nutrition.isVegan;
+
       console.log(self.data);
     return self.data;
     }

@@ -21,7 +21,9 @@
         height: null,
         heightIscm : true,
         isVegan: false,
-        isControl: false
+        isControl: false,
+        isControlCoffee: false,
+        isControlAlcohol: false
       },
       sleep: {
         start: null,
@@ -34,11 +36,13 @@
         bedIsComfortable: null
       },
       activity: {
-        workposition: null,
-        training: 'Yep',
+        isDynamicWork: null,
+        isTrain: null,
         trainTimes: null,
         walk: null,
-        contraindications: 'Fortunately, I have not'
+        hasContraindications: false,
+        isWarmUp: false,
+        hasTrainWarmUp: false
       },
       //to calculate
       BMI: null,

@@ -3,42 +3,41 @@ extends default.jade
 //- .md-icons smoking_rooms
 block input
   md-divider
-  div.input.md-whiteframe-z1
-    div.space
-      div(layout)
-        md-input-container.md-block(flex, flex-gt-sm='45')
-          label Name
-          input(ng-model='layout.user.name')
+  div(layout)
+    md-input-container.md-block(flex, flex-gt-sm='45')
+      label Name
+      input(ng-model='layout.user.name')
 
+  md-input-container.md-block()
+    label What is your movement during workday?
+    md-select(flex, flex-gt-sm='45', ng-model='layout.user.activity.isDynamicWork', aria-label= 'movement during workday')
+      md-option(ng-value="false") Sitting position mostly (work with computer)
+      md-option(ng-value="true") Dynamic (studying at the campus)
+      md-option(ng-value="true") Moving on your feet (manual work, officiant)
 
-      md-input-container.md-block()
-        label What is your movement during workday?
-        md-select(flex, flex-gt-sm='45', ng-model='layout.user.activity.workposition', aria-label= 'layout.user.activity.workposition')
-          md-option Sitting position mostly (working with computer)
-          md-option Static ()
-          md-option Dynamic (studying at the campus)
-          md-option Moving on your feet (manual work, officiant)
-
+  div(layout-sm="column", layout="row")
+    div
+      label Do you train?
+      md-switch.md-primary(layout="row", ng-model="layout.user.activity.isTrain")
+        label(ng-show="layout.user.activity.isTrain") Yep
+        label(ng-show="!layout.user.activity.isTrain && layout.user.activity.isTrain !== null") Nope
+    md-radio-group.ng-hide(flex-offset-gt-sm= "5", layout="column", ng-model="layout.user.activity.trainTimes", ng-hide="layout.user.activity.isTrain === false")
+      label How many times per week?
       div(layout-sm="column", layout="row")
-        div
-          label Do you training?
-          md-switch.md-primary(ng-model="layout.user.activity.training", ng-true-value="'Yep'", ng-false-value= "'Nope'")
-            | {{layout.user.activity.training}}
+        for i in [1, 2, 3, ">4"]
+          md-radio-button.md-primary(value= i)= i
 
-        md-radio-group.ng-hide(flex-offset-gt-sm= "5", layout="column", ng-model="layout.user.activity.trainTimes", ng-hide="layout.user.activity.training === 'Nope'", ng-disabled= )
-          label How many time per week?
-          div(layout-sm="column", layout="row")
-            for i in [1, 2, 3, ">4"]
-              md-radio-button.md-primary(value= i)= i
+  md-radio-group(layout="column", ng-model="layout.user.activity.walk")
+    label How much do you walk everyday?
+    div(layout-sm="column", layout="row")
+      md-radio-button.md-primary(value= 2) 2 km or less
+      md-radio-button.md-primary(value= 4) 2-5 km
+      md-radio-button.md-primary(value= 6) 6+ km
 
-      md-radio-group(layout="column", ng-model="layout.user.activity.walk")
-          label How much do you walk everyday?
-          div(layout-sm="column", layout="row")
-            for i in ['<2 km', '2-5 km', ">6 km"]
-              md-radio-button.md-primary(value= i)= i
-
-      label() Medical contraindications to sport
-      md-switch.md-primary(ng-model="layout.user.activity.contraindications", ng-true-value="'Unfortunately, I have'", ng-false-value= "'Fortunately, I have not'")
-          | {{layout.user.activity.contraindications}}
-
-
+  label() Medical contraindications to sport
+  md-switch.md-primary(ng-model="layout.user.activity.hasContraindications", ng-false-value= "''")
+    label(ng-show="layout.user.activity.hasContraindications") Unfortunately, I have
+    label(ng-show="!layout.user.activity.hasContraindications") Fortunately, I have not
+  h3 Activity checklist
+    md-checkbox.md-primary(ng-model='layout.user.activity.isWarmUp') I do warm up exercise everyday
+    md-checkbox.md-primary(ng-model='layout.user.activity.hasTrainWarmUp') I always do warm up before training
