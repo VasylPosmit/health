@@ -3,6 +3,7 @@ md-content.content(flex)
   kil-section(statedata='layout.data')
   md-divider
   h2 {{layout.data.name}} Input Block
+    //- h2 is not a md- element so md-tooltip works incorrectly
     md-tooltip(md-direction="top") Please, answer few questions to get recommendations right for you
   block input
     h3 Hello from default state

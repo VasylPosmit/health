@@ -14,12 +14,14 @@ block input
       input(type='time', ng-model='layout.user.sleep.end', aria-label= 'wake up time')
   md-input-container.md-block()
     label Wake up habit
-    md-select(flex, flex-gt-sm='45', ng-model='layout.user.sleep.regim', aria-label= 'layout.user.sleep.regim')
-      md-option I wake up at the same time each day
-      md-option I wake up at the same time at working days
-      md-option I am not bothered by time I wake up
+    md-select(flex, flex-gt-sm='45', ng-model='layout.user.sleep.hasHabit', aria-label= 'does have sleep habbit')
+      md-option(ng-value= "true") I wake up at the same time each day
+      md-option(ng-value= "false") I wake up at the same time at working days
+      md-option(ng-value= "false") I am not bothered by time I wake up
   h3 Sleep checklist
-  md-checkbox.md-primary(ng-model='layout.user.sleep.habbit') I wake up at the same time each day
-  md-checkbox.md-primary(ng-model='layout.user.sleep.light') I sleep at the totally dark room
-  md-checkbox.md-primary(ng-model='layout.user.sleep.air') I sleep in well-conditioned room
+  md-checkbox.md-primary(ng-model='layout.user.sleep.hasRegim') I wake up at the same time each day
+  md-checkbox.md-primary(ng-model='layout.user.sleep.lightOff') I sleep at the totally dark room
+  md-checkbox.md-primary(ng-model='layout.user.sleep.isFreshAir') I sleep in well-conditioned room
+  md-checkbox.md-primary(ng-model='layout.user.sleep.hasNoNoise') I sleep silent room
+  md-checkbox.md-primary(ng-model='layout.user.sleep.bedIsComfortable') I sleep at comfortable bed
   md-divider
