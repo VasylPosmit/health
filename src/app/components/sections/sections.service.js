@@ -203,7 +203,7 @@
       recommendations: [
         {
           label: 'Lifestyle',
-          header: 'When to eat',
+          header: 'Life habits make you healthier',
           list: [
             {
               text: 'Deciding your health goals will steer you towards the right type of physical activity and lifestyle for you.',
@@ -211,7 +211,7 @@
             },
             {
               text: 'Find the way to walk 6 km everyday. You may cycling to work instead of taking a bus or find more convenient parking place 1 km from your job place',
-              isShown: true
+              isShown: false
             },
             {
               text: 'Do warm up at the morning is mush more effective than cup of coffee',
@@ -219,17 +219,21 @@
             },
             {
               text: 'Skip using elevator unless you need go up more than 10 floors. Going down is not count :-)',
-              isShown: true
+              isShown: false
+            },
+            {
+              text: 'Split your work into chunks between 30 and 60 minutes. Do light exercises at the brakes between chunks. This habit just increase your overall productivity',
+              isShown: false
             }
           ]
         },
         {
           label: 'Sport',
-          header: 'What to eat',
+          header: 'How to do sport',
           list: [
             {
               text: '“What’s the best workout plan?”  The one that you’ll actually stick with! Enjoyment is the key to maintaining an exercise program',
-              isShown: true
+              isShown: false
             },
             {
               text: 'Never ever ever ever forget to warm up.  Make sure to get your heart rate pumping and get your muscles warm or you’re just asking for injury.  If you’re strapped for time, cut short your workout, not your warm up.',
@@ -237,25 +241,25 @@
             },
             {
               text: 'Adults need at least 150 minutes of moderate-intensity aerobic activity (i.e., brisk walking) every week and muscle-strengthening activities on 2 or more days a week that work all major muscle group (chest, legs, back, ABS, arms)',
-              isShown: true
+              isShown: false
             },
             {
               text: 'Have a FUN! ^_^',
               isShown: true
             },
-            {//hasContraindications
+            {
               text: 'If you are an adult with a disability, regular physical activity can provide you with important health benefits, like a stronger heart, lungs, and muscles, improved mental health, and a better ability to do everyday tasks',
-              isShown: true
+              isShown: false
             },
-            {//user.age > 65
+            {
               text: 'As an older adult, regular physical activity is one of the most important things you can do for your health. It can prevent many of the health problems that seem to come with age. It also helps your muscles grow stronger so you can keep doing your day-to-day activities without becoming dependent on others. If you are generally fit, and have no limiting health conditions you should follow the same activity guidelines as young adults even you are 65 years or older',
               isShown: false
             },
-            {//user.age > 40 + BMI > 25 or hasContraindications
+            {
               text: 'See your doctor for advice, support and a medical check-up before you start any new physical activity program. This is particularly important if you are over 40 years, overweight, haven’t exercised in a long time or suffer from a chronic medical condition.',
               isShown: false
             },
-            {//user.age > 65 or hasContraindications
+            {
               text: 'Walking is an excellent form of exercise for people of all ages and abilities. Build activity slowly – start with a 20 minute walk then increase gradually. Try to walk at least three times per week',
               isShown: false
             }
@@ -394,25 +398,24 @@
         habit.list[3].isShown = true;
         habit.list[4].isShown = true;
 
-    ACTIVITY
+    //ACTIVITY
       var lifestyle = self.data.activity.recommendations[0];
       var sport     = self.data.activity.recommendations[1];
 
-        lifestyle.list[0].isShown = updatedUser.nutrition.isControl;
-        lifestyle.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
-        lifestyle.list[2].isShown = updatedUser.nutrition.isControl;
-        lifestyle.list[3].isShown = updatedUser.nutrition.isControl;
-        lifestyle.list[4].isShown = updatedUser.nutrition.isControl;
-        lifestyle.list[5].isShown = !updatedUser.nutrition.isControl;
-        lifestyle.list[6].isShown = updatedUser.nutrition.isVegan;
+        lifestyle.list[0].isShown = !(updatedUser.BMI > 19 && updatedUser.BMI < 25 && updatedUser.activity.trainTimes > 2);
+        lifestyle.list[1].isShown = updatedUser.activity.walk < 5;
+        lifestyle.list[2].isShown = !updatedUser.activity.isWarmUp;
+        lifestyle.list[3].isShown = updatedUser.activity.walk < 3;
+        lifestyle.list[4].isShown = !updatedUser.activity.isDynamicWork;
 
-        sport.list[0].isShown = updatedUser.activity.isControl;
-        sport.list[1].isShown = updatedUser.BMI > 19 && updatedUser.BMI < 25;
-        sport.list[2].isShown = updatedUser.nutrition.isControl;
-        sport.list[3].isShown = updatedUser.nutrition.isControl;
-        sport.list[4].isShown = updatedUser.nutrition.isControl;
-        sport.list[5].isShown = !updatedUser.nutrition.isControl;
-        sport.list[6].isShown = updatedUser.nutrition.isVegan;
+        sport.list[0].isShown = !updatedUser.activity.isTrain;
+        sport.list[1].isShown = !updatedUser.activity.hasTrainWarmUp;
+        sport.list[2].isShown = updatedUser.activity.trainTimes < 2;
+        sport.list[3].isShown = updatedUser.activity.trainTimes > 3;
+        sport.list[4].isShown = updatedUser.activity.hasContraindications;
+        sport.list[5].isShown = updatedUser.age >60;
+        sport.list[6].isShown = updatedUser.age > 40 || updateUser.BMI > 25 || updatedUser.activity.hasContraindications;
+        sport.list[7].isShown = updatedUser.age >60 || updatedUser.activity.hasContraindications;
 
       console.log(self.data);
     return self.data;

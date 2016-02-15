@@ -37,7 +37,7 @@
       },
       activity: {
         isDynamicWork: null,
-        isTrain: null,
+        isTrain: false,
         trainTimes: null,
         walk: null,
         hasContraindications: false,

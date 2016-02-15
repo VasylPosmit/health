@@ -24,8 +24,10 @@ block input
     md-radio-group.ng-hide(flex-offset-gt-sm= "5", layout="column", ng-model="layout.user.activity.trainTimes", ng-hide="layout.user.activity.isTrain === false")
       label How many times per week?
       div(layout-sm="column", layout="row")
-        for i in [1, 2, 3, ">4"]
-          md-radio-button.md-primary(value= i)= i
+        md-radio-button.md-primary(value= 1) once a week
+        md-radio-button.md-primary(value= 2) twice
+        md-radio-button.md-primary(value= 3) 3 times
+        md-radio-button.md-primary(value= 4) 4 or more
 
   md-radio-group(layout="column", ng-model="layout.user.activity.walk")
     label How much do you walk everyday?
