@@ -8,6 +8,14 @@
 }
 
 md-toolbar {
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
   h1, h2, h3, h4 {
     margin: auto;
   }
@@ -19,7 +27,6 @@ md-toolbar {
     font-size: 1.150em;
     font-weight: 400;
   }
-  // .md-default-theme {
-  //   background-color: black;
-  // }
 }
+
+

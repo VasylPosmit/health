@@ -2,8 +2,10 @@ md-toolbar.md-whiteframe-z1(layout)
   md-button.menu(hide-gt-md, ng-click='layout.toggleSideNav()', aria-label='Show User List')
     md-icon(md-svg-icon='menu')
       md-tooltip(md-direction='right') Navigation
-  h3(hide, show-gt-md)  Health guide > {{layout.data.name}}
-  h3(hide-gt-md) Health guide
+  h3(hide, show-gt-md)
+    a(ng-href= "/") Health guide > {{layout.data.name}}
+  h3(hide-gt-md)
+    a(ng-href= "/") Health guide
   .icons-group(layout, layout-align= "space-between center")
     i.material-icons(flex) account_circle
     p(ng-bind= "layout.user.age")
