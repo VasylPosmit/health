@@ -5,7 +5,7 @@
 // bower:scss
 // endbower
 
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic,300italic);
 
 @font-face {
   font-family: 'Material Icons';
@@ -19,12 +19,15 @@
        url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
 }
 
+$primary-color: #009688;  // teal 500
+$accent-color : #ffca28;  // amber 400
+
 [ng-cloak], .ng-cloak {
   display: none !important;
 }
 
 .material-icons {
-    font-family: 'Material Icons';
+  font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
   font-size: 24px;  /* Preferred icon size */
