@@ -7,7 +7,8 @@ div(ng-cloak)
       |Your Body mass index is {{layout.user.BMI}}. You are slim (<19), fit (19-25) or overweight (>25)
     p(ng-show="layout.user.BMR")
       | Your Basal metabolic rate is {{layout.user.BMR}}. You need {{layout.user.BMR}} calories per day just to maintain basic body functions.
-    h2 {{layout.data.name}} recommendations for you {{layout.user.name}}
+    h2(ng-show="layout.user.name === null") Recommendations
+    h2(ng-show="layout.user.name") {{layout.data.name}} recommendations for {{layout.user.name}}
     md-tabs.md-primary(md-dynamic-height, md-border-bottom, md-swipe-content)
       md-tab(ng-repeat='recommendations in layout.data.recommendations', label='{{recommendations.label}}')
         md-content.md-padding

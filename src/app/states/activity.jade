@@ -6,7 +6,7 @@ block input
   div(layout)
     md-input-container.md-block(flex, flex-gt-sm='45')
       label Name
-      input(ng-model='layout.user.name')
+      input(ng-model='layout.user.name', ng-model-options="{ updateOn: 'blur' }")
 
   md-input-container.md-block()
     label What is your movement during workday?
