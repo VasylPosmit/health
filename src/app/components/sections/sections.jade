@@ -1,7 +1,9 @@
 
 h3(hide-gt-md) Health guide > {{statedata.name}}
 div(layout)
-  md-icon.avatar(md-svg-icon='{{statedata.icon}}')
+  //- md-icon.avatar(md-svg-icon='{{statedata.icon}}')
+  i.material-icons.main-icon(ng-bind="statedata.mdIcon")
   h1(flex-offset='5', ng-bind="statedata.name")
-h3(ng-bind="statedata.firstRec")
+h3.single-recomendation(ng-bind="statedata.firstRec")
+  md-tooltip(md-direction="bottom") Yes, you can!
 

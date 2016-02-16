@@ -1,6 +1,16 @@
-md-toolbar.md-whiteframe-z1(layout='row')
+md-toolbar.md-whiteframe-z1(layout)
   md-button.menu(hide-gt-md, ng-click='layout.toggleSideNav()', aria-label='Show User List')
     md-icon(md-svg-icon='menu')
       md-tooltip(md-direction='right') Navigation
   h3(hide, show-gt-md)  Health guide > {{layout.data.name}}
   h3(hide-gt-md) Health guide
+  .icons-group(layout, layout-align= "space-between center")
+    i.material-icons(flex) account_circle
+    p(ng-bind= "layout.user.age")
+    .container(ng-show="layout.user.isMale !== null")
+      p(ng-show= "layout.user.isMale") M
+      p(ng-show= "layout.user.isMale === false") W
+    p(ng-bind= "layout.user.nutrition.weight") {{layout.user.nutrition.weight}}kg
+    .container(ng-show="layout.user.BMI")
+      i.material-icons(ng-hide, ng-show= "layout.user.BMI < 25") thumb_up
+      i.material-icons(ng-hide, ng-show= "layout.user.BMI > 25") thumb_down

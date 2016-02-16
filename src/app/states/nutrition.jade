@@ -25,6 +25,7 @@ block input
         md-option(ng-value="true")= parameter.unit1
         md-option(ng-value="false")= parameter.unit2
     md-slider.md-primary(flex, min= parameter.min, max= parameter.max, ng-model='layout.user.nutrition.'+parameter.name, aria-label= parameter.name, hide-gt-md)
+
   h3 Nutrition checklist
   md-checkbox.md-primary(ng-model='layout.user.nutrition.isVegan') I'm vegetarian
   md-checkbox.md-primary(ng-model='layout.user.nutrition.isControl') I can control when and how much I eat
