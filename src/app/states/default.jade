@@ -10,5 +10,15 @@ md-content.content(flex)
     h3 Health Guide is a tool where you can...
     p The structure of the application fall here as an tip for user how to use healthguide
   kil-recommendations
-  footer
-    p footer
+footer(layout)
+  md-content.content(layout, layout-align-xs= "center center", layout-align= "start center", flex-gt-xs= "66", flex)
+    p(flex, flex-gt-md = '33') Developed by Vasyl Posmit ©
+    div(layout, layout-gt-sm= "end center", flex-gt-md = '30', flex)
+      p(flex)
+        a(href="https://www.facebook.com/posmit", layout, layout-align="center center")
+          i.material-icons chat
+          span(flex-offset="5") Contact author
+      p(flex)
+        a(href="https://github.com/VasylPosmit/health", layout, layout-align="center center")
+          i.material-icons code
+          span(flex-offset="5") Source code

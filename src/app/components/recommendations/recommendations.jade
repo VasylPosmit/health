@@ -11,7 +11,7 @@ div(ng-cloak)
     h2(ng-show="layout.user.name") {{layout.data.name}} recommendations for {{layout.user.name}}
     md-tabs.md-primary(md-dynamic-height, md-border-bottom, md-swipe-content)
       md-tab(ng-repeat='recommendations in layout.data.recommendations', label='{{recommendations.label}}')
-        md-content.md-padding.md-whiteframe-z2
+        md-content.md-padding
           h2.md-headline.md-accent(ng-bind="recommendations.header")
           ul
             li(ng-repeat= "item in recommendations.list", ng-show="item.isShown" ng-bind="item.text")
