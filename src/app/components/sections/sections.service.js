@@ -391,7 +391,7 @@
         environment.list[2].isShown = true;
         environment.list[3].isShown = !userService.user.sleep.hasNoNoise;
         environment.list[4].isShown = !userService.user.sleep.isFreshAir;
-        environment.list[5].isShown = !userService.user.sleep.bedIsComfortable;
+        environment.list[5].isShown = !userService.user.sleep.isBedComfortable;
 
         habit.list[0].isShown = userService.user.age > 17;
         habit.list[1].isShown = true;

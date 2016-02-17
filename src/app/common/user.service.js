@@ -17,9 +17,10 @@
       age: null,
       nutrition: {
         weight: null,
-        weightIskg : true,
+        isWeightKg: true,
         height: null,
-        heightIscm : true,
+        isHeightCm: true,
+        heightInches: null,
         isVegan: false,
         isControl: false,
         isControlCoffee: false,
@@ -33,7 +34,7 @@
         lightOff: null,
         isFreshAir: null,
         hasNoNoise: null,
-        bedIsComfortable: null
+        isBedComfortable: null
       },
       activity: {
         isDynamicWork: null,
