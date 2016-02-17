@@ -66,7 +66,7 @@
     }
 
     function calculateBMR() {
-      if (self.user.isMale !== null && self.user.age) {
+      if (self.user.isMale !== null && self.user.age && self.user.nutrition.weight && self.user.nutrition.height) {
         if (self.user.isMale) {
           return self.user.nutrition.weight*13.75 + self.user.nutrition.height*5 - self.user.age*6.75 +66.5;
         } else {

@@ -293,10 +293,11 @@
       ]
     };
     self.data.default = {
-      name: 'Health guide (default state)',
+      name: 'Health guide',
       state:'nutrition',
       icon: 'hangouts',
-      firstRec: 'The way you live determines 90% of your health body condition. Genes is responsible only for 10%. Just follow scientifically proved recommendations to be in shape.',
+      firstRec: 'The way you live determines 90% of your health body condition. Genes is responsible only for 10%. Just follow scientifically proved recommendations to be healthy',
+      mdIcon: 'check_circle',
       recommendations: [
         {
           label: 'Nutrition',
