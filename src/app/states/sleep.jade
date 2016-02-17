@@ -1,9 +1,12 @@
 extends default.jade
 block input
+  h2 {{layout.data.name}} information
+  //- h2 is not a md- element so md-tooltip works incorrectly
+  md-tooltip(md-direction="top") Please, answer few questions to get recommendations right for you
   div(layout)
     md-input-container.md-block(flex, flex-gt-sm='45')
       label Name
-      input(ng-model='layout.user.name')
+      input(ng-model='layout.user.name', ng-model-options="{ updateOn: 'blur' }")
 
   div(layout='column', layout-gt-sm='row', layout-align='space-between', flex-gt-sm='45')
     md-input-container.md-block(flex= '20', flex-gt-sm='45')

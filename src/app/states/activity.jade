@@ -2,11 +2,14 @@ extends default.jade
 //- .md-icons fitness_center
 //- .md-icons smoking_rooms
 block input
+  h2 {{layout.data.name}} information
+    //- h2 is not a md- element so md-tooltip works incorrectly
+    md-tooltip(md-direction="top") Please, answer few questions to get recommendations right for you
   md-divider
   div(layout)
     md-input-container.md-block(flex, flex-gt-sm='45')
       label Name
-      input(ng-model='layout.user.name')
+      input(ng-model='layout.user.name', ng-model-options="{ updateOn: 'blur' }")
 
   md-input-container.md-block()
     label What is your movement during workday?

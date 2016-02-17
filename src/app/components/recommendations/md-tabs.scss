@@ -1,8 +1,20 @@
 md-content {
   background-color: transparent !important;
   md-tabs {
+    min-height: 200px;
     background: #eee;
-    border: 1px solid #ddd;
+    border: 1px solid $primary-color;
+    md-tabs-wrapper {
+      background: white;
+    }
+    & > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-ink-bar {
+    // there is no other way to target that element
+      background: white;
+      color:      white;
+    }
+    .md-tab.md-active {
+      color: $accent-color;
+    }
   }
   md-option {
     background-color: white;
@@ -11,4 +23,3 @@ md-content {
     margin-top: 0;
   }
 }
-// colors: primary, accent, warn, background

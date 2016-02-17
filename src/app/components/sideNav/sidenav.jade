@@ -1,5 +1,5 @@
 md-sidenav.site-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id='left', md-is-locked-open="$mdMedia('gt-md')")
-  md-toolbar.md-whiteframe-z1(layout='column', layout-align='space-around center')
+  md-toolbar.md-whiteframe-z4(layout='column', layout-align='space-around center')
     h3  Health
   md-list(layout='column')
     md-item(ng-repeat='section in sideNav.content')
@@ -9,4 +9,7 @@ md-sidenav.site-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id='left',
           i.material-icons.md-display-3(flex="25", ng-bind="section.mdIcon")
           h4(flex-offset='10', ng-bind="section.name")
     md-divider(flex-offset='35')
+  footer(layout)
+    md-content.content()
+      p() Copyright © 2016 V.Posmit, MIT License
 

@@ -5,4 +5,22 @@
 .space {
   padding: 12px;
 }
+
+footer {
+  background: $primary-color;
+  margin-top: 2em;
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+  p {
+    font-size: 0.75em;
+    font-weight: 400;
+    color: white;
+  }
+}
 // colors: primary, accent, warn, background

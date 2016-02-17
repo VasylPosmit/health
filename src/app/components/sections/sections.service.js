@@ -19,7 +19,7 @@
       name: 'Nutrition',
       state: 'Nutrition',
       icon: 'twitter',
-      firstRec: 'You’re smart and you know what real food is, so stop eating crap.',
+      firstRec: 'You’re smart and you know what real food is, so stop eating crap',
       mdIcon: 'local_dining',
       recommendations: [
         {
@@ -111,7 +111,7 @@
       name: 'Sleep',
       state:'sleep',
       icon: 'phone',
-      firstRec: 'Receipt is simple: sleep 8 hours per day in dark room with fresh air.',
+      firstRec: 'Sleep 8 hours everyday in dark room with fresh air',
       mdIcon: 'local_hotel',
       recommendations: [
         {
@@ -198,7 +198,7 @@
       name: 'Activity',
       state:'Activity',
       icon: 'google_plus',
-      firstRec: 'Walk everyday at least 3 km (outside the house!) and do any sport 3 times per week. Yes, it does matter',
+      firstRec: 'Walk everyday at least 3 km and do any sport 3 times per week. Yes, it does matter',
       mdIcon: 'directions_run',
       recommendations: [
         {
@@ -272,7 +272,7 @@
       name: 'Your health',
       state:'You',
       icon: 'hangouts',
-      firstRec: 'You know what is healthy food and what is crap.',
+      firstRec: 'There are few scientifically proved silver bullets to be healthy. Just do it',
       mdIcon: 'account_circle',
       recommendations: [
         {
@@ -293,10 +293,11 @@
       ]
     };
     self.data.default = {
-      name: 'Health guide (default state)',
+      name: 'Health guide',
       state:'nutrition',
       icon: 'hangouts',
-      firstRec: 'You know what is healthy food and what is crap.',
+      firstRec: 'The way you live determines 90% of your health body condition. Genes is responsible only for 10%. Just follow scientifically proved recommendations to be healthy',
+      mdIcon: 'check_circle',
       recommendations: [
         {
           label: 'Nutrition',
