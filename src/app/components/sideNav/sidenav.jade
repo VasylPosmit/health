@@ -1,7 +1,9 @@
 md-sidenav.site-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id='left', md-is-locked-open="$mdMedia('gt-md')", layout= "column", layout-align= "space-between")
   section
     md-toolbar.md-whiteframe-z4(layout='column', layout-align='space-around center')
-      i.material-icons() menu
+      h3(show-gt-md)
+        a(ng-href= "/") Health guide
+      //-i.material-icons() menu
     md-list(layout='column')
       md-item(ng-repeat='section in sideNav.content')
         a.md-button(ui-sref="{{section.state}}", ui-sref-active= "selected")
