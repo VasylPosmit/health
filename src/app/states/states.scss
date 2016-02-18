@@ -5,9 +5,12 @@
 .space {
   padding: 12px;
 }
-
+.states {
+  min-height: 100vh;
+}
 footer {
   background: $primary-color;
+  min-height: 4em;
   margin-top: 2em;
   a {
     text-decoration: none;
@@ -23,4 +26,3 @@ footer {
     color: white;
   }
 }
-// colors: primary, accent, warn, background
