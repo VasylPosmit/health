@@ -1,8 +1,6 @@
 extends default.jade
 block input
   h2 {{layout.data.name}} information
-  //- h2 is not a md- element so md-tooltip works incorrectly
-  md-tooltip(md-direction="top") Please, answer few questions to get recommendations right for you
   div(layout-gt-sm="row",  layout-xs="column", layout-align='space-between center', flex-gt-md="50")
     md-input-container.md-block(flex, flex-gt-sm='60')
       label Name
@@ -13,7 +11,7 @@ block input
       md-radio-button.md-primary(flex-offset= '15', ng-value= "false") Woman
 
   md-input-container.md-block(flex-sm= '50', flex-gt-sm='20')
-      label Age
+      label age
       input(min='18', max='99', type='number', ng-model='layout.user.age', aria-label='age', aria-controls='weight-slider')
 
   div(layout='row', layout-align='space-between center', flex-sm, flex-gt-sm='30')

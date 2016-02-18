@@ -1,8 +1,6 @@
 extends default.jade
 block input
   h2 {{layout.data.name}} information
-  //- h2 is not a md- element so md-tooltip works incorrectly
-  md-tooltip(md-direction="top") Please, answer few questions to get recommendations right for you
   div(layout)
     md-input-container.md-block(flex, flex-gt-sm='45')
       label Name

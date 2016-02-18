@@ -6,11 +6,17 @@ md-toolbar.md-whiteframe-z4(layout)
     a(ng-href= "/") Health guide
   .icons-group(layout, layout-align= "space-between center")
     i.material-icons(flex) account_circle
-    p(ng-bind= "layout.user.age")
+      md-tooltip(ng-show= "!layout.user.name", md-direction= "left") Summary
+      md-tooltip(ng-show= "layout.user.name", md-direction= "left") Summary about {{layout.user.name}}
+
     .container(ng-show="layout.user.isMale !== null")
       p(ng-show= "layout.user.isMale") M
       p(ng-show= "layout.user.isMale === false") W
-    p(ng-bind= "layout.user.nutrition.weight") {{layout.user.nutrition.weight}}kg
+    p(ng-show= "layout.user.age") {{layout.user.age}} years
+
+    p(ng-show= "layout.user.nutrition.weight") {{layout.user.nutrition.weight}}kg
     .container(ng-show="layout.user.BMI")
       i.material-icons(ng-hide, ng-show= "layout.user.BMI < 25") thumb_up
-      i.material-icons(ng-hide, ng-show= "layout.user.BMI > 25") thumb_down
+        md-tooltip(md-direction= "bottom") Good shape!
+      i.material-icons(ng-hide, ng-show= "!(layout.user.BMI < 25)") thumb_down
+        md-tooltip(md-direction= "bottom") Overweight

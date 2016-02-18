@@ -63,7 +63,9 @@
     }
 
     function calculateBMI() {
-      return Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
+      if (self.user.nutrition.weight && self.user.nutrition.height) {
+        return Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
+      }
     }
 
     function calculateBMR() {
