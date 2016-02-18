@@ -1,19 +1,22 @@
 md-sidenav {
-  height: 100%;
+  //height: 100%;
   background: #eee;
+  &, &.md-locked-open, .md-closed.md-locked-open-add-active {
+    min-width: 210px !important;
+        width: auto !important;
+    max-width: 50vw !important;
+  }
   md-list {
-    padding: 0px 0px 8px 0px;
+    text-align: right;
     .material-icons {
-      font-size: 5em;
+      font-size: 3.5em;
     }
     .md-button {
+      margin: 0;
       color: grey;
-      font-weight: 500;
-      text-align: left;
       width: 100%;
       &.selected {
         color: black;
-        background: warn;
       }
     }
   }
