@@ -26,6 +26,10 @@ $accent-color : #ffca28;  // amber 400
   display: none !important;
 }
 
+.app-wrapper {
+  min-height: 100%;
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;

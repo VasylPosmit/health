@@ -17,9 +17,10 @@
       age: null,
       nutrition: {
         weight: null,
-        weightIskg : true,
+        isWeightKg: true,
         height: null,
-        heightIscm : true,
+        isHeightCm: true,
+        heightInches: null,
         isVegan: false,
         isControl: false,
         isControlCoffee: false,
@@ -33,7 +34,7 @@
         lightOff: null,
         isFreshAir: null,
         hasNoNoise: null,
-        bedIsComfortable: null
+        isBedComfortable: null
       },
       activity: {
         isDynamicWork: null,
@@ -62,7 +63,9 @@
     }
 
     function calculateBMI() {
-      return Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
+      if (self.user.nutrition.weight && self.user.nutrition.height) {
+        return Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
+      }
     }
 
     function calculateBMR() {

@@ -1,8 +1,6 @@
 extends default.jade
 block input
   h2 {{layout.data.name}} information
-  //- h2 is not a md- element so md-tooltip works incorrectly
-  md-tooltip(md-direction="top") Please, answer few questions to get recommendations right for you
   div(layout)
     md-input-container.md-block(flex, flex-gt-sm='45')
       label Name
@@ -26,5 +24,5 @@ block input
   md-checkbox.md-primary(ng-model='layout.user.sleep.lightOff') I sleep at the totally dark room
   md-checkbox.md-primary(ng-model='layout.user.sleep.isFreshAir') I sleep in well-conditioned room
   md-checkbox.md-primary(ng-model='layout.user.sleep.hasNoNoise') I sleep silent room
-  md-checkbox.md-primary(ng-model='layout.user.sleep.bedIsComfortable') I sleep at comfortable bed
+  md-checkbox.md-primary(ng-model='layout.user.sleep.isBedComfortable') I sleep at comfortable bed
   md-divider

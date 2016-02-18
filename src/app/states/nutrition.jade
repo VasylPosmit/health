@@ -1,8 +1,6 @@
 extends default.jade
 block input
   h2 {{layout.data.name}} information
-  //- h2 is not a md- element so md-tooltip works incorrectly
-  md-tooltip(md-direction="top") Please, answer few questions to get recommendations right for you
   div(layout-gt-sm="row",  layout-xs="column", layout-align='space-between center', flex-gt-md="50")
     md-input-container.md-block(flex, flex-gt-sm='60')
       label Name
@@ -16,18 +14,28 @@ block input
       label age
       input(min='18', max='99', type='number', ng-model='layout.user.age', aria-label='age', aria-controls='weight-slider')
 
-  -var jWeight = {name : 'weight', unit1: 'kg', unit2: 'lbs', min: '40',  max: '150'}
-  -var jHeight = {name : 'height', unit1: 'cm', unit2: 'ft',  min: '130', max: '220'}
+  div(layout='row', layout-align='space-between center', flex-sm, flex-gt-sm='30')
+    md-input-container.md-block(flex-sm= '70', flex-gt-sm='60')
+      label weight
+      input(min= 40, max= 150, type='number', ng-model='layout.user.nutrition.weight', ng-change = "layout.calculate()", aria-label= 'weight', aria-controls='weight-slider')
+    md-select(flex-sm="20", flex-gt-sm='20', ng-model='layout.user.nutrition.isWeightKg', aria-label= 'weight units')
+      md-option(ng-value="true") kg
+      md-option(ng-value="false") lbs
+  md-slider.md-primary(flex, min= 40, max= 150, ng-model='layout.user.nutrition.weight', aria-label= 'weight', hide-gt-md)
 
-  for parameter in [jWeight, jHeight]
-    div(layout='row', layout-align='space-between center', flex-sm, flex-gt-sm='30')
-      md-input-container.md-block(flex-sm= '70', flex-gt-sm='60')
-        label= parameter.name
-        input(min= parameter.min, max= parameter.max, type='number', ng-model='layout.user.nutrition.'+parameter.name, ng-change = "layout.calculate()", aria-label= parameter.name, aria-controls=parameter.name+'-slider')
-      md-select(flex-sm="20", flex-gt-sm='20', ng-model='layout.user.nutrition.'+parameter.name +'Is'+parameter.unit1, aria-label= parameter.name+' units')
-        md-option(ng-value="true")= parameter.unit1
-        md-option(ng-value="false")= parameter.unit2
-    md-slider.md-primary(flex, min= parameter.min, max= parameter.max, ng-model='layout.user.nutrition.'+parameter.name, aria-label= parameter.name, hide-gt-md)
+  div(layout='row', layout-align='space-between center', flex-sm, flex-gt-sm='30')
+    md-input-container.md-block(flex-sm= '70', flex-gt-sm='60')
+      label height
+      input(min= 130, max= 220, type='number', ng-model='layout.user.nutrition.height', ng-change = "layout.calculate()", aria-label= 'height', aria-controls= 'height slider')
+    md-select(flex-sm="20", flex-gt-sm='20', ng-model='layout.user.nutrition.isHeightCm', aria-label= 'height units')
+      md-option(ng-value="true") cm
+      md-option(ng-value="false") ft
+  div(ng-show= "!layout.user.nutrition.isHeightCm")
+    md-input-container.md-block(flex-sm= '70', flex-gt-sm='60')
+      label inches
+      input(min= 0, max= 11, type='number', ng-model='layout.user.nutrition.heightInches', ng-change = "layout.calculate()", aria-label= 'height inches', aria-controls= 'height slider')
+
+  md-slider.md-primary(flex, min= 130, max= 220, ng-model='layout.user.nutrition.height', aria-label= 'height', hide-gt-md)
 
   h3 Nutrition checklist
   md-checkbox.md-primary(ng-model='layout.user.nutrition.isVegan') I'm vegetarian
