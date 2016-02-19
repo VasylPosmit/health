@@ -1,5 +1,5 @@
 md-sidenav {
-  height: 100vh;
+  min-height: 100vh;
   background: #eee;
   &, &.md-locked-open, .md-closed.md-locked-open-add-active {
     min-width: 210px !important;
@@ -25,6 +25,9 @@ md-sidenav {
       margin-bottom: 1px;
       min-height: 75px;
     }
+  }
+  section {
+    min-height: 350px;
   }
 }
 
