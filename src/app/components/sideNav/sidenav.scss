@@ -1,6 +1,5 @@
 md-sidenav {
   height: 100vh;
-  position: fixed;
   background: #eee;
   &, &.md-locked-open, .md-closed.md-locked-open-add-active {
     min-width: 210px !important;
@@ -20,6 +19,10 @@ md-sidenav {
       &.selected {
         color: black;
       }
+    }
+    md-item {
+      display: block;
+      margin-bottom: 1px;
     }
   }
 }

@@ -7,10 +7,8 @@ md-content {
     md-tabs-wrapper {
       background: white;
     }
-    & > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-ink-bar {
-    // there is no other way to target that element
-      background: white;
-      color:      white;
+    md-ink-bar {
+      background: white !important;
     }
     .md-tab.md-active {
       color: $accent-color;
