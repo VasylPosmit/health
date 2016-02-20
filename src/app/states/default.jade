@@ -15,7 +15,7 @@ div.states(layout= "column", layout-align= "space-between")
             p Health guide database contains hundreds of recommendations each of those correspond only to some narrow group of people. Engine use the information you provide to link your profile with bunch of groups and suitable recommendations
           div(flex-gt-sm= "25", flex-offset-gt-sm="5")
             h3 How to use
-            p Enter information.
+            p Enter information about nutrition, sleep and activity.
             p Press "CALCULATE RECOMMENDATIONS"
             p Check recommendations that is right just for you
 
@@ -30,7 +30,13 @@ div.states(layout= "column", layout-align= "space-between")
         md-input-container.md-block(flex-sm= '50', flex-gt-sm='20')
             label age
             input(min='18', max='99', type='number', ng-model='layout.user.age', aria-label='age', aria-controls='weight-slider')
-      kil-recommendations
+        div(layout-sm= "column", layout, flex, flex-gt-md="50")
+          a.md-button.md-primary.md-raised(href= '/#/nutrition', flex-sm, flex-gt-md= "30") Nutrition
+          a.md-button.md-primary.md-raised(href= "/#/sleep",     flex-sm, flex-gt-md= "30") Sleep
+          a.md-button.md-primary.md-raised(href= "/#/activity",  flex-sm, flex-gt-md= "30") Activity
+          a.md-button.md-accent.md-raised(href= "/#/way_to_healthy_life",  flex-sm, flex-gt-md= "30") Summary
+      //- better for UI
+        kil-recommendations
 
   footer(layout)
     md-content.content(layout, layout-align-xs= "center center", layout-align= "start center", flex-gt-xs= "66", flex)
