@@ -30,13 +30,15 @@ div.states(layout= "column", layout-align= "space-between")
         md-input-container.md-block(flex-sm= '50', flex-gt-sm='20')
             label age
             input(min='18', max='99', type='number', ng-model='layout.user.age', aria-label='age', aria-controls='weight-slider')
-        div(layout-sm= "column", layout, flex, flex-gt-md="50")
-          a.md-button.md-primary.md-raised(href= '/#/nutrition', flex-sm, flex-gt-md= "30") Nutrition
-          a.md-button.md-primary.md-raised(href= "/#/sleep",     flex-sm, flex-gt-md= "30") Sleep
-          a.md-button.md-primary.md-raised(href= "/#/activity",  flex-sm, flex-gt-md= "30") Activity
-          a.md-button.md-accent.md-raised(href= "/#/way_to_healthy_life",  flex-sm, flex-gt-md= "30") Summary
-      //- better for UI
-        kil-recommendations
+        .button-group(layout)
+          div(flex, flex-gt-md= "50")
+            div(layout= 'column', flex, layout-gt-sm)
+              a.md-button.md-primary.md-raised(href= '/#/nutrition', flex) Nutrition
+              a.md-button.md-primary.md-raised(href= "/#/sleep", flex) Sleep
+              a.md-button.md-primary.md-raised(href= "/#/activity",  flex) Activity
+            div(layout)
+               a.md-button.md-accent.md-raised(href= "/#/way_to_healthy_life",  flex) Summary
+      kil-recommendations
 
   footer(layout)
     md-content.content(layout, layout-align-xs= "center center", layout-align= "start center", flex-gt-xs= "66", flex)

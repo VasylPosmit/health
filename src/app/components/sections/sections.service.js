@@ -116,7 +116,7 @@
       recommendations: [
         {
           label: 'Schedules',
-          header: 'When to eat',
+          header: 'When and how long to sleep',
           list: [
             {
               text: 'Please, provide some information about your sleep to get more precise recommendation. In general: plan to sleep 8 h per day. Do not eat 3 h before sleep. Wake up each single day at fixed time. Yes, at the weekdays too. Eat whenever you want but not before sleep ^_^',

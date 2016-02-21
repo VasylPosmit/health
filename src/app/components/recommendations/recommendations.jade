@@ -2,7 +2,7 @@ md-divider(hide show-gt-sm)
 div(ng-cloak)
   md-content(layout='column')
     div(layout)
-      md-button.md-raised.md-accent(flex, flex-gt-md="50" ng-click="layout.calculate()") Calculate recommendations
+      md-button.md-raised.md-accent(flex, flex-gt-md="50", ng-click="layout.calculate()") Calculate recommendations
     p(ng-show="layout.user.BMI < 19")
       | Your Body mass index is {{layout.user.BMI}}. You are slim
     p(ng-show="layout.user.BMI >= 19 && layout.user.BMI <= 25")
