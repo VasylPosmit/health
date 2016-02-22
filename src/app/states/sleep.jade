@@ -1,18 +1,18 @@
 extends default.jade
 block input
   h2 {{layout.data.name}} information
-  div(layout)
-    md-input-container.md-block(flex, flex-gt-sm='45')
-      label Name
-      input(ng-model='layout.user.name', ng-model-options="{ updateOn: 'blur' }")
 
-  div(layout='column', layout-gt-sm='row', layout-align='space-between', flex-gt-sm='45')
-    md-input-container.md-block(flex= '20', flex-gt-sm='45')
-      label Go to sleep at
-      input(type='time', ng-model='layout.user.sleep.start', aria-label= 'go to bed time')
-    md-input-container.md-block(flex= '20', flex-gt-sm='45')
-      label Wake up at
-      input(type='time', ng-model='layout.user.sleep.end', aria-label= 'wake up time')
+  md-input-container.md-block(flex, flex-gt-sm='45')
+    label Name
+    input(ng-model='layout.user.name', ng-model-options="{ updateOn: 'blur' }")
+
+  md-input-container.md-block(flex, flex-gt-sm='45')
+    label Go to sleep at
+    input(type= "time", ng-model='layout.user.sleep.start', aria-label= 'go to bed time')
+  md-input-container.md-block(flex, flex-gt-sm='45')
+    label Wake up at
+    input(type= "time", ng-model='layout.user.sleep.end', aria-label= 'wake up time')
+
   md-input-container.md-block()
     label Wake up habit
     md-select(flex, flex-gt-sm='45', ng-model='layout.user.sleep.hasHabit', aria-label= 'does have sleep habbit')
@@ -25,4 +25,4 @@ block input
   md-checkbox.md-primary(ng-model='layout.user.sleep.isFreshAir') I sleep in well-conditioned room
   md-checkbox.md-primary(ng-model='layout.user.sleep.hasNoNoise') I sleep silent room
   md-checkbox.md-primary(ng-model='layout.user.sleep.isBedComfortable') I sleep at comfortable bed
-  md-divider
+  kil-recommendations

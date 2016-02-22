@@ -5,9 +5,19 @@
   height: 38px;
   margin: 16px;
   width: 36px;
+  // for fixed menu UI issue
+  // @media (max-width: 600px) {
+  //   position: fixed;
+  //   top: 12px;
+  //   margin: 4px;
+  //   md-icon {
+  //     color: rgba(black, 0.4) !important;
+  //   }
+  // }
 }
 
 md-toolbar {
+  min-height: 72px;
   a {
     text-decoration: none;
     color: inherit;
