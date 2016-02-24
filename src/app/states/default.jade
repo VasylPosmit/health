@@ -42,13 +42,13 @@ div.states(layout= "column", layout-align= "space-between")
 
   footer(layout)
     md-content.content(layout, layout-align-xs= "center center", layout-align= "start center", flex-gt-xs= "66", flex)
-      p(flex, flex-gt-md = '33') Developed by Vasyl Posmit ©
+      p(flex, flex-gt-md = '25') Developed by Vasyl Posmit ©
       div(layout, layout-gt-sm= "end center", flex-gt-md = '30', flex)
         p(flex)
           a(href="https://www.facebook.com/posmit", layout, layout-align="center center")
             i.material-icons chat
-            span(flex-offset="5") Contact author
+            span(flex-offset="5", hide, show-gt-sm) Contact author
         p(flex)
           a(href="https://github.com/VasylPosmit/health", layout, layout-align="center center")
             i.material-icons code
-            span(flex-offset="5") Source code
+            span(flex-offset="5", hide, show-gt-sm) Source code
