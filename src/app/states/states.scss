@@ -12,6 +12,11 @@
   }
 }
 
+.md-button-raised {
+  @extend .md-button;
+  @extend .md-raised;
+}
+
 footer {
   background: $primary-color;
   min-height: 4em;

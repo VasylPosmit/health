@@ -9,5 +9,9 @@
     var self = this;
     self.toggleSidenav = sidenavService.toggleList;
     self.content = sectionsService.content;
+    self.doubleToggle = function (){
+      self.toggleSidenav();
+      self.toggleSidenav();
+    };
   }
 })();
