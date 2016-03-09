@@ -40,7 +40,6 @@
         controllerAs: 'layout'
       });
   }
-  module.exports = getDefaultController;
   function getDefaultController(dataKey) {
     return function (
                       sectionsService,
@@ -73,4 +72,5 @@
       }
     };
   }
+
 })();

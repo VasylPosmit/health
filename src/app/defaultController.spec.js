@@ -2,14 +2,12 @@
   'use strict';
 
   describe('getDefaultController check', function(){
-    var state, dataKey, rootScope;
-    // var getDefaultController= require('/router');
-    // var controller = getDefaultController('default');
-
+    var state, dataKey, controller;
 
     beforeEach( module('healthGuide'));
     beforeEach( function(){
       console.log('executing beforeEach()');
+      //controller = router.getDefaultController('default');
     });
     beforeEach( module( function($provide){
       dataKey = {};
@@ -18,7 +16,6 @@
 
 
     beforeEach( inject( function( ) {
-     //controller = getDefaultController('default');
     }));
 
 

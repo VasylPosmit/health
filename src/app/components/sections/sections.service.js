@@ -9,9 +9,7 @@
     var self = this;
     self.checkConnection = console.log('1. sectionsService connected');
     self.concat = concat;
-
     self.getData = getData;
-
     self.data = {};
     self.data.user = userService.user;
 
@@ -349,7 +347,6 @@
     }
 
     function getData(){
-      //not DRY
       //Nutrition
       var time    = self.data.nutrition.recommendations[0];
       var quality = self.data.nutrition.recommendations[1];

@@ -2,7 +2,7 @@
   'use strict';
 
   describe('sidenavController ', function(){
-    var self, controller, scope, sidenavService;
+    var controller;
 
     beforeEach( module( 'healthGuide'));
     beforeEach( inject( function( $controller) {
@@ -19,24 +19,19 @@
       });
 
     });
-
     describe('toggle', function(){
       it('sidenavController do not activate toggleSidenav()', function() {
         expect(controller.toggleSidenav).not.toHaveBeenCalled();
       });
 
       it('toggleSidenav trigger sidenavService', function() {
-
-        controller.doubleToggle(); //why do not trigger?
-        //why it does what it does?
-
-        //sidenavService.toggleList();
+        controller.toggleSidenav();
         expect(controller.toggleSidenav).toHaveBeenCalled();
       });
     });
     describe('has no activate', function() {
       it('activate should be undefined', function() {
-        expect(controller.activate).toBeUndefined();
+        expect(controller.activate).not.toBeDefined();
       });
     });
 

@@ -11,6 +11,7 @@
     self.getUser = getUser;
     self.calculateBMR = calculateBMR;
     self.calculateBMI = calculateBMI;
+    self.sleepDuration = sleepDuration;
     self.user = {
       name : null,
       isMale: null,
@@ -56,27 +57,42 @@
       //all formulas fall here
       self.user.BMI = self.calculateBMI();
       self.user.BMR = self.calculateBMR();
-      self.user.sleepDuration = (self.user.sleep.end - self.user.sleep.start)/3600000 + 24;
-
-      console.log(self.user);
+      self.user.sleepDuration = self.sleepDuration();
       return self.user;
     }
 
     function calculateBMI() {
       if (self.user.nutrition.weight && self.user.nutrition.height) {
-        return Math.round(self.user.nutrition.weight/Math.pow(self.user.nutrition.height/100, 2)*10)/10;
+        var weight = self.user.nutrition.weight;
+        var height = self.user.nutrition.height;
+        return Math.round(weight/Math.pow(height/100, 2)*10)/10;
       }
     }
-
     function calculateBMR() {
-      if (self.user.isMale !== null && self.user.age && self.user.nutrition.weight && self.user.nutrition.height) {
-        if (self.user.isMale) {
-          return self.user.nutrition.weight*13.75 + self.user.nutrition.height*5 - self.user.age*6.75 +66.5;
+      var weight = self.user.nutrition.weight;
+      var height = self.user.nutrition.height;
+      var age    = self.user.age;
+      var isMale = self.user.isMale;
+      if (isMale !== null && age && weight && height) {
+        if (isMale) {
+          return Math.round(weight*13.75 + height*5 - age*6.75 + 66.5);
         } else {
-          return self.user.nutrition.weight*9.56 + self.user.nutrition.height*1.85 - self.user.age*4.68 +665.1;
+          return Math.round(weight*9.56 + height*1.85 - age*4.68 + 665.1);
         }
       }
-
     }
+    function sleepDuration() {
+      if (self.user.sleep.end && self.user.sleep.start) {
+        var duration = (self.user.sleep.end - self.user.sleep.start)/3600000;
+        if (duration >= 0 ) {
+          return duration;
+        } else {
+          return duration + 24;
+        }
+      } else {
+        return null;
+      }
+    }
+
   }
 })();
