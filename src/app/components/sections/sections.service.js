@@ -415,7 +415,6 @@
         sport.list[6].isShown = userService.user.age > 40 || userService.user.BMI > 25 || userService.user.activity.hasContraindications;
         sport.list[7].isShown = userService.user.age >60 || userService.user.activity.hasContraindications;
 
-      console.log(self.data);
     return self.data;
     }
   }

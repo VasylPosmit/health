@@ -6,7 +6,6 @@
 
     beforeEach( module('healthGuide'));
     beforeEach( function(){
-      console.log('executing beforeEach()');
       //controller = router.getDefaultController('default');
     });
     beforeEach( module( function($provide){
