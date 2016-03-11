@@ -44,7 +44,7 @@
       it('is a function', function(){
         expect(sectionsService.concat).toEqual(jasmine.any(Function));
       });
-      it('has not called', function(){
+      it('has not been called', function(){
         expect(sectionsService.concat).not.toHaveBeenCalled();
       });
       var dataKey = 'nutrition';
