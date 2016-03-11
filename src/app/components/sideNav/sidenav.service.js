@@ -4,12 +4,9 @@
   .module('app.sidenav')
     .service('sidenavService', sidenavService);
 
-  sidenavService.$inject = [
-                      '$mdBottomSheet',
-                      '$mdSidenav'];
-  function sidenavService(
-                      $mdBottomSheet,
-                      $mdSidenav){
+  sidenavService.$inject = ['$mdSidenav'];
+
+  function sidenavService( $mdSidenav ) {
     /*jshint validthis: true*/
     var self = this;
     self.check = console.log('sidenavService connected');

@@ -69,7 +69,6 @@
     });
 
     describe('toggleSideNav()', function() {
-      // var layout = scope.layout;
       beforeEach(function() {
         spyOn(scope.layout, 'toggleSideNav').and.callThrough();
       });
