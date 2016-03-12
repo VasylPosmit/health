@@ -4,7 +4,9 @@
     var $httpBackend, directiveElem, scope, userService, sidenavService;
 
     beforeEach( function(){
-      module( 'healthGuide' );
+      module( 'healthGuide' ); // works
+      //module( 'app.layout' ); // does not work cause to route configuration
+
       directiveElem = angular.element('<kil-toolbar/>');
 
       inject( function ($compile, $rootScope, _$httpBackend_, _userService_, _sidenavService_) {
@@ -26,7 +28,7 @@
       });
     });
 
-    describe('self properties', function() {
+    describe('directive', function() {
 
       it('should applied template', function () {
         expect(directiveElem.html()).not.toEqual('');

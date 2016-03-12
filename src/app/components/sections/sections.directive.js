@@ -5,14 +5,14 @@
     .directive('kilSection', kilSection);
 
   function kilSection() {
-    var directive = {
+    return {
+      replace: true,
       restrict: 'E',
       templateUrl: 'app/components/sections/sections.html',
       scope: {
         statedata: '='
       }
     };
-    return directive;
   }
 
 })();

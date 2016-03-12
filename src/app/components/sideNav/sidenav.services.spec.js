@@ -4,7 +4,7 @@
     var sidenavService;
 
     beforeEach( function(){
-      module( 'healthGuide' ); //.module('app.sidenav') do not contain $mdSiidenav
+      module( 'app.sidenav' );
 
       inject( function (_sidenavService_) {
         sidenavService = _sidenavService_;

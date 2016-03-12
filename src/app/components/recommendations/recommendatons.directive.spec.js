@@ -8,7 +8,7 @@
 
       inject( function ($compile, $rootScope, _userService_, _sectionsService_) {
         scope = $rootScope.$new();
-        directiveElem = $compile('<kil-recommendations></kil-recommendations>')(scope);
+        directiveElem = $compile('<kil-recommendations/>')(scope);
         userService = _userService_;
         sectionsService = _sectionsService_;
         state = 'nutrition';
