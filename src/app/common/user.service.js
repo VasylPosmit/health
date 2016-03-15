@@ -51,14 +51,13 @@
       dailyCalories: null,
       sleepDuration: null
     };
+    self.mockUser = jQuery.extend(true, {}, self.user); //require specs
 
     function getUser(){
       //all formulas fall here
       self.user.BMI = self.calculateBMI();
       self.user.BMR = self.calculateBMR();
       self.user.sleepDuration = (self.user.sleep.end - self.user.sleep.start)/3600000 + 24;
-
-      console.log(self.user);
       return self.user;
     }
 

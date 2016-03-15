@@ -6,7 +6,6 @@ block input
       label Name
       input(ng-model='layout.user.name', ng-model-options="{ updateOn: 'blur' }")
     md-radio-group( flex, flex-gt-sm="35", layout, ng-model="layout.user.isMale")
-      //- label Gender
       md-radio-button.md-primary(ng-value= "true") Man
       md-radio-button.md-primary(flex-offset= '15', ng-value= "false") Woman
 

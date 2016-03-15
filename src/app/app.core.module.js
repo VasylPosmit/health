@@ -13,7 +13,8 @@
       'ngResource',
       'ngMaterial',
       /*3-d party modules*/
-      'ui.router'
+      'ui.router',
+      'LocalForageModule'
                     //'hmTouchEvents'
       /*Cross-app modules*/
        ]);
