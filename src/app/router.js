@@ -43,6 +43,8 @@
 
   function getDefaultController(dataKey) {
     return function (
+                      $localForage,
+                      $timeout,
                       sectionsService,
                       sidenavService,
                       userService
@@ -62,15 +64,38 @@
 
       activate();
 
+
       function activate() {
-        console.log('router Controller connected');
         self.closeSidenav();
+        if (_.isEqual(userService.user, userService.mockUser)) {
+          console.log('should execute getStorageData() only on page reload'); // require specs
+
+          getStorageData();
+          $timeout(function(){
+            getStorageData();
+            console.log('calculate executed');
+          }, 3000);
+        }
       }
 
       function calculate(){
         self.user = userService.getUser();
         self.data = sectionsService.getData()[self.state];
+        setStorageData();
       }
+
+      function setStorageData() {
+        $localForage.setItem('userInput', self.user);
+      }
+      function getStorageData() {
+        $localForage.getItem('userInput').then(function(data) {
+          if (data) {
+          userService.user = data;
+          self.user = userService.user;
+          }
+        });
+      }
+
     };
   }
 })();

@@ -14,7 +14,8 @@
   function config(
                   $logProvider,
                   $mdIconProvider,
-                  $mdThemingProvider
+                  $mdThemingProvider,
+                  $localForageProvider
                   ) {
     // Enable log
     $logProvider.debugEnabled(true);
@@ -35,6 +36,11 @@
       .accentPalette('amber', {default: '400'})
       .warnPalette('red')
       .backgroundPalette('grey');
+
+    $localForageProvider.config({
+        name        : 'healthGuide',
+        description : 'storage for user input'
+    });
   }
 
   function runBlock($log) {
