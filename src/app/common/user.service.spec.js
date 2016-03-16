@@ -73,10 +73,39 @@
       it('is function', function() {
         expect(userService.calculateBMR).toEqual(jasmine.any(Function));
       });
-      it('undefined without inputs', function() {
+      it('undefined if user does not have weight, height, age, isMale', function() {
         expect(userService.calculateBMR()).toBeUndefined();
       });
-      it('check formula for man', function() {
+
+      it('undefined if user has height, age, isMale, does not have weight', function() {
+        userService.user.nutrition.height = 150;
+        userService.user.age = 25;
+        userService.user.isMale = true;
+        expect(userService.calculateBMR()).toBeUndefined();
+      });
+
+      it('undefined if user has weight, age, isMale, does not have height', function() {
+        userService.user.nutrition.weight = 40;
+        userService.user.age = 25;
+        userService.user.isMale = true;
+        expect(userService.calculateBMR()).toBeUndefined();
+      });
+
+      it('undefined if user has height, weight, isMale, does not have age', function() {
+        userService.user.nutrition.weight = 40;
+        userService.user.nutrition.height = 150;
+        userService.user.isMale = true;
+        expect(userService.calculateBMR()).toBeUndefined();
+      });
+
+      it('undefined if user has height, weight, age does not have isMale (gender)', function() {
+        userService.user.nutrition.weight = 40;
+        userService.user.nutrition.height = 150;
+        userService.user.age = 25;
+        expect(userService.calculateBMR()).toBeUndefined();
+      });
+
+      it('user has weight, height, age, (isMale= true) and formula is calculated properly', function() {
         userService.user.nutrition.weight = 40;
         expect(userService.calculateBMR()).toBeUndefined();
         userService.user.nutrition.height = 150;
@@ -87,7 +116,8 @@
         userService.user.isMale = true;
         expect(userService.calculateBMR()).toEqual(1198);
       });
-      it('check formula for woman', function() {
+
+      it('user has weight, height, age, (isMale= false)  and formula is calculated properly', function() {
         userService.user.nutrition.weight = 40;
         userService.user.nutrition.height = 150;
         userService.user.age = 25;
