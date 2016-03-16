@@ -117,7 +117,7 @@
         expect(userService.calculateBMR()).toEqual(1198);
       });
 
-      it('user has weight, height, age, (isMale= false)  and formula is calculated properly', function() {
+      it('user has weight, height, age, (isMale= false) and formula is calculated properly', function() {
         userService.user.nutrition.weight = 40;
         userService.user.nutrition.height = 150;
         userService.user.age = 25;
@@ -130,21 +130,37 @@
       it('is a function', function() {
         expect(userService.getUser).toEqual(jasmine.any(Function));
       });
-      it('returns null without properties defined', function() {
+
+      it('returns null if user does not have sleep.start and sleep.end', function() {
         expect(userService.sleepDuration()).toBeNull();
-        userService.sleepDuration();
-        expect(userService.sleepDuration()).toBeNull();
-        userService.user.sleep.end = 8;
-        userService.user.sleep.start = 1;
-        expect(userService.sleepDuration()).toBeTruthy();
       });
 
-      //functionality is not implemented yet
-      xit('both inputs before midnight', function() {
+      it('returns null if user has sleep.start and does not have sleep.end', function() {
+        userService.user.sleep.start = 1;
+        expect(userService.sleepDuration()).toBeNull();
       });
-      xit('inputs before and after midnight', function() {
+
+      it('returns null if user has sleep.end and does not have sleep.start', function() {
+        userService.user.sleep.end = 8;
+        expect(userService.sleepDuration()).toBeNull();
       });
-      xit('both inputs after midnight', function() {
+
+      it('user has sleep.start and sleep.end before midnight calculated properly', function() {
+        userService.user.sleep.start = 72000000 - 3600000; //   21:00
+        userService.user.sleep.end = 72000000;             //   22:00
+        expect(userService.sleepDuration()).toEqual(1);
+      });
+
+      it('inputs before and after midnight', function() {
+        userService.user.sleep.start = 72000000;           //   20:00
+        userService.user.sleep.end = 36000000;             //   10:00
+        expect(userService.sleepDuration()).toEqual(14);
+      });
+
+      it('user has sleep.start and sleep.end before midnight calculated properly', function() {
+        userService.user.sleep.start = 3600000;            //   1 AM
+        userService.user.sleep.end = 36000000;             //   10 AM
+        expect(userService.sleepDuration()).toEqual(9);
       });
     });
 
