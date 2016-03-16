@@ -15,7 +15,10 @@
                   $logProvider,
                   $mdIconProvider,
                   $mdThemingProvider,
-                  $localForageProvider
+                  $localForageProvider,
+                  $httpProvider
+                  // $q,
+                  // $window
                   ) {
     // Enable log
     $logProvider.debugEnabled(true);
@@ -41,6 +44,46 @@
         name        : 'healthGuide',
         description : 'storage for user input'
     });
+
+    var testInterceptor =  function($q, $window) {
+      var interseprotRun = 1;
+      return {
+        request: function(config) {
+          console.log('interceptor spy on $http requests to template. Iteration No '+ interseprotRun);
+          //return $q.reject('requestRejector');
+          console.log(config);
+          interseprotRun++;
+          return config;
+        }
+      };
+    };
+
+    var authenticationInterceptor = function($q, $window) {
+      return {
+        responseError: function(rejection) {
+          if (rejection === 'requestRejector') {
+              // Recover the request
+            $window.alert('interceptor should be recovered!');
+
+            return {
+                transformRequest: [],
+                transformResponse: [],
+                method: 'GET',
+                url: 'https://api.github.com/users/naorye/repos',
+                headers: {
+                    Accept: 'application/json, text/plain, */*'
+              }
+            };
+          } else if (rejection.status === 401) {
+            $window.location.href = 'https://github.com/VasylPosmit/health';//PATH.apps + SIGN_IN_URL;
+          }
+          return $q.reject(rejection);
+        }
+      };
+    };
+    $httpProvider.interceptors.push(authenticationInterceptor);
+    $httpProvider.interceptors.push(testInterceptor);
+
   }
 
   function runBlock($log) {
