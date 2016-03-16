@@ -3,21 +3,21 @@ div(ng-cloak)
   md-content(layout='column')
     div(layout)
       md-button.md-raised.md-accent(flex, flex-gt-md="50", ng-click="layout.calculate()") Calculate recommendations
-    p(ng-show= "layout.user.BMI < 19 && layout.user.BMI")
+    p(ng-if= "layout.user.BMI < 19 && layout.user.BMI")
       | Your Body mass index is {{layout.user.BMI}}. You are slim
-    p(ng-show="layout.user.BMI >= 19 && layout.user.BMI <= 25")
+    p(ng-if="layout.user.BMI >= 19 && layout.user.BMI <= 25")
       | Your Body mass index is {{layout.user.BMI}}. You are fit
-    p(ng-show="layout.user.BMI > 25")
+    p(ng-if="layout.user.BMI > 25")
       | Your Body mass index is {{layout.user.BMI}}. You are overweight
 
-    p(ng-show="layout.user.BMR")
+    p(ng-if="layout.user.BMR")
       | Your Basal metabolic rate is {{layout.user.BMR}}. You need {{layout.user.BMR}} calories per day just to maintain basic body functions.
-    h2(ng-show="layout.user.name === null", md-whiteframe="3")
+    h2(ng-if="layout.user.name === null")
       | Health recommendations
-    h2(ng-show="layout.user.name") Health recommendations for {{layout.user.name}}
+    h2(ng-if="layout.user.name") Health recommendations for {{layout.user.name}}
     md-tabs.md-primary(md-dynamic-height, md-border-bottom, md-swipe-content)
       md-tab(ng-repeat='recommendations in layout.data.recommendations', label='{{recommendations.label}}')
         md-content.md-padding
           h2.md-headline.md-accent(ng-bind="recommendations.header")
           ul
-            li(ng-repeat= "item in recommendations.list", ng-show="item.isShown" ng-bind="item.text")
+            li(ng-repeat= "item in recommendations.list", ng-if="item.isShown" ng-bind="item.text")

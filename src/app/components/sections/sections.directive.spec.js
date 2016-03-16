@@ -43,12 +43,15 @@
       it('should applied template', function () {
         expect(directiveElem.html()).not.toEqual('');
       });
+
       it('should have replaced directive element', function () {
         expect(directiveElem.find('kil-section').length).toEqual(0);
       });
+
       it('should compile text', function () {
         expect(directiveElem.find('h3').text()).toContain('Health guide');
       });
+
       it('should display state name', function () {
         expect(directiveElem.find('.md-display-1').text()).toContain('Nutrition');
       });
