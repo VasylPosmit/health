@@ -45,17 +45,27 @@
       it('is function', function() {
         expect(userService.calculateBMI).toEqual(jasmine.any(Function));
       });
-      it('check formula', function() {
+
+      it('undefined if user does not have weight and height', function() {
+        userService.user.nutrition.weight = null;
+        userService.user.nutrition.height = null;
+        expect(userService.calculateBMI()).toBeUndefined();
+      });
+
+      it('undefined if user has height, does not have weight', function() {
+        userService.user.nutrition.height = 150;
+        expect(userService.calculateBMI()).toBeUndefined();
+      });
+
+      it('undefined if user has weight, does not have height', function() {
+        userService.user.nutrition.weight = 40;
+        expect(userService.calculateBMI()).toBeUndefined();
+      });
+
+      it('user has weight and height and formula is calculated properly', function() {
         userService.user.nutrition.weight = 40;
         userService.user.nutrition.height = 150;
         expect(userService.calculateBMI()).toEqual(17.8);
-      });
-      it('Undefined without any input', function() {
-        expect(userService.calculateBMI()).toBeUndefined();
-        userService.user.nutrition.height = 150;
-        expect(userService.calculateBMI()).toBeUndefined();
-        userService.user.nutrition.weight = 40;
-        expect(userService.calculateBMI()).toBeDefined();
       });
     });
 
