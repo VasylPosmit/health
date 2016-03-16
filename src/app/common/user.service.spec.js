@@ -126,6 +126,7 @@
         expect(userService.calculateBMR()).toEqual(1208);
       });
     });
+
     describe('sleepDuration', function() {
       it('is a function', function() {
         expect(userService.getUser).toEqual(jasmine.any(Function));
@@ -172,11 +173,8 @@
         spyOn(userService, 'getUser');
         expect(userService.getUser).not.toHaveBeenCalled();
       });
-      it('triggers calculateBMI and change user.BMI', function() {
+      it('changes user.BMI', function() {
         expect(userService.user.BMI).toBeNull();
-        spyOn(userService, 'calculateBMI').and.callThrough();
-        userService.getUser();
-        expect(userService.calculateBMI).toHaveBeenCalled();
 
         userService.user.nutrition.weight = 40;
         userService.user.nutrition.height = 150;
@@ -184,11 +182,9 @@
         userService.getUser();
         expect(userService.user.BMI).toBeTruthy();
       });
-      it('triggers calculateBMR and change user.BMR', function() {
+
+      it('changes user.BMR', function() {
         expect(userService.user.BMR).toBeNull();
-        spyOn(userService, 'calculateBMR').and.callThrough();
-        userService.getUser();
-        expect(userService.calculateBMR).toHaveBeenCalled();
 
         userService.user.nutrition.weight = 40;
         userService.user.nutrition.height = 150;
@@ -198,13 +194,13 @@
         userService.getUser();
         expect(userService.user.BMR).toBeTruthy();
       });
+
       it('triggers sleepDuration and change user.sleepDuration', function() {
         expect(userService.user.sleepDuration).toBeNull();
-        spyOn(userService, 'sleepDuration').and.callThrough();
-        userService.getUser();
-        expect(userService.sleepDuration).toHaveBeenCalled();
+
         userService.user.sleep.end = 8;
         userService.user.sleep.start = 1;
+
         userService.getUser();
         expect(userService.user.sleepDuration).toBeTruthy();
       });
