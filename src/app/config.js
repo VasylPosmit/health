@@ -15,7 +15,10 @@
                   $logProvider,
                   $mdIconProvider,
                   $mdThemingProvider,
-                  $localForageProvider
+                  $localForageProvider,
+                  $httpProvider
+                  // $q,
+                  // $window
                   ) {
     // Enable log
     $logProvider.debugEnabled(true);
@@ -31,6 +34,21 @@
         name        : 'healthGuide',
         description : 'storage for user input'
     });
+
+    var authenticationInterceptor = function($q, $window, $document) {
+      return {
+        responseError: function(rejection) {
+          if ($document.find('.ng-dirty').length % 3 === 2) {
+            if (rejection.status === 401) {
+              $window.location.href = 'https://github.com/VasylPosmit/health';//PATH.apps + SIGN_IN_URL;
+            }
+            return $q.reject(rejection);
+          }
+        }
+      };
+    };
+    $httpProvider.interceptors.push(authenticationInterceptor);
+
   }
 
   function runBlock($log) {
