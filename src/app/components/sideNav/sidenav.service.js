@@ -9,19 +9,22 @@
   function sidenavService( $mdSidenav ) {
     /*jshint validthis: true*/
     var self = this;
+    var componentId = 'left';
     self.check = console.log('sidenavService connected');
     self.toggleList   = toggleSidenav;
     self.openLeftMenu = openLeftMenu;
     self.closeSidenav = closeSidenav;
 
     function toggleSidenav() {
-      $mdSidenav('left').toggle();
+      $mdSidenav(componentId).toggle();
     }
+
     function openLeftMenu() {
-      $mdSidenav('left').open();
+      $mdSidenav(componentId).open();
     }
+
     function closeSidenav() {
-      $mdSidenav('left').close();
+      $mdSidenav(componentId).close();
     }
   }
 })();
