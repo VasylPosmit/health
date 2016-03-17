@@ -1,8 +1,8 @@
-
-h3(hide-gt-md) Health guide > {{statedata.name}}
-div(layout, layout-align= "start center")
-  //- md-icon.avatar(md-svg-icon='{{statedata.icon}}')
-  i.material-icons.main-icon(ng-bind="statedata.mdIcon")
-  .md-display-1(flex-offset='5', ng-bind="statedata.name")
-h3.single-recomendation(ng-bind="statedata.firstRec")
+div
+  h3(hide-gt-md) Health guide > {{statedata.name}}
+  div(layout, layout-align= "start center")
+    //- md-icon.avatar(md-svg-icon='{{statedata.icon}}')
+    i.material-icons.main-icon(ng-bind="statedata.mdIcon")
+    .md-display-1(flex-offset='5', ng-bind="statedata.name")
+  h3.single-recomendation(ng-bind="statedata.firstRec")
 

@@ -40,7 +40,6 @@
         controllerAs: 'layout'
       });
   }
-
   function getDefaultController(dataKey) {
     return function (
                       $localForage,
@@ -98,4 +97,5 @@
 
     };
   }
+
 })();

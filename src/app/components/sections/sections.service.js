@@ -9,9 +9,7 @@
     var self = this;
     self.checkConnection = console.log('1. sectionsService connected');
     self.concat = concat;
-
     self.getData = getData;
-
     self.data = {};
     self.data.user = userService.user;
 
@@ -349,7 +347,6 @@
     }
 
     function getData(){
-      //not DRY
       //Nutrition
       var time    = self.data.nutrition.recommendations[0];
       var quality = self.data.nutrition.recommendations[1];
@@ -418,7 +415,6 @@
         sport.list[6].isShown = userService.user.age > 40 || userService.user.BMI > 25 || userService.user.activity.hasContraindications;
         sport.list[7].isShown = userService.user.age >60 || userService.user.activity.hasContraindications;
 
-      console.log(self.data);
     return self.data;
     }
   }

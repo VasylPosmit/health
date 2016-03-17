@@ -9,7 +9,13 @@
         /*Feature (components) modules*/
         'app.sections',
         'app.sidenav',
-        /*yeoman start-up modules*/
-        'toastr'
-        ]);
+        ])
+    .config(config);
+
+  function config($mdIconProvider) {
+    $mdIconProvider
+      .defaultIconSet( '../assets/svg/avatars.svg', 128)
+      .icon( "menu"   , '../assets/svg/menu.svg'      , 24)
+      .icon( "angular", '../assets/images/angular.png', 512);
+  }
 })();
