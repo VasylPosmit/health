@@ -25,7 +25,7 @@
           header: 'When to eat',
           list: [
             {
-              text: 'BMI < 19. You areYou are lighter than 60 kg. Eat whenever you want ^_^',
+              text: 'BMI < 19. You are slim. Eat whenever you want ^_^',
               isShown: userService.user.BMI < 19
             },
             {
@@ -52,7 +52,7 @@
           list: [
             {
               text: 'You have to know today what you will eat tomorrow.',
-              isShown: userService.user.nutrition.isControl
+              isShown: !userService.user.nutrition.isControl
             },
             {
               text: 'You are in good shape! Eat what makes you happy occasionally and then go right back to healthy eating',
@@ -90,16 +90,15 @@
             },
             {
               text: 'Eat as much as you want ^_^',
-              isShown: false
+              isShown: userService.user.BMI < 25
             },
             {
               text: 'Now you know how much you should be eating to maintain current weight. One pound of fat = 3500 calories. To lose a pound a week, knock 500 calories out of that diet per day. It might mean one less snack, ordering a smaller lunch.',
-              isShown: false
+              isShown: userService.user.BMI > 25
             },
             {
               text: 'You can’t outrun your fork.  When trying to lose weight, feel healthy, and get in shape, 80% (not an exaggeration) of your success or failure will come from how well you eat ',
-              isShown:
-                userService.user.BMI > 25
+              isShown: userService.user.BMI > 25
             }
           ]
         }

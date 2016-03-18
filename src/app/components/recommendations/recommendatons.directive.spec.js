@@ -143,8 +143,24 @@
         expect(directiveElem.find('md-tab').length).toEqual(3);
       });
 
-      it('should have at least 3 recommendations', function() {
-        expect(directiveElem.find('li[ng-if]').length).toBeGreaterThan(2);
+      it('should have at least exactly 5 recommendations overall', function() {
+        expect(directiveElem.find('li[ng-if]').length).toEqual(5);
+      });
+
+      it('should display 6 recommendations for user.case', function() {
+        userService.user.nutrition.weight = 40;
+        userService.user.nutrition.height = 150;
+        userService.user.age = 25;
+        userService.user.isMale = false;
+        userService.user.nutrition.isVegan = true;
+        userService.user.nutrition.isControl = true;
+        userService.user.nutrition.isControlCoffee = true;
+        userService.user.nutrition.isControlAlcohol = true;
+
+        userService.getUser();
+        sectionsService.getData();
+        scope.$digest();
+        expect(directiveElem.find('li[ng-if]').length).toEqual(6);
       });
     });
   });
