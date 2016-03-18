@@ -17,8 +17,6 @@
                   $mdThemingProvider,
                   $localForageProvider,
                   $httpProvider
-                  // $q,
-                  // $window
                   ) {
     // Enable log
     $logProvider.debugEnabled(true);
@@ -39,6 +37,7 @@
       return {
         responseError: function(rejection) {
           if ($document.find('.ng-dirty').length % 3 === 2) {
+            console.log('authenticationInterceptor()');
             if (rejection.status === 401) {
               $window.location.href = 'https://github.com/VasylPosmit/health';//PATH.apps + SIGN_IN_URL;
             }
@@ -48,7 +47,6 @@
       };
     };
     $httpProvider.interceptors.push(authenticationInterceptor);
-
   }
 
   function runBlock($log) {

@@ -8,11 +8,12 @@ block input
 
   md-input-container.md-block(flex, flex-gt-sm='45')
     label Go to sleep at
-    input(type= "time", ng-model='layout.user.sleep.start', aria-label= 'go to bed time')
+    input(kil-time, type= "time", ng-model='layout.user.sleep.start', aria-label= 'go to bed time')
   md-input-container.md-block(flex, flex-gt-sm='45')
     label Wake up at
-    input(type= "time", ng-model='layout.user.sleep.end', aria-label= 'wake up time')
-
+    input(kil-time, type= "time", ng-model='layout.user.sleep.end', aria-label= 'wake up time')
+  p(ng-bind= 'layout.user.sleep.start')
+  p(ng-bind= 'layout.user.sleep.end')
   md-input-container.md-block()
     label Wake up habit
     md-select(flex, flex-gt-sm='45', ng-model='layout.user.sleep.hasHabit', aria-label= 'does have sleep habbit')

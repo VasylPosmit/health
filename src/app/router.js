@@ -80,6 +80,7 @@
       function calculate(){
         self.user = userService.getUser();
         self.data = sectionsService.getData()[self.state];
+        console.log(self.user);
         setStorageData();
       }
 
