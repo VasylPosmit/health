@@ -1,41 +1,39 @@
 (function() {
   'use strict';
   describe('sidenavService', function() {
-    var sidenavService, mdSidenav;
+    var sidenavService, sidenav, scope;
 
     beforeEach( function(){
       module( 'healthGuide' );
 
-      inject( function (_sidenavService_) {
+      inject( function (_sidenavService_, _$mdSidenav_, $rootScope, $compile) {
         sidenavService = _sidenavService_;
-      });
+        scope = $rootScope.$new();
+        $compile('<md-sidenav md-component-id="left"></md-sidenav>')(scope);
+        sidenav = _$mdSidenav_('left');                // works
+        });
     });
 
-    it('should contain only functions', function() {
-      expect(sidenavService.toggleList).toEqual(jasmine.any(Function));
-      expect(sidenavService.openLeftMenu).toEqual(jasmine.any(Function));
-      expect(sidenavService.closeSidenav).toEqual(jasmine.any(Function));
+    it('toggleSidenav() should open and close sideNav', function() {
+       expect(sidenav.isOpen()).toEqual(false);
+       sidenavService.toggleList();
+       expect(sidenav.isOpen()).toBeTruthy();
+       sidenavService.toggleList();
+       expect(sidenav.isOpen()).toEqual(false);
     });
 
-    it('should not activate any function', function() {
-      spyOn(sidenavService, 'toggleList');
-      expect(sidenavService.toggleList).not.toHaveBeenCalled();
-
-      spyOn(sidenavService, 'openLeftMenu');
-      expect(sidenavService.openLeftMenu).not.toHaveBeenCalled();
-
-      spyOn(sidenavService, 'closeSidenav');
-      expect(sidenavService.closeSidenav).not.toHaveBeenCalled();
+    it('openLeftMenu() should open sideNav', function() {
+       expect(sidenav.isOpen()).toEqual(false);
+       sidenavService.openLeftMenu();
+       expect(sidenav.isOpen()).toBeTruthy();
     });
 
-    it('toggleList should not trigger open/close functions', function() {
-      spyOn(sidenavService, 'openLeftMenu');
-      spyOn(sidenavService, 'closeSidenav');
+    it('closeSidenav() should close sideNav', function() {
+      sidenavService.openLeftMenu();
 
-      sidenavService.toggleList();
-      expect(sidenavService.openLeftMenu).not.toHaveBeenCalled();
-      expect(sidenavService.closeSidenav).not.toHaveBeenCalled();
+      expect(sidenav.isOpen()).toBeTruthy();
+      sidenavService.closeSidenav();
+      expect(sidenav.isOpen()).toEqual(false);
     });
-
   });
 })();
