@@ -43,6 +43,7 @@
   function getDefaultController(dataKey) {
     return function (
                       $localForage,
+                      localForageService,
                       $timeout,
                       sectionsService,
                       sidenavService,
@@ -67,34 +68,23 @@
       function activate() {
         self.closeSidenav();
         if (_.isEqual(userService.user, userService.mockUser)) {
-          console.log('should execute getStorageData() only on page reload'); // require specs
+          // require specs
+          console.log('should execute applyStorageData() only on page reload');
 
-          getStorageData();
-          $timeout(function(){
-            getStorageData();
-            console.log('calculate executed');
-          }, 3000);
+          localForageService.getUser().then(function(result){
+            if (result){
+              userService.user = result;
+              calculate();
+            }
+          });
         }
       }
 
       function calculate(){
         self.user = userService.getUser();
         self.data = sectionsService.getData()[self.state];
-        setStorageData();
+        localForageService.setUser(self.user);
       }
-
-      function setStorageData() {
-        $localForage.setItem('userInput', self.user);
-      }
-      function getStorageData() {
-        $localForage.getItem('userInput').then(function(data) {
-          if (data) {
-          userService.user = data;
-          self.user = userService.user;
-          }
-        });
-      }
-
     };
   }
 
