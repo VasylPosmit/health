@@ -9,7 +9,8 @@
                       localForageService,
                       sectionsService,
                       sidenavService,
-                      userService
+                      userService,
+                      $http
                       ) {
       "ngInject";
       /*jshint validthis: true*/
@@ -28,17 +29,31 @@
 
       function activate() {
         self.closeSidenav();
+
+        //executed only on first load
         if (_.isEqual(userService.user, userService.mockUser)) {
           // require tests
           console.log('should execute applyStorageData() only on page reload');
 
-          localForageService.getUser().then(function(result){
+          // localForageService.getUser().then(function(result){
+          //   if (result){
+          //     userService.user = result;
+          //     calculate();
+          //   }
+          // });
+        }
+
+        //execute on page load and state changes include
+        $(function() {
+          $http.get('/getUserDataUrl').then(function(result){
             if (result){
               userService.user = result;
               calculate();
+              console.log('$http resolved with user object:');
+              console.log(result);
             }
           });
-        }
+        });
 
       }
 
