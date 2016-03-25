@@ -59,7 +59,7 @@
       description: 'Previous of health recommendations',
       callback: function() {
         var i = states.indexOf($state.current.name);
-        var previousState = states[(i-1)%4];
+        var previousState = states[(i+3)%4];
         $state.go(previousState);
       }
     });
