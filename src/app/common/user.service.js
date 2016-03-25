@@ -52,7 +52,6 @@
       dailyCalories: null,
       sleepDuration: null
     };
-    self.mockUser = jQuery.extend(true, {}, self.user); //require specs
 
     function getUser(){
       //all formulas fall here
