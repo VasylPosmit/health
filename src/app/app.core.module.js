@@ -14,7 +14,8 @@
       'ngMaterial',
       /*3-d party modules*/
       'ui.router',
-      'LocalForageModule'
+      'LocalForageModule',
+      'cfp.hotkeys'
                     //'hmTouchEvents'
       /*Cross-app modules*/
        ]);

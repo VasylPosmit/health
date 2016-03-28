@@ -1,7 +1,7 @@
 div.states(layout= "column", layout-align= "space-between")
   section(flex)
     kil-toolbar
-    md-content.content(flex)
+    md-content.content(flex, md-swipe-right="layout.openLeftMenu()", md-swipe-left="layout.closeSidenav()" )
       kil-section(statedata='layout.data')
       md-divider(hide show-gt-sm)
       block input

@@ -10,7 +10,8 @@
                       sectionsService,
                       sidenavService,
                       userService,
-                      $http
+                      $http,
+                      hotkeys
                       ) {
       "ngInject";
       /*jshint validthis: true*/
@@ -47,6 +48,13 @@
         self.data = sectionsService.getData()[self.state];
         localForageService.setUser(self.user);
       }
+      hotkeys.add({
+        combo: ['enter'],
+        description: 'Calculate recommendations',
+        callback: function() {
+          calculate();
+        }
+      });
 
   }
 })();
