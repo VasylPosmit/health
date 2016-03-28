@@ -38,13 +38,7 @@
 
   }
 
-  function runBlock($log, $http, userService) {
-    $http.get('/getUserDataUrl').then(function(result){
-      if (result){
-        userService.user = result;
-      }
-    });
-
+  function runBlock($log) {
     $log.debug('runBlock end');
   }
 })();

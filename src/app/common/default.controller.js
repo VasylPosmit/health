@@ -10,7 +10,7 @@
                       sectionsService,
                       sidenavService,
                       userService,
-                      $timeout
+                      $http
                       ) {
       "ngInject";
       /*jshint validthis: true*/
@@ -29,12 +29,15 @@
 
       function activate() {
         self.closeSidenav();
-
-        $timeout(function () {
-          self.user = userService.getUser();
-          self.data = sectionsService.getData()[self.state];
-        }, 1200);
-
+        if (userService.firstLaunch) {
+          $http.get('/getUserDataUrl').then(function(result){
+            if (result){
+              userService.user = result;
+              calculate();
+              userService.firstLaunch= false;
+            }
+          });
+        }
       }
 
       function calculate(){

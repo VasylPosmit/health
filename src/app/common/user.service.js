@@ -12,6 +12,8 @@
     self.calculateBMR = calculateBMR;
     self.calculateBMI = calculateBMI;
     self.sleepDuration = sleepDuration;
+    self.firstLaunch = true;
+
     self.user = {
       name : null,
       isMale: null,
