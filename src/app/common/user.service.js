@@ -12,6 +12,8 @@
     self.calculateBMR = calculateBMR;
     self.calculateBMI = calculateBMI;
     self.sleepDuration = sleepDuration;
+    self.firstLaunch = true;
+
     self.user = {
       name : null,
       isMale: null,
@@ -52,7 +54,6 @@
       dailyCalories: null,
       sleepDuration: null
     };
-    self.mockUser = jQuery.extend(true, {}, self.user); //require specs
 
     function getUser(){
       //all formulas fall here

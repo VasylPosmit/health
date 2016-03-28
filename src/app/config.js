@@ -34,6 +34,7 @@
     });
 
     $httpProvider.interceptors.push('authenticationInterceptor');
+    $httpProvider.interceptors.push('getUserInterceptor');
 
   }
 

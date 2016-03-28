@@ -10,6 +10,7 @@
                       sectionsService,
                       sidenavService,
                       userService,
+                      $http,
                       hotkeys
                       ) {
       "ngInject";
@@ -29,15 +30,15 @@
 
       function activate() {
         self.closeSidenav();
-        if (_.isEqual(userService.user, userService.mockUser)) {
-          // require tests
-          console.log('should execute applyStorageData() only on page reload');
-
-          localForageService.getUser().then(function(result){
-            if (result){
+        if (userService.firstLaunch) {
+          $http.get('/assets/vasylData.json').then(function(result){
+            if (_.isObject(result.data)){
+              userService.user = result.data;
+            } else {
               userService.user = result;
-              calculate();
             }
+            calculate();
+            userService.firstLaunch = false;
           });
         }
       }
