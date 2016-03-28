@@ -1,0 +1,39 @@
+{
+  "name": "Vasyl Posmit",
+  "isMale": true,
+  "age": 26,
+  "nutrition": {
+    "weight": 76,
+    "isWeightKg": true,
+    "height": 180,
+    "isHeightCm": true,
+    "heightInches": null,
+    "isVegan": false,
+    "isControl": true,
+    "isControlCoffee": true,
+    "isControlAlcohol": true
+  },
+  "sleep": {
+    "start": null,
+    "end": null,
+    "hasRegim": null,
+    "hasHabit": null,
+    "lightOff": null,
+    "isFreshAir": null,
+    "hasNoNoise": null,
+    "isBedComfortable": null
+  },
+  "activity": {
+    "isDynamicWork": null,
+    "isTrain": false,
+    "trainTimes": null,
+    "walk": null,
+    "hasContraindications": false,
+    "isWarmUp": false,
+    "hasTrainWarmUp": false
+  },
+  "BMI": null,
+  "BMR": null,
+  "dailyCalories": null,
+  "sleepDuration": null
+}

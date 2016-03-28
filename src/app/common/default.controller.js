@@ -30,12 +30,14 @@
       function activate() {
         self.closeSidenav();
         if (userService.firstLaunch) {
-          $http.get('/getUserDataUrl').then(function(result){
-            if (result){
+          $http.get('/assets/vasylData.json').then(function(result){
+            if (_.isObject(result.data)){
+              userService.user = result.data;
+            } else {
               userService.user = result;
-              calculate();
-              userService.firstLaunch= false;
             }
+            calculate();
+            userService.firstLaunch = false;
           });
         }
       }
