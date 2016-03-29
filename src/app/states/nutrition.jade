@@ -36,11 +36,12 @@ block input
 
   md-slider.md-primary(flex, min= 130, max= 220, ng-model='layout.user.nutrition.height', aria-label= 'height', hide-gt-md)
 
-  h3 Nutrition checklist
-  md-checkbox.md-primary(ng-model='layout.user.nutrition.isVegan') I'm vegetarian
-  md-checkbox.md-primary(ng-model='layout.user.nutrition.isControl') I can control when and how much I eat
-  md-checkbox.md-primary(ng-model='layout.user.nutrition.isControlCoffee')
-    | I drink less than 3 espresso everyday
-  md-checkbox.md-primary(ng-model='layout.user.nutrition.isControlAlcohol')
-    | I drink alcohol less than 2 times per week and always remember what I had been doing ;-)
+  div(layout="column")
+    h3 Nutrition checklist
+    md-checkbox.md-primary(ng-model='layout.user.nutrition.isVegan') I'm vegetarian
+    md-checkbox.md-primary(ng-model='layout.user.nutrition.isControl') I can control when and how much I eat
+    md-checkbox.md-primary(ng-model='layout.user.nutrition.isControlCoffee')
+      | I drink less than 3 espresso everyday
+    md-checkbox.md-primary(ng-model='layout.user.nutrition.isControlAlcohol')
+      | I drink alcohol less than 2 times per week and always remember what I had been doing ;-)
   kil-recommendations
