@@ -40,7 +40,8 @@ block input
   md-switch.md-primary(ng-model="layout.user.activity.hasContraindications", ng-false-value= "''")
     label(ng-show="layout.user.activity.hasContraindications") Unfortunately, I have
     label(ng-show="!layout.user.activity.hasContraindications") Fortunately, I have not
-  h3 Activity checklist
+  div(layout="column")
+    h3 Activity checklist
     md-checkbox.md-primary(ng-model='layout.user.activity.isWarmUp') I do warm up exercise everyday
     md-checkbox.md-primary(ng-model='layout.user.activity.hasTrainWarmUp') I always do warm up before training
   kil-recommendations
