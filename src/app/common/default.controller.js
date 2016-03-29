@@ -71,8 +71,8 @@
           ariaLabel : 'Lucky day',
           targetEvent: event,
           clickOutsideToClose: true,
-          ok : 'Display this information',
-          cancel:'Hide this information'
+          ok : 'Display',
+          cancel:'Hide'
         });
 
         $mdDialog.show(confirm).then(function() {
