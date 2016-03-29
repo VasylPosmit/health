@@ -32,12 +32,6 @@
 
 
     describe('init state values', function(){
-// configuration test
-// model values is correct
-  //userService.firstLaunch is true
-// all functions execute as expected
-
-  // activate() executed when controller()
 
       it('controller type is object', function() {
         expect(typeof(controller)).toEqual("object");
@@ -55,13 +49,7 @@
         expect(userService.firstLaunch).toBeTruthy();
       });
 
-      it('if launch 2 times, firstLaunch is false', function() {
-        expect(userService.firstLaunch).toBeTruthy();
-        //do something as activate!
-        // expect(userService.firstLaunch).toBeFalthy();
-      });
-
-      it('user should be object with null values', function() {
+      it('user object has mostly null values', function() {
         expect(controller.user).toEqual(jasmine.any(Object));
         expect(controller.user.name).toBeNull();
         expect(controller.user.age).toBeNull();
@@ -71,11 +59,8 @@
         expect(controller.user.sleepDuration).toBeNull();
       });
 
-      it('data should be object', function(){
+      it('data object name should be Nutrition', function() {
         expect(controller.data).toEqual(jasmine.any(Object));
-      });
-
-      it('data name should be Nutrition', function() {
         expect(controller.data.name).toEqual('Nutrition');
       });
     });
@@ -137,9 +122,7 @@
         controller.closeSidenav();
         expect(sidenav.isOpen()).toEqual(false);
       });
-
     });
-
   });
 })();
 
