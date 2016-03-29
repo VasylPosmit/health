@@ -5,15 +5,15 @@
     .factory('getUserInterceptor', getUserInterceptor);
 
 
-  function getUserInterceptor( $q, localForageService ) {
+  function getUserInterceptor( userService ) {
     /*jshint validthis: true*/
 
     return {
         requestError: function(errorData){
-          return localForageService.getUser();
+          return userService.getStoredUser();
         },
         responseError: function(errorData) {
-          return localForageService.getUser();
+          return userService.getStoredUser();
         }
       };
 

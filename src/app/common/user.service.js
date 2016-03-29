@@ -4,7 +4,7 @@
   .module('app.layout')
     .service('userService', userService);
 
-  function userService(){
+  function userService($localForage){
     /*jshint validthis: true*/
     var self = this;
 
@@ -13,6 +13,8 @@
     self.calculateBMI = calculateBMI;
     self.sleepDuration = sleepDuration;
     self.firstLaunch = true;
+    self.setStoredUser = setStoredUser;
+    self.getStoredUser = getStoredUser;
 
     self.user = {
       name : null,
@@ -96,6 +98,16 @@
         return null;
       }
     }
+
+    function setStoredUser(user) {
+      $localForage.clear();
+      $localForage.setItem( 'userObject', user );
+    }
+
+    function getStoredUser() {
+      return $localForage.getItem( 'userObject' );
+    }
+
 
   }
 })();
