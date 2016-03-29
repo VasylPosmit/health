@@ -117,7 +117,7 @@
         expect(userService.calculateBMR()).toEqual(1198);
       });
 
-      it('user has weight, height, age, (isMale= false) and formula is calculated properly', function() {
+      it('calculate changes user BMR and BMI', function() {
         userService.user.nutrition.weight = 40;
         userService.user.nutrition.height = 150;
         userService.user.age = 25;

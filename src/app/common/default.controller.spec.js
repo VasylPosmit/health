@@ -2,18 +2,36 @@
   'use strict';
 
   describe('defaultController ', function(){
-    var state, dataKey, controller;
+    var sidenav, scope, state, dataKey, controller, userService, sectionsService,
+    localForage;
 
     beforeEach( function(){
       module('healthGuide');
 
-      inject( function( $controller){
-        controller = $controller('defaultController');
+      inject( function(
+                        $compile, $controller,
+                        $rootScope, $localForage,
+                        _$mdSidenav_, _sectionsService_,
+                        _userService_){
+        userService = _userService_;
+        sectionsService = _sectionsService_;
+        localForage = $localForage;
+        scope = $rootScope.$new();
+
+        dataKey = 'nutrition';
+        controller = function(){
+          controller = $controller('defaultController', {$scope: scope});
+          controller.state = dataKey;
+          controller.data = sectionsService.data[dataKey];
+          return controller;
+        }();
+        $compile('<md-sidenav md-component-id="left"></md-sidenav>')(scope);
+        sidenav = _$mdSidenav_('left');
       });
     });
 
 
-    describe('values: ', function(){
+    describe('init state values', function(){
 
       it('controller type is object', function() {
         expect(typeof(controller)).toEqual("object");
@@ -24,39 +42,87 @@
       });
 
       it('dataKey is a string', function() {
-        expect(controller.state).toEqual('default');
+        expect(controller.state).toEqual('nutrition');
       });
 
-      it('dataKey is a data', function() {
-      //need to compile template?
+      it('firstLaunch is true', function() {
+        expect(userService.firstLaunch).toBeTruthy();
       });
 
-      it('data should be object', function(){
+      it('user object has mostly null values', function() {
+        expect(controller.user).toEqual(jasmine.any(Object));
+        expect(controller.user.name).toBeNull();
+        expect(controller.user.age).toBeNull();
+        expect(controller.user.BMI).toBeNull();
+        expect(controller.user.BMR).toBeNull();
+        expect(controller.user.dailyCalories).toBeNull();
+        expect(controller.user.sleepDuration).toBeNull();
+      });
+
+      it('data object name should be Nutrition', function() {
         expect(controller.data).toEqual(jasmine.any(Object));
-      });
-
-      it('should have no access to activate()', function() {
-        expect(controller.activate).toBeUndefined();
-      });
-
-      // do not need to test activate() if have everything else tested
-      it('closeSidenav() ', function(){
-
-      });
-
-      it('calculate() changes user', function(){
-
-      });
-
-      it('calculate() changes data', function(){
-
-      });
-
-      it('should execute localForageService.get only on page load', function() {
-
+        expect(controller.data.name).toEqual('Nutrition');
       });
     });
 
+    describe('functions', function() {
+      it('calculate() changes user', function(){
+        expect(controller.user.BMI).toBeNull();
+        expect(controller.user.BMR).toBeNull();
+
+        controller.user.nutrition.weight = 40;
+        controller.user.nutrition.height = 150;
+        controller.user.age = 25;
+        controller.user.isMale = false;
+        controller.calculate();
+
+        expect(controller.user.BMI).toEqual(17.8);
+        expect(controller.user.BMR).toEqual(1208);
+      });
+
+      it('calculate() changes data (recommendations display)', function(){
+        controller.user.nutrition.weight = 40;
+        controller.user.nutrition.height = 150;
+        controller.user.age = 25;
+        controller.user.isMale = false;
+        controller.calculate();
+
+        expect(controller.data.recommendations[0].list[0].isShown).toBeTruthy();
+        expect(controller.data.recommendations[0].list[1].isShown).toBeFalsy();
+        expect(controller.data.recommendations[0].list[2].isShown).toBeFalsy();
+        expect(controller.data.recommendations[0].list[3].isShown).toBeFalsy();
+      });
+
+      it('calculate() should store user data to local storage', function() {
+        controller.user.isMale = false;
+        controller.calculate();
+        localForage.getItem( 'userObject' ).then(function(result){
+          expect(controller.user).toEqual(result);
+        });
+      });
+
+      it('toggleSidenav() should open and close sideNav', function() {
+       expect(sidenav.isOpen()).toEqual(false);
+       controller.toggleSideNav();
+       expect(sidenav.isOpen()).toEqual(true);
+       controller.toggleSideNav();
+       expect(sidenav.isOpen()).toEqual(false);
+      });
+
+      it('openLeftMenu() should open sideNav', function() {
+         expect(sidenav.isOpen()).toEqual(false);
+         controller.openLeftMenu();
+         expect(sidenav.isOpen()).toEqual(true);
+      });
+
+      it('closeSidenav() should close sideNav', function() {
+        controller.openLeftMenu();
+
+        expect(sidenav.isOpen()).toEqual(true);
+        controller.closeSidenav();
+        expect(sidenav.isOpen()).toEqual(false);
+      });
+    });
   });
 })();
 

@@ -48,6 +48,7 @@
         self.data = sectionsService.getData()[self.state];
         localForageService.setUser(self.user);
       }
+
       hotkeys.add({
         combo: ['enter'],
         description: 'Calculate recommendations',
