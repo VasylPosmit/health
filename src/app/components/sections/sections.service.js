@@ -7,7 +7,6 @@
   function sectionsService(userService){
     /*jshint validthis: true*/
     var self = this;
-    self.checkConnection = console.log('1. sectionsService connected');
     self.concat = concat;
     self.getData = getData;
     self.data = {};

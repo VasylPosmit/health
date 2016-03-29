@@ -10,7 +10,6 @@
     /*jshint validthis: true*/
     var self = this;
     var componentId = 'left';
-    self.check = console.log('sidenavService connected');
     self.toggleList   = toggleSidenav;
     self.openLeftMenu = openLeftMenu;
     self.closeSidenav = closeSidenav;

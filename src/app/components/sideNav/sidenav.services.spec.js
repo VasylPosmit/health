@@ -10,7 +10,7 @@
         sidenavService = _sidenavService_;
         scope = $rootScope.$new();
         $compile('<md-sidenav md-component-id="left"></md-sidenav>')(scope);
-        sidenav = _$mdSidenav_('left');                // works
+        sidenav = _$mdSidenav_('left');
         });
     });
 
