@@ -6,7 +6,6 @@
     .controller('defaultController', defaultController);
 
   function defaultController(
-                      localForageService,
                       sectionsService,
                       sidenavService,
                       userService,
@@ -46,7 +45,7 @@
       function calculate(){
         self.user = userService.getUser();
         self.data = sectionsService.getData()[self.state];
-        localForageService.setUser(self.user);
+        userService.setStoredUser(self.user);
       }
 
       hotkeys.add({
