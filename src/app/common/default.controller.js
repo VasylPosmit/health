@@ -59,12 +59,7 @@
         } else if (self.user.BMI<19){
           self.message = 'You body mass index is ' + self.user.BMI + '. You are overweight.';
         }
-          self.message += ' Also consider that your Basal metabolic rate is ';
-          self.message += self.user.BMR;
-          self.message += '. That means you need ';
-          self.message += self.user.BMR;
-          self.message += ' calories per day just to maintain basic body functions.';
-      // Appending dialog to document.body to cover sidenav in docs app
+          self.message += ' Also consider that your Basal metabolic rate is '+ self.user.BMR +'. That means you need ' + self.user.BMR + ' calories per day just to maintain basic body functions.';
         var confirm = $mdDialog.confirm({
           title : 'Information about your shape',
           textContent : self.message,
@@ -75,8 +70,8 @@
           cancel:'Hide'
         });
 
-        $mdDialog.show(confirm).then(function() {
-        }, function() {
+        $mdDialog.show(confirm).then( function(ok){},
+         function(cancel) {
           self.message = 'You decided to keep your information hidden.';
         });
       }
