@@ -15,28 +15,27 @@ block input
       md-option(ng-value="true") Dynamic (studying at the campus)
       md-option(ng-value="true") Moving on your feet (manual work, officiant)
 
-  div(layout-sm="column", layout="row")
-    div
-      label Do you train?
-      md-switch.md-primary(layout="row", ng-model="layout.user.activity.isTrain")
-        label(ng-show="layout.user.activity.isTrain") Yep
-        label(ng-show="!layout.user.activity.isTrain && layout.user.activity.isTrain !== null") Nope
-    md-radio-group.ng-hide(flex-offset-gt-sm= "5", layout="column", ng-model="layout.user.activity.trainTimes", ng-hide="layout.user.activity.isTrain === false")
-      label How many times per week?
-      div(layout-sm="column", layout="row")
+  div( layout="column", layout-gt-sm)
+    div()
+      p Do you train?
+      md-switch.md-primary(layout, ng-model="layout.user.activity.isTrain")
+        label(ng-if="layout.user.activity.isTrain") Yep
+        label(ng-if="!layout.user.activity.isTrain && layout.user.activity.isTrain !== null") Nope
+    md-radio-group.ng-hide(flex-offset= "10", layout="column", ng-model="layout.user.activity.trainTimes", ng-hide="layout.user.activity.isTrain === false")
+      p How many times per week?
+      div(layout='column', layout-align, layout-gt-sm, layout-align-gt-sm= "start end", flex)
         md-radio-button.md-primary(value= 1) once a week
         md-radio-button.md-primary(value= 2) twice
         md-radio-button.md-primary(value= 3) 3 times
         md-radio-button.md-primary(value= 4) 4 or more
 
-  md-radio-group(layout="column", ng-model="layout.user.activity.walk")
-    label How much do you walk everyday?
-    div(layout-sm="column", layout="row")
-      md-radio-button.md-primary(value= 2) 2 km or less
-      md-radio-button.md-primary(value= 4) 2-5 km
-      md-radio-button.md-primary(value= 6) 6+ km
+  p How much do you walk everyday?
+  md-radio-group( layout, layout-align= "start center", flex, flex-gt-xs= "40", ng-model="layout.user.activity.walk")
+    md-radio-button.md-primary( value= 2) 0-2 km
+    md-radio-button.md-primary( value= 4) 2-5 km
+    md-radio-button.md-primary( value= 6) 6+ km
 
-  label() Medical contraindications to sport
+  p Medical contraindications to sport
   md-switch.md-primary(ng-model="layout.user.activity.hasContraindications", ng-false-value= "''")
     label(ng-show="layout.user.activity.hasContraindications") Unfortunately, I have
     label(ng-show="!layout.user.activity.hasContraindications") Fortunately, I have not

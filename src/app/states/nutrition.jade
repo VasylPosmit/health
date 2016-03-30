@@ -16,11 +16,9 @@ block input
     md-input-container.md-block(flex= '60')
       label weight
       input(min= 40, max= 150, type='number', ng-model='layout.user.nutrition.weight', ng-change = "layout.calculate()", aria-label= 'weight', aria-controls='weight-slider')
-
-    md-input-container.md-block(flex= "30")
-      md-select( ng-model='layout.user.nutrition.isWeightKg', aria-label= 'weight units')
-        md-option(ng-value="true") kg
-        md-option(ng-value="false") lbs
+    md-select( flex= "30", ng-model='layout.user.nutrition.isWeightKg', aria-label= 'weight units')
+      md-option(ng-value="true") kg
+      md-option(ng-value="false") lbs
 
   md-slider.md-primary(flex, min= 40, max= 150, ng-model='layout.user.nutrition.weight', aria-label= 'weight', hide-gt-sm)
 
