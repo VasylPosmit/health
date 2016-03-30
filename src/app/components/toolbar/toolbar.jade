@@ -1,12 +1,12 @@
-md-toolbar.md-whiteframe-z4(layout, layout-align-gt-md= "center")
-  md-button.menu(hide-gt-md, ng-click='layout.toggleSideNav()', aria-label='Show User List')
+md-toolbar.md-whiteframe-z4(layout, layout-align-gt-md= "center center")
+  md-button.menu(hide-gt-sm, ng-click='layout.toggleSideNav()', aria-label='Show User List')
     md-icon(md-svg-icon='menu')
       md-tooltip(md-direction='right') Navigation
-  h3(hide-gt-md)
+  h3(hide-gt-sm)
     a(ng-href= "/") Health guide
-  .icons-group(layout, layout-align= "space-between center", hide show-gt-sm)
+  .icons-group(flex, layout, layout-align= "end center", hide show-gt-sm)
     p(ng-show= "layout.user.name") {{layout.user.name}}
-    i.material-icons(flex) account_circle
+    i.material-icons account_circle
       md-tooltip(md-direction= "bottom") Summary
     .container(ng-show="layout.user.isMale !== null")
       p(ng-show= "layout.user.isMale") M
@@ -15,7 +15,7 @@ md-toolbar.md-whiteframe-z4(layout, layout-align-gt-md= "center")
 
     p(ng-show= "layout.user.nutrition.weight") {{layout.user.nutrition.weight}}kg
     .container(ng-show="layout.user.BMI")
-      i.material-icons(ng-show= "layout.user.BMI < 25") thumb_up
+      i.material-icons(ng-if= "layout.user.BMI < 25") thumb_up
         md-tooltip(md-direction= "bottom") Good shape!
-      i.material-icons(ng-show= "(layout.user.BMI > 25)") thumb_down
+      i.material-icons(ng-if= "(layout.user.BMI > 25)") thumb_down
         md-tooltip(md-direction= "bottom") Overweight
