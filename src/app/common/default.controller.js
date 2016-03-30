@@ -52,16 +52,18 @@
 
       function getBMI(event) {
         calculate();
+        self.message = 'You body mass index is ' + self.user.BMI + '. That means you are ';
         if (self.user.BMI<19) {
-          self.message = 'You body mass index is ' + self.user.BMI + '. You are slim.';
+          self.message += 'slim.';
         } else if (self.user.BMI >= 19 && self.user.BMI <= 25){
-          self.message = 'You body mass index is ' + self.user.BMI + '. You are fit.';
+          self.message += 'fit.';
         } else if (self.user.BMI<19){
-          self.message = 'You body mass index is ' + self.user.BMI + '. You are overweight.';
+          self.message += 'overweight.';
         }
-          self.message += ' Also consider that your Basal metabolic rate is '+
+        self.message += ' Also consider that your Basal metabolic rate is '+
            self.user.BMR +'. That means you need ' + self.user.BMR +
            ' calories per day just to maintain basic body functions.';
+
         var confirm = $mdDialog.confirm({
           title : 'Information about your shape',
           textContent : self.message,
