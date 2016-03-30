@@ -19,10 +19,11 @@ block input
       md-option(ng-value= "true") I wake up at the same time each day
       md-option(ng-value= "false") I wake up at the same time at working days
       md-option(ng-value= "false") I am not bothered by time I wake up
-  h3 Sleep checklist
-  md-checkbox.md-primary(ng-model='layout.user.sleep.hasRegim') I wake up at the same time each day
-  md-checkbox.md-primary(ng-model='layout.user.sleep.lightOff') I sleep at the totally dark room
-  md-checkbox.md-primary(ng-model='layout.user.sleep.isFreshAir') I sleep in well-conditioned room
-  md-checkbox.md-primary(ng-model='layout.user.sleep.hasNoNoise') I sleep silent room
-  md-checkbox.md-primary(ng-model='layout.user.sleep.isBedComfortable') I sleep at comfortable bed
+  div(layout= "column")
+    h3 Sleep checklist
+    md-checkbox.md-primary(ng-model='layout.user.sleep.hasRegim') I wake up at the same time each day
+    md-checkbox.md-primary(ng-model='layout.user.sleep.lightOff') I sleep at the totally dark room
+    md-checkbox.md-primary(ng-model='layout.user.sleep.isFreshAir') I sleep in well-conditioned room
+    md-checkbox.md-primary(ng-model='layout.user.sleep.hasNoNoise') I sleep silent room
+    md-checkbox.md-primary(ng-model='layout.user.sleep.isBedComfortable') I sleep at comfortable bed
   kil-recommendations

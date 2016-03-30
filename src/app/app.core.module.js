@@ -6,7 +6,6 @@
         /*Angular modules*/
       'ngAnimate',
       'ngCookies',
-      'ngTouch',    //better analog is Angular Hammer
       'ngSanitize',
       'ngMessages',
       'ngAria',
@@ -16,7 +15,7 @@
       'ui.router',
       'LocalForageModule',
       'cfp.hotkeys'
-                    //'hmTouchEvents'
+
       /*Cross-app modules*/
        ]);
 })();
