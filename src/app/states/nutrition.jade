@@ -12,20 +12,23 @@ block input
       label age
       input(min='18', max='99', type='number', ng-model='layout.user.age', aria-label='age', aria-controls='weight-slider')
 
-  div(layout='row', layout-align='space-between center', flex-sm, flex-gt-sm='30')
-    md-input-container.md-block(flex-sm= '70', flex-gt-sm='60')
+  div(layout='row', layout-align='space-between start', flex, flex-gt-sm='30')
+    md-input-container.md-block(flex= '60')
       label weight
       input(min= 40, max= 150, type='number', ng-model='layout.user.nutrition.weight', ng-change = "layout.calculate()", aria-label= 'weight', aria-controls='weight-slider')
-    md-select(flex-sm="20", flex-gt-sm='20', ng-model='layout.user.nutrition.isWeightKg', aria-label= 'weight units')
-      md-option(ng-value="true") kg
-      md-option(ng-value="false") lbs
+
+    md-input-container.md-block(flex= "30")
+      md-select( ng-model='layout.user.nutrition.isWeightKg', aria-label= 'weight units')
+        md-option(ng-value="true") kg
+        md-option(ng-value="false") lbs
+
   md-slider.md-primary(flex, min= 40, max= 150, ng-model='layout.user.nutrition.weight', aria-label= 'weight', hide-gt-sm)
 
-  div(layout='row', layout-align='space-between center', flex-sm, flex-gt-sm='30')
-    md-input-container.md-block(flex-sm= '70', flex-gt-sm='60')
+  div(layout='row', layout-align='space-between start', flex, flex-gt-sm='30')
+    md-input-container.md-block(flex= '60')
       label height
       input(min= 130, max= 220, type='number', ng-model='layout.user.nutrition.height', ng-change = "layout.calculate()", aria-label= 'height', aria-controls= 'height slider')
-    md-select(flex-sm="20", flex-gt-sm='20', ng-model='layout.user.nutrition.isHeightCm', aria-label= 'height units')
+    md-select(flex= '30', ng-model='layout.user.nutrition.isHeightCm', aria-label= 'height units')
       md-option(ng-value="true") cm
       md-option(ng-value="false") ft
   div(ng-show= "!layout.user.nutrition.isHeightCm", flex-sm, flex-gt-sm='30')
