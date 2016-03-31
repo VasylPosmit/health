@@ -14,7 +14,8 @@
         state = 'nutrition';
         scope.layout = {
           user: userService.user,
-          data: sectionsService.data[state]
+          data: sectionsService.data[state],
+          message: 'You body mass index is ' + userService.user.BMI
         };
         scope.$digest();
       });
@@ -31,19 +32,6 @@
 
     it('should not compile p congaing ng-if', function () {
       expect(directiveElem.find('p[ng-if]').length).toEqual(0);
-    });
-
-// if the directive displays all the values
-    it('should display BMI', function () {
-      userService.user.BMI = 22;
-      scope.$digest();
-      expect(directiveElem.find('p[ng-if]').text()).toContain('22');
-    });
-
-    it('should display BMR', function () {
-      userService.user.BMR = 1040;
-      scope.$digest();
-      expect(directiveElem.find('p[ng-if]').text()).toContain('1040');
     });
 
     it('should display user name', function() {
@@ -71,35 +59,12 @@
 
       userService.getUser();
       expect(scope.layout.user.BMI).toBe(17.8);
+      scope.layout.message = 'You body mass index is ' + userService.user.BMI;
       scope.$digest();
 
-      expect(directiveElem.find('p').text()).toContain('17.8.');
+      expect(directiveElem.find('p').text()).toContain('17.8');
     });
 
-    it('should displays "slim" message if BMI < 19', function() {
-      userService.user.BMI = 18;
-      scope.$digest();
-      expect(directiveElem.find('p').text()).toContain('slim');
-      expect(directiveElem.find('p').text()).not.toContain('fit');
-      expect(directiveElem.find('p').text()).not.toContain('overweight');
-    });
-
-    it('should displays "fit" message if 19 < BMI < 25', function() {
-      userService.user.BMI = 22;
-      scope.$digest();
-      expect(directiveElem.find('p').text()).not.toContain('slim');
-      expect(directiveElem.find('p').text()).toContain('fit');
-      expect(directiveElem.find('p').text()).not.toContain('overweight');
-    });
-
-
-    it('should displays "overweight" message if BMI > 25', function() {
-      userService.user.BMI = 26;
-      scope.$digest();
-      expect(directiveElem.find('p').text()).not.toContain('slim');
-      expect(directiveElem.find('p').text()).not.toContain('fit');
-      expect(directiveElem.find('p').text()).toContain('overweight');
-    });
 
     it('should displays one h2 with "Health recommendations if user name undefined"', function() {
       expect(directiveElem.find('h2[ng-if]').length).toEqual(1);
@@ -107,7 +72,9 @@
 
     it('should displays one h2 with "Health recommendations if user name defined"', function() {
       userService.user.name = 'Vasyl';
+      scope.$digest();
       expect(directiveElem.find('h2[ng-if]').length).toEqual(1);
+      expect(directiveElem.find('h2[ng-if]').text()).toEqual('Health recommendations for Vasyl');
     });
 
     it('<li> should have ng-if class', function() {
