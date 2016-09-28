@@ -1,49 +1,27 @@
 # HealthGuide
-Web-app provides  customized health recommendations for each user.
+Web-app provides customized health recommendations for each user.
 
     https://healthguide.herokuapp.com/#/
 
-Описание MVP от 26.01.2016
 
-Приложение состоит из:
-    Боковая навигация для переключения между секциями (kil-sidenav)
-    Сверху, панель инструментов                       (kil-toolbar)
-    Секции с контентом                                (kil-section)
+To start working with the app, first, check  node, npm and bower versions
 
-Секции.
-  В приложении 4 секции:
+```
+node -v         //  v  5.3.0 +   should work
+npm -v          //  v  3.3.12 + should work
+bower -v        //  v 1.7.7 +    should work
 
-    Nutrition   (секция)
-    Sleep       (секция)
-    Activity    (секция)
-    You         (*специальная секция*, в которой аккумулируются рекомендации из 3-х основных секций)
+```
+Next [clon the repository
+](https://help.github.com/articles/cloning-a-repository/)
+Then, from root directory in console (Git Bash for example)
+```
+npm install
+bower install
+gulp                // to make build
 
-  Блоки 3-х секций:
-
-    [V] Блок базовой информации.
-        Иконка, Название, Ключевая рекомендация
-          (один view для всех секций. Data binding)
-
-    [ ] Блок ввода данных.
-        Человек вводит информацию о себе: возраст, пол, вес...
-          (разный view для всех секций)
-
-    [V] Блок отображения рекомендаций.
-        Использовать md-tabs для структурирования. Например для блока Питание, табы: когда, сколько, чем питаться. В зависимости от введенных данных md-tab отображается разный текст рекомендации.
-          (может быть один view для всех секций)
-            https://material.angularjs.org/latest/demo/tabs
-
-  Блоки специальной секции "You":
-
-    [ ] Блок базовой информации.
-        Иконка, название, ключевая рекомендация
-          (тот же view, что и для секций)
-
-    [ ] Отображение инфрмации введенной в основных секциях.
-          (отдельный view)
-
-    [V] Блок отображения рекомендаций. Аналогично использовать md-tabs
-          (тот же view, что и для секций)
-
-
-Список очень нужных, но необязательных фич (будет) в Trello на отдельном листе.
+gulp serve         // should launch localhost 
+or
+gulp serve:dist // should launch localhost form dist folder 
+ 
+```
